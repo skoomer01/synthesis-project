@@ -1,0 +1,17 @@
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\bin\Debug\net6.0-windows\DesktopApplication.exe
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\bin\Debug\net6.0-windows\DesktopApplication.deps.json
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\bin\Debug\net6.0-windows\DesktopApplication.runtimeconfig.json
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\bin\Debug\net6.0-windows\DesktopApplication.dll
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\bin\Debug\net6.0-windows\DesktopApplication.pdb
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\obj\Debug\net6.0-windows\DesktopApplication.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\obj\Debug\net6.0-windows\DesktopApplication.Form1.resources
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\obj\Debug\net6.0-windows\DesktopApplication.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\obj\Debug\net6.0-windows\DesktopApplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\obj\Debug\net6.0-windows\DesktopApplication.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\obj\Debug\net6.0-windows\DesktopApplication.AssemblyInfo.cs
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\obj\Debug\net6.0-windows\DesktopApplication.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\obj\Debug\net6.0-windows\DesktopApplication.dll
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\obj\Debug\net6.0-windows\refint\DesktopApplication.dll
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\obj\Debug\net6.0-windows\DesktopApplication.pdb
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\obj\Debug\net6.0-windows\DesktopApplication.genruntimeconfig.cache
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\obj\Debug\net6.0-windows\ref\DesktopApplication.dll
