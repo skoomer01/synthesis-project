@@ -24,3 +24,12 @@ C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\Synthe
 C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\WebsiteApplication\obj\Debug\net6.0\WebsiteApplication.pdb
 C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\WebsiteApplication\obj\Debug\net6.0\WebsiteApplication.genruntimeconfig.cache
 C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\WebsiteApplication\obj\Debug\net6.0\ref\WebsiteApplication.dll
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\WebsiteApplication\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\WebsiteApplication\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\WebsiteApplication\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\WebsiteApplication\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\WebsiteApplication\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\WebsiteApplication\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\WebsiteApplication\bin\Debug\net6.0\SharedLibrary.dll
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\WebsiteApplication\bin\Debug\net6.0\SharedLibrary.pdb
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\WebsiteApplication\obj\Debug\net6.0\WebsiteApplication.csproj.CopyComplete
