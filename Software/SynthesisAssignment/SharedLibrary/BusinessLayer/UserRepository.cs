@@ -16,7 +16,7 @@ namespace SharedLibrary.BusinessLayer
             List<User> users = new List<User>();
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
-                string sql = @"SELECT *
+                string sql = @"SELECT UserId, UserName, UserEmail ,UserType
                                 FROM s_User
                                 ORDER BY UserId";
 
@@ -32,7 +32,6 @@ namespace SharedLibrary.BusinessLayer
                     user.UserId = dr.GetInt32("UserId");
                     user.UserName = dr.GetString("UserName");
                     user.UserEmail = dr.GetString("UserEmail");
-                    user.UserPassword = dr.GetString("UserPassword");
                     user.EnumUserType = user.SetType(dr.GetString("UserType"));
                     users.Add(user);
                 }
@@ -88,6 +87,32 @@ namespace SharedLibrary.BusinessLayer
             }
         }
 
+        public User GetUserByID(int ID)
+        {
+            using (SqlConnection conn = DatabaseConnection.CreateConnection())
+            {
+                string sql = "SELECT * FROM s_User WHERE UserId = @UserId";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("UserId", ID);
+
+                User user = null;
+                conn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+
+                while (dr.Read())
+                {
+                    user = new User();
+                    user.UserEmail = dr.GetString("UserEmail");
+                    user.UserName = dr.GetString("UserName");
+                    user.UserId = ID;
+
+                }
+                return user;
+            }
+        }
+
         public User GetUserByEmail(string email)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
@@ -107,6 +132,7 @@ namespace SharedLibrary.BusinessLayer
                     user = new User();
                     user.UserId = dr.GetInt32("UserId");
                     user.UserName = dr.GetString("UserName");
+                    user.UserEmail = email;
                 }
                 return user;
             }

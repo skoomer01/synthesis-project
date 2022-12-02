@@ -28,8 +28,11 @@ namespace SharedLibrary.LogicLayer
             }
 
         }
-
-        public void UpdateEmployee(User user)
+        public User GetUserByID(int ID)
+        {
+            return userRepository.GetUserByID(ID);
+        }
+        public void UpdateUser(User user)
         {
             if (user == null)
             {
