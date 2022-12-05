@@ -38,6 +38,20 @@ namespace DesktopApplication
             dgvEditUsers.DataSource = users;
         }
 
+        public string employeeType()
+        {
+            if (cbxEditUserType.Text == "Human Resources")
+            {
+                return "HUMANRESOURCES";
+            }
+            else if (cbxEditUserType.Text == "Product Manager")
+            {
+                return "PRODUCTMANAGER";
+            }
+            else
+                return "CUSTOMER";
+        }
+
         private void btnEditUser_Click(object sender, EventArgs e)
         {
             try
@@ -53,7 +67,7 @@ namespace DesktopApplication
                     User editUser = userManager.GetUserByID(Convert.ToInt32(userID));   
                     editUser.UserEmail = tbxEditEmail.Text;
                     editUser.UserName = tbxEditName.Text;
-                    editUser.SetType(cbxEditUserType.SelectedItem.ToString());
+                    editUser.EnumUserType =  editUser.SetType(employeeType());
                     if (EmailValidation.IsValidEmail(tbxEditEmail.Text) == true)
                     {
                         editUser.UserEmail = tbxEditEmail.Text;
@@ -65,6 +79,7 @@ namespace DesktopApplication
 
                     userManager.UpdateUser(editUser);
                     RefreshUserData();
+                    MessageBox.Show("User data updated successfully :)");
                 }
                 else
                 {
@@ -75,6 +90,17 @@ namespace DesktopApplication
             {
                 MessageBox.Show(error.Message);
             }
+        }
+
+        private void dgvEditUsers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = dgvEditUsers.CurrentRow.Index;
+            string userID;
+            DataGridViewRow row = dgvEditUsers.Rows[index];
+            userID = row.Cells[0].Value.ToString();
+            User editUser = userManager.GetUserByID(Convert.ToInt32(userID));
+            tbxEditEmail.Text = editUser.UserEmail;
+            tbxEditName.Text = editUser.UserName;
         }
     }
 }

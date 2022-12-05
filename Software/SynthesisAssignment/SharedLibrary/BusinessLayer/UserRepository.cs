@@ -75,12 +75,13 @@ namespace SharedLibrary.BusinessLayer
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
-                string sql = "UPDATE s_User SET UserName=@UserName, UserEmail=@UserEmail WHERE UserId=@UserId";
+                string sql = "UPDATE s_User SET UserName=@UserName, UserEmail=@UserEmail, UserType = @UserType WHERE UserId=@UserId";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
                 cmd.Parameters.AddWithValue("UserID", user.UserId);
                 cmd.Parameters.AddWithValue("UserName", user.UserName);
                 cmd.Parameters.AddWithValue("UserEmail", user.UserEmail);
+                cmd.Parameters.AddWithValue("UserType", user.GetType(user.EnumUserType));
 
                 conn.Open();
                 cmd.ExecuteNonQuery();

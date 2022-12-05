@@ -47,5 +47,22 @@ namespace SharedLibrary.LogicLayer
             }
             return setType;
         }
+
+        public string GetType(EnumTypeOfUser type)
+        {
+            string setType = "CUSTOMER";
+            switch (type)
+            {
+                case EnumTypeOfUser.PRODUCTEMPLOYEE:
+                    setType = "PRODUCTMANAGER";
+                    break;
+
+                case EnumTypeOfUser.HUMANRESOURCES:
+                    setType = "HUMANRESOURCES" ;
+                    break;
+
+            }
+            return setType;
+        }
     }
 }

@@ -34,11 +34,15 @@
             this.lblAllUsers = new System.Windows.Forms.Label();
             this.dgvAllUsers = new System.Windows.Forms.DataGridView();
             this.tabpEditUserInfo = new System.Windows.Forms.TabPage();
-            this.dgvEditUsers = new System.Windows.Forms.DataGridView();
-            this.btnEditUser = new System.Windows.Forms.Button();
-            this.tbxEditName = new System.Windows.Forms.TextBox();
-            this.tbxEditEmail = new System.Windows.Forms.TextBox();
             this.cbxEditUserType = new System.Windows.Forms.ComboBox();
+            this.tbxEditEmail = new System.Windows.Forms.TextBox();
+            this.tbxEditName = new System.Windows.Forms.TextBox();
+            this.btnEditUser = new System.Windows.Forms.Button();
+            this.dgvEditUsers = new System.Windows.Forms.DataGridView();
+            this.lblEditName = new System.Windows.Forms.Label();
+            this.lblEditEmail = new System.Windows.Forms.Label();
+            this.lblEditType = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabcUserManagement.SuspendLayout();
             this.tabpAllUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllUsers)).BeginInit();
@@ -100,6 +104,10 @@
             // 
             // tabpEditUserInfo
             // 
+            this.tabpEditUserInfo.Controls.Add(this.label1);
+            this.tabpEditUserInfo.Controls.Add(this.lblEditType);
+            this.tabpEditUserInfo.Controls.Add(this.lblEditEmail);
+            this.tabpEditUserInfo.Controls.Add(this.lblEditName);
             this.tabpEditUserInfo.Controls.Add(this.cbxEditUserType);
             this.tabpEditUserInfo.Controls.Add(this.tbxEditEmail);
             this.tabpEditUserInfo.Controls.Add(this.tbxEditName);
@@ -113,50 +121,89 @@
             this.tabpEditUserInfo.Text = "Edit User Info";
             this.tabpEditUserInfo.UseVisualStyleBackColor = true;
             // 
-            // dgvEditUsers
-            // 
-            this.dgvEditUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvEditUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEditUsers.Location = new System.Drawing.Point(3, 6);
-            this.dgvEditUsers.Name = "dgvEditUsers";
-            this.dgvEditUsers.RowTemplate.Height = 25;
-            this.dgvEditUsers.Size = new System.Drawing.Size(1159, 136);
-            this.dgvEditUsers.TabIndex = 1;
-            // 
-            // btnEditUser
-            // 
-            this.btnEditUser.Location = new System.Drawing.Point(142, 360);
-            this.btnEditUser.Name = "btnEditUser";
-            this.btnEditUser.Size = new System.Drawing.Size(208, 23);
-            this.btnEditUser.TabIndex = 2;
-            this.btnEditUser.Text = "Update user information";
-            this.btnEditUser.UseVisualStyleBackColor = true;
-            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
-            // 
-            // tbxEditName
-            // 
-            this.tbxEditName.Location = new System.Drawing.Point(142, 207);
-            this.tbxEditName.Name = "tbxEditName";
-            this.tbxEditName.Size = new System.Drawing.Size(139, 23);
-            this.tbxEditName.TabIndex = 3;
-            // 
-            // tbxEditEmail
-            // 
-            this.tbxEditEmail.Location = new System.Drawing.Point(142, 257);
-            this.tbxEditEmail.Name = "tbxEditEmail";
-            this.tbxEditEmail.Size = new System.Drawing.Size(139, 23);
-            this.tbxEditEmail.TabIndex = 4;
-            // 
             // cbxEditUserType
             // 
             this.cbxEditUserType.FormattingEnabled = true;
             this.cbxEditUserType.Items.AddRange(new object[] {
             "Human Resources",
-            "Product Manager"});
-            this.cbxEditUserType.Location = new System.Drawing.Point(142, 310);
+            "Product Manager",
+            "Customer"});
+            this.cbxEditUserType.Location = new System.Drawing.Point(98, 288);
             this.cbxEditUserType.Name = "cbxEditUserType";
             this.cbxEditUserType.Size = new System.Drawing.Size(139, 23);
             this.cbxEditUserType.TabIndex = 10;
+            // 
+            // tbxEditEmail
+            // 
+            this.tbxEditEmail.Location = new System.Drawing.Point(98, 246);
+            this.tbxEditEmail.Name = "tbxEditEmail";
+            this.tbxEditEmail.Size = new System.Drawing.Size(139, 23);
+            this.tbxEditEmail.TabIndex = 4;
+            // 
+            // tbxEditName
+            // 
+            this.tbxEditName.Location = new System.Drawing.Point(98, 201);
+            this.tbxEditName.Name = "tbxEditName";
+            this.tbxEditName.Size = new System.Drawing.Size(139, 23);
+            this.tbxEditName.TabIndex = 3;
+            // 
+            // btnEditUser
+            // 
+            this.btnEditUser.Location = new System.Drawing.Point(19, 339);
+            this.btnEditUser.Name = "btnEditUser";
+            this.btnEditUser.Size = new System.Drawing.Size(218, 23);
+            this.btnEditUser.TabIndex = 2;
+            this.btnEditUser.Text = "Update user information";
+            this.btnEditUser.UseVisualStyleBackColor = true;
+            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
+            // 
+            // dgvEditUsers
+            // 
+            this.dgvEditUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvEditUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEditUsers.Location = new System.Drawing.Point(3, 49);
+            this.dgvEditUsers.Name = "dgvEditUsers";
+            this.dgvEditUsers.RowTemplate.Height = 25;
+            this.dgvEditUsers.Size = new System.Drawing.Size(1159, 136);
+            this.dgvEditUsers.TabIndex = 1;
+            this.dgvEditUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEditUsers_CellClick);
+            // 
+            // lblEditName
+            // 
+            this.lblEditName.AutoSize = true;
+            this.lblEditName.Location = new System.Drawing.Point(19, 204);
+            this.lblEditName.Name = "lblEditName";
+            this.lblEditName.Size = new System.Drawing.Size(68, 15);
+            this.lblEditName.TabIndex = 11;
+            this.lblEditName.Text = "User Name:";
+            // 
+            // lblEditEmail
+            // 
+            this.lblEditEmail.AutoSize = true;
+            this.lblEditEmail.Location = new System.Drawing.Point(19, 249);
+            this.lblEditEmail.Name = "lblEditEmail";
+            this.lblEditEmail.Size = new System.Drawing.Size(65, 15);
+            this.lblEditEmail.TabIndex = 12;
+            this.lblEditEmail.Text = "User Email:";
+            // 
+            // lblEditType
+            // 
+            this.lblEditType.AutoSize = true;
+            this.lblEditType.Location = new System.Drawing.Point(19, 291);
+            this.lblEditType.Name = "lblEditType";
+            this.lblEditType.Size = new System.Drawing.Size(60, 15);
+            this.lblEditType.TabIndex = 13;
+            this.lblEditType.Text = "User Type:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(6, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(145, 21);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Editr user data here";
             // 
             // HumanResources
             // 
@@ -192,5 +239,9 @@
         private TextBox tbxEditName;
         private Button btnEditUser;
         private ComboBox cbxEditUserType;
+        private Label lblEditType;
+        private Label lblEditEmail;
+        private Label lblEditName;
+        private Label label1;
     }
 }
