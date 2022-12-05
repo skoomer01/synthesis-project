@@ -1,0 +1,248 @@
+<Project>
+  <Name>SynthesisDiagram</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.ClassDiagram" assembly="NClass.DiagramEditor, Version=2.8.0.2, Culture=neutral, PublicKeyToken=null">
+    <Name>UML</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>User</Name>
+        <Access>Public</Access>
+        <Location left="1222" top="856" />
+        <Size width="269" height="218" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public int UserId { get; set; }</Member>
+        <Member type="Property">public string UserName { get; set; }</Member>
+        <Member type="Property">public string UserPassword { get; set; }</Member>
+        <Member type="Property">public string UserEmail { get; set; }</Member>
+        <Member type="Property">public EnumTypeOfUser EnumUserType { get; set; }</Member>
+        <Member type="Constructor">public User()</Member>
+        <Member type="Method">public EnumTypeOfUser SetType()</Member>
+        <Member type="Method">public EnumTypeOfUser GetType()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>UserManager</Name>
+        <Access>Public</Access>
+        <Location left="981" top="620" />
+        <Size width="439" height="164" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">UserRepository userRepository</Member>
+        <Member type="Method">public List&lt;User&gt; GetAllUsers()</Member>
+        <Member type="Method">public void CreateUser(string email, string password, string userName, string type)</Member>
+        <Member type="Method">public User GetUserByID(int ID)</Member>
+        <Member type="Method">public void DeleteUser(User user)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>UserRepository</Name>
+        <Access>Public</Access>
+        <Location left="705" top="1463" />
+        <Size width="415" height="220" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public List&lt;User&gt; GetUsers()</Member>
+        <Member type="Method">public User FindUser(string email, string password)</Member>
+        <Member type="Method">public void UpdateUser(User user)</Member>
+        <Member type="Method">public User GetUserByEmail(string email)</Member>
+        <Member type="Method">public void CreateUser(string name, string mail, string password, string type)</Member>
+        <Member type="Method">public void UpdatePassword(User user)</Member>
+        <Member type="Method">public void DeleteUser(User user)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>EnumTypeOfUser</Name>
+        <Access>Public</Access>
+        <Location left="1273" top="1211" />
+        <Size width="162" height="116" />
+        <Collapsed>False</Collapsed>
+        <Value>CUSTOMER</Value>
+        <Value>HUMANRESOURCES</Value>
+        <Value>PRODUCTMANAGER</Value>
+      </Entity>
+      <Entity type="Class">
+        <Name>LoginManager</Name>
+        <Access>Public</Access>
+        <Location left="659" top="649" />
+        <Size width="255" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public User Login(string email, string password)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>EmailValidation</Name>
+        <Access>Public</Access>
+        <Location left="981" top="980" />
+        <Size width="204" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public static bool IsValidEmail(string email)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>DatabaseConnection</Name>
+        <Access>Public</Access>
+        <Location left="1112" top="1826" />
+        <Size width="242" height="102" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public static SqlConnection CreateConnection()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>LoginForm</Name>
+        <Access>Public</Access>
+        <Location left="684" top="152" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>HumanResources</Name>
+        <Access>Public</Access>
+        <Location left="1103" top="141" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ProductManager</Name>
+        <Access>Public</Access>
+        <Location left="2025" top="148" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ProductRepository</Name>
+        <Access>Public</Access>
+        <Location left="1662" top="1467" />
+        <Size width="634" height="213" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public List&lt;Product&gt; GetProducts()</Member>
+        <Member type="Method">public void UpdateProduct(Product product)</Member>
+        <Member type="Method">public Product GetProductByID(int ID)</Member>
+        <Member type="Method">public void CreateProduct(string name, string category, string subcategory, decimal price, string unit, string productImage)</Member>
+        <Member type="Method">public void DeleteProduct(Product product)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ProductManager</Name>
+        <Access>Public</Access>
+        <Location left="1831" top="620" />
+        <Size width="500" height="164" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Containers />
+    <Relationships>
+      <Relationship type="Association" first="1" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>953</X>
+          <Y>749</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>938</X>
+          <Y>1438</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Dependency" first="5" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="4" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>784</X>
+          <Y>1435</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Dependency" first="3" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="0" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1366</X>
+          <Y>831</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Dependency" first="6" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="7" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="8" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="9" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1345</X>
+          <Y>595</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Dependency" first="6" second="10">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1233</X>
+          <Y>1801</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="9" second="11">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="11" second="10">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
