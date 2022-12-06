@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using System.Globalization;
 
-namespace SharedLibrary.LogicLayer
+namespace LogicLayer
 {
     public class EmailValidation
     {

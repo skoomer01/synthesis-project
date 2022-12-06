@@ -1,4 +1,4 @@
-using SharedLibrary.LogicLayer;
+using LogicLayer;
 using System.Text.RegularExpressions;
 namespace DesktopApplication
 {
@@ -14,8 +14,8 @@ namespace DesktopApplication
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             User user = new User();
-            try
-            {
+            //try
+            //{
                 if (EmailValidation.IsValidEmail(tbxEmail.Text) == true)
                 {
                     user = loginManager.Login(tbxEmail.Text, tbxPassword.Text);
@@ -59,11 +59,11 @@ namespace DesktopApplication
                     throw new Exception("Invalid Credentials");
                 }
 
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show(error.Message);
-            }
+            //}
+            //catch (Exception error)
+            //{
+            //    MessageBox.Show(error.Message);
+            //}
         }
 
         private void btnSignIn_Click(object sender, EventArgs e)

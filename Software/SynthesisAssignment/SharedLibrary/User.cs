@@ -1,11 +1,12 @@
-﻿using System;
+﻿using DataLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedLibrary.LogicLayer
+namespace LogicLayer
 {
     public class User
     {
@@ -13,7 +14,14 @@ namespace SharedLibrary.LogicLayer
         {
 
         }
-
+        public User(UserDTO userDTO)
+        {
+            UserId = userDTO.UserId;
+            UserName = userDTO.UserName;
+            UserEmail = userDTO.UserEmail;
+            UserPassword = userDTO.UserPassword;
+            EnumUserType = SetType(userDTO.EnumUserType);
+        }
         [DisplayName("Identification number")]
         public int UserId { get; set; }
         [DisplayName("Name")]
@@ -58,7 +66,7 @@ namespace SharedLibrary.LogicLayer
                     break;
 
                 case EnumTypeOfUser.HUMANRESOURCES:
-                    setType = "HUMANRESOURCES" ;
+                    setType = "HUMANRESOURCES";
                     break;
 
             }

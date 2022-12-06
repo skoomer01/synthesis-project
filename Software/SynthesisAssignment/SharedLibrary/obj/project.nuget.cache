@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tPhCipo0VmU9FbKq/8p02DMprmfJSq+QisYoUbG8ouWMGZ6gQX9hmvjuVkYOS1g3BZorLyNOJvCQr1BNUbEIhg==",
+  "dgSpecHash": "zwi61lAaU4r844NTbPh3IcSyKhK1yk9H3yfAutOTX+Gnsv+y3S71StxldJa0xxo58bGcw75Ci+0ITU5WwI1DdQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Synthesis assignment\\synthesis-assignment\\Software\\SynthesisAssignment\\SharedLibrary\\SharedLibrary.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Synthesis assignment\\synthesis-assignment\\Software\\SynthesisAssignment\\SharedLibrary\\LogicLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

@@ -21,8 +21,10 @@ C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\Synthe
 C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
 C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\bin\Debug\net6.0-windows\SharedLibrary.dll
-C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\bin\Debug\net6.0-windows\SharedLibrary.pdb
 C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\obj\Debug\net6.0-windows\DesktopApplication.csproj.CopyComplete
 C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\obj\Debug\net6.0-windows\DesktopApplication.HumanResources.resources
 C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\obj\Debug\net6.0-windows\DesktopApplication.ProductManagement.resources
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\bin\Debug\net6.0-windows\DataLayer.dll
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\bin\Debug\net6.0-windows\LogicLayer.dll
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\bin\Debug\net6.0-windows\DataLayer.pdb
+C:\Users\Admin\Desktop\Synthesis assignment\synthesis-assignment\Software\SynthesisAssignment\DesktopApplication\bin\Debug\net6.0-windows\LogicLayer.pdb

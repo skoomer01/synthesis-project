@@ -1,4 +1,4 @@
-﻿using SharedLibrary.LogicLayer;
+﻿using LogicLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,6 +52,11 @@ namespace DesktopApplication
             {
                 MessageBox.Show(error.Message);
             }
+        }
+
+        private void ProductManagement_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

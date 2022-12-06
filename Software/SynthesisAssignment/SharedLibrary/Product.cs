@@ -1,17 +1,27 @@
-﻿using System;
+﻿using DataLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedLibrary.LogicLayer
+namespace LogicLayer
 {
     public class Product
     {
-        
-        public Product() { }
 
+        public Product() { }
+        public Product(ProductDTO productDTO)
+        {
+            Id = productDTO.Id;
+            Name = productDTO.Name; 
+            Category = new Category(productDTO.Category);
+            SubCategory = new Category(productDTO.SubCategory);
+            Price = productDTO.Price;
+            Unit = productDTO.Unit;
+            ProductImage = productDTO.ProductImage;
+        }
         [DisplayName("Identification number")]
         public int Id { get; set; }
         [DisplayName("Product Name")]

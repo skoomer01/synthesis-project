@@ -34,15 +34,15 @@
             this.lblAllUsers = new System.Windows.Forms.Label();
             this.dgvAllUsers = new System.Windows.Forms.DataGridView();
             this.tabpEditUserInfo = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblEditType = new System.Windows.Forms.Label();
+            this.lblEditEmail = new System.Windows.Forms.Label();
+            this.lblEditName = new System.Windows.Forms.Label();
             this.cbxEditUserType = new System.Windows.Forms.ComboBox();
             this.tbxEditEmail = new System.Windows.Forms.TextBox();
             this.tbxEditName = new System.Windows.Forms.TextBox();
             this.btnEditUser = new System.Windows.Forms.Button();
             this.dgvEditUsers = new System.Windows.Forms.DataGridView();
-            this.lblEditName = new System.Windows.Forms.Label();
-            this.lblEditEmail = new System.Windows.Forms.Label();
-            this.lblEditType = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabcUserManagement.SuspendLayout();
             this.tabpAllUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllUsers)).BeginInit();
@@ -121,6 +121,43 @@
             this.tabpEditUserInfo.Text = "Edit User Info";
             this.tabpEditUserInfo.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(6, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(145, 21);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Editr user data here";
+            // 
+            // lblEditType
+            // 
+            this.lblEditType.AutoSize = true;
+            this.lblEditType.Location = new System.Drawing.Point(19, 291);
+            this.lblEditType.Name = "lblEditType";
+            this.lblEditType.Size = new System.Drawing.Size(60, 15);
+            this.lblEditType.TabIndex = 13;
+            this.lblEditType.Text = "User Type:";
+            // 
+            // lblEditEmail
+            // 
+            this.lblEditEmail.AutoSize = true;
+            this.lblEditEmail.Location = new System.Drawing.Point(19, 249);
+            this.lblEditEmail.Name = "lblEditEmail";
+            this.lblEditEmail.Size = new System.Drawing.Size(65, 15);
+            this.lblEditEmail.TabIndex = 12;
+            this.lblEditEmail.Text = "User Email:";
+            // 
+            // lblEditName
+            // 
+            this.lblEditName.AutoSize = true;
+            this.lblEditName.Location = new System.Drawing.Point(19, 204);
+            this.lblEditName.Name = "lblEditName";
+            this.lblEditName.Size = new System.Drawing.Size(68, 15);
+            this.lblEditName.TabIndex = 11;
+            this.lblEditName.Text = "User Name:";
+            // 
             // cbxEditUserType
             // 
             this.cbxEditUserType.FormattingEnabled = true;
@@ -168,43 +205,6 @@
             this.dgvEditUsers.TabIndex = 1;
             this.dgvEditUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEditUsers_CellClick);
             // 
-            // lblEditName
-            // 
-            this.lblEditName.AutoSize = true;
-            this.lblEditName.Location = new System.Drawing.Point(19, 204);
-            this.lblEditName.Name = "lblEditName";
-            this.lblEditName.Size = new System.Drawing.Size(68, 15);
-            this.lblEditName.TabIndex = 11;
-            this.lblEditName.Text = "User Name:";
-            // 
-            // lblEditEmail
-            // 
-            this.lblEditEmail.AutoSize = true;
-            this.lblEditEmail.Location = new System.Drawing.Point(19, 249);
-            this.lblEditEmail.Name = "lblEditEmail";
-            this.lblEditEmail.Size = new System.Drawing.Size(65, 15);
-            this.lblEditEmail.TabIndex = 12;
-            this.lblEditEmail.Text = "User Email:";
-            // 
-            // lblEditType
-            // 
-            this.lblEditType.AutoSize = true;
-            this.lblEditType.Location = new System.Drawing.Point(19, 291);
-            this.lblEditType.Name = "lblEditType";
-            this.lblEditType.Size = new System.Drawing.Size(60, 15);
-            this.lblEditType.TabIndex = 13;
-            this.lblEditType.Text = "User Type:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(6, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 21);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Editr user data here";
-            // 
             // HumanResources
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -214,6 +214,7 @@
             this.Controls.Add(this.lblUserNameDisplay);
             this.Name = "HumanResources";
             this.Text = "HumanResources";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HumanResources_FormClosed);
             this.tabcUserManagement.ResumeLayout(false);
             this.tabpAllUsers.ResumeLayout(false);
             this.tabpAllUsers.PerformLayout();

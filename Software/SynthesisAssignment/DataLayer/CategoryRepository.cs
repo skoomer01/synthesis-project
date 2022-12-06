@@ -1,5 +1,4 @@
-﻿using SharedLibrary.LogicLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
@@ -8,13 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace SharedLibrary.BusinessLayer
+namespace DataLayer
 {
     public  class CategoryRepository
     {
-        public List<Category> GetCategories()
+        public List<CategoryDTO> GetCategories()
         {
-            List<Category> categories = new List<Category>();
+            List<CategoryDTO> categories = new List<CategoryDTO>();
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
                 string sql = @"select * 
@@ -24,12 +23,12 @@ namespace SharedLibrary.BusinessLayer
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 conn.Open();
 
-                Category category = null;
+                CategoryDTO category = null;
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
-                    category = new Category();
+                    category = new CategoryDTO();
                     category.Id = dr.GetInt32("Id");
                     category.Name = dr.GetString("Name");
 
@@ -40,9 +39,9 @@ namespace SharedLibrary.BusinessLayer
             }
         }
 
-        public List<Category> GetSubCategories(int id)
+        public List<CategoryDTO> GetSubCategories(int id)
         {
-            List<Category> categories = new List<Category>();
+            List<CategoryDTO> categories = new List<CategoryDTO>();
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
                 string sql = @" Select sc.Id, sc1.[Name]
@@ -55,12 +54,12 @@ namespace SharedLibrary.BusinessLayer
                 cmd.Parameters.AddWithValue("id", id);
                 conn.Open();
 
-                Category category = null;
+                CategoryDTO category = null;
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
-                    category = new Category();
+                    category = new CategoryDTO();
                     category.Id = dr.GetInt32("Id");
                     category.Name = dr.GetString("Name");
 
@@ -71,7 +70,7 @@ namespace SharedLibrary.BusinessLayer
             }
         }
 
-        public void UpdateCategory(Category category)
+        public void UpdateCategory(CategoryDTO category)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
@@ -87,7 +86,7 @@ namespace SharedLibrary.BusinessLayer
             }
         }
 
-        public void UpdateSubCategory(Category category)
+        public void UpdateSubCategory(CategoryDTO category)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
@@ -104,7 +103,7 @@ namespace SharedLibrary.BusinessLayer
             }
         }
 
-        public Category GetCategoryByName(string name)
+        public CategoryDTO GetCategoryByName(string name)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
@@ -115,18 +114,17 @@ namespace SharedLibrary.BusinessLayer
 
                 cmd.Parameters.AddWithValue("name", name);
 
-                Category category = null;
+                CategoryDTO category = null;
                 conn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
 
 
                 while (dr.Read())
                 {
-                    category = new Category();
+                    category = new CategoryDTO();
                     category.Id = dr.GetInt32("Id");
                     category.Name = name;
-                    category.ParentId = dr.GetInt32("Parent_Id");
-                    
+                    category.ParentId = dr.IsDBNull("Parent_Id") ? null : dr.GetInt32("Parent_Id");
                 }
                 return category;
             }
@@ -152,7 +150,7 @@ namespace SharedLibrary.BusinessLayer
             }
         }
 
-        public void DeleteCategory(Category category)
+        public void DeleteCategory(int id)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
@@ -160,7 +158,7 @@ namespace SharedLibrary.BusinessLayer
                                 WHERE Id = @Id";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
-                cmd.Parameters.AddWithValue("Id", category.Id);
+                cmd.Parameters.AddWithValue("Id", id);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();

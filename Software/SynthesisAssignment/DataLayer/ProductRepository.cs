@@ -1,5 +1,4 @@
-﻿using SharedLibrary.LogicLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,14 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedLibrary.BusinessLayer
+namespace DataLayer
 {
     public class ProductRepository
     {
         CategoryRepository categoryRepository = new CategoryRepository();
-        public List<Product> GetProducts()
+        public List<ProductDTO> GetProducts()
         {
-            List<Product> products = new List<Product>();
+            List<ProductDTO> products = new List<ProductDTO>();
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
                 string sql = @"SELECT ProductID, ProductName, Category ,SubCategory, Price, Unit, ProductImage
@@ -24,16 +23,16 @@ namespace SharedLibrary.BusinessLayer
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 conn.Open();
 
-                Product product = null;
+                ProductDTO product = null;
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
-                    product = new Product();
-                    product.Id = dr.GetInt32("UserId");
-                    product.Name = dr.GetString("UserName");
-                    product.Category = null ;
-                    product.SubCategory = null;
+                    product = new ProductDTO();
+                    product.Id = dr.GetInt32("ProductID");
+                    product.Name = dr.GetString("ProductName");
+                    product.Category = categoryRepository.GetCategoryByName(dr.GetString("Category"));
+                    product.SubCategory = categoryRepository.GetCategoryByName(dr.GetString("SubCategory"));
                     product.Price = dr.GetDecimal("Price");
                     product.Unit = dr.GetString("Unit");
                     product.ProductImage = dr.GetString("ProductImage");
@@ -44,27 +43,27 @@ namespace SharedLibrary.BusinessLayer
         }
 
 
-        public void UpdateProduct(Product product)
+        public void UpdateProduct(int id,string name, string category, string subcategory, decimal price, string unit, string productImage)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
                 string sql = "UPDATE s_Product SET ProductName=@ProductName, Category=@Category, SubCategory = @SubCategory, Price=@Price, Unit=@Unit WHERE ProductID=@ProductID";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
-                cmd.Parameters.AddWithValue("ProductID", product.Id);
-                cmd.Parameters.AddWithValue("ProductName", product.Name);
-                cmd.Parameters.AddWithValue("Category", product.Category.Name);
-                cmd.Parameters.AddWithValue("SubCategory", product.SubCategory.Name);
-                cmd.Parameters.AddWithValue("Price", product.Price);
-                cmd.Parameters.AddWithValue("Unit", product.Unit);
-                cmd.Parameters.AddWithValue("ProductImage", product.ProductImage);
+                cmd.Parameters.AddWithValue("ProductID", id);
+                cmd.Parameters.AddWithValue("ProductName", name);
+                cmd.Parameters.AddWithValue("Category", category);
+                cmd.Parameters.AddWithValue("SubCategory", subcategory);
+                cmd.Parameters.AddWithValue("Price", price);
+                cmd.Parameters.AddWithValue("Unit", unit);
+                cmd.Parameters.AddWithValue("ProductImage", productImage);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
         }
 
-        public Product GetProductByID(int ID)
+        public ProductDTO GetProductByID(int ID)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
@@ -73,18 +72,18 @@ namespace SharedLibrary.BusinessLayer
 
                 cmd.Parameters.AddWithValue("ProductID", ID);
 
-                Product product = null;
+                ProductDTO product = null;
                 conn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
 
 
                 while (dr.Read())
                 {
-                    product = new Product();
+                    product = new ProductDTO();
                     product.Id = ID;
                     product.Name = dr.GetString("ProductName");
-                    product.Category = null;
-                    product.SubCategory = null;
+                    product.Category = categoryRepository.GetCategoryByName(dr.GetString("Category"));
+                    product.SubCategory = categoryRepository.GetCategoryByName(dr.GetString("SubCategory"));
                     product.Price = dr.GetDecimal("Price");
                     product.Unit = dr.GetString("Unit");
                     product.ProductImage = dr.GetString("ProductImage");
@@ -123,7 +122,7 @@ namespace SharedLibrary.BusinessLayer
             }
         }
 
-        public void DeleteProduct(Product product)
+        public void DeleteProduct(int id)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
@@ -131,7 +130,7 @@ namespace SharedLibrary.BusinessLayer
                                 WHERE ProductID = @ProductID";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
-                cmd.Parameters.AddWithValue("ProductID", product.Id);
+                cmd.Parameters.AddWithValue("ProductID", id);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();

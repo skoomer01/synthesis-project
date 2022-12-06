@@ -1,4 +1,4 @@
-﻿using SharedLibrary.LogicLayer;
+﻿using LogicLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,7 +38,7 @@ namespace DesktopApplication
             dgvEditUsers.DataSource = users;
         }
 
-        public string employeeType()
+        public string userType()
         {
             if (cbxEditUserType.Text == "Human Resources")
             {
@@ -61,23 +61,21 @@ namespace DesktopApplication
                     cbxEditUserType.SelectedItem != null)
                 {
                     int index = dgvEditUsers.CurrentRow.Index;
-                    string userID;
+                    int userID;
                     DataGridViewRow row = dgvEditUsers.Rows[index];
-                    userID = row.Cells[0].Value.ToString();
-                    User editUser = userManager.GetUserByID(Convert.ToInt32(userID));   
-                    editUser.UserEmail = tbxEditEmail.Text;
-                    editUser.UserName = tbxEditName.Text;
-                    editUser.EnumUserType =  editUser.SetType(employeeType());
+                    userID =Convert.ToInt32(row.Cells[0].Value.ToString());
+                    string email;
+                    string type = userType();
                     if (EmailValidation.IsValidEmail(tbxEditEmail.Text) == true)
                     {
-                        editUser.UserEmail = tbxEditEmail.Text;
+                        email = tbxEditEmail.Text;
                     }
                     else
                     {
                         throw new Exception("Invalid Email");
                     }
 
-                    userManager.UpdateUser(editUser);
+                    userManager.UpdateUser(userID, tbxEditName.Text, tbxEditEmail.Text, type);
                     RefreshUserData();
                     MessageBox.Show("User data updated successfully :)");
                 }
@@ -101,6 +99,11 @@ namespace DesktopApplication
             User editUser = userManager.GetUserByID(Convert.ToInt32(userID));
             tbxEditEmail.Text = editUser.UserEmail;
             tbxEditName.Text = editUser.UserName;
+        }
+
+        private void HumanResources_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

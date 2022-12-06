@@ -146,6 +146,19 @@
             "rid": "win"
           }
         }
+      },
+      "DataLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "System.Data.SqlClient": "4.8.5"
+        },
+        "compile": {
+          "bin/placeholder/DataLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataLayer.dll": {}
+        }
       }
     }
   },
@@ -462,11 +475,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "DataLayer/1.0.0": {
+      "type": "project",
+      "path": "../DataLayer/DataLayer.csproj",
+      "msbuildProject": "../DataLayer/DataLayer.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "System.Data.SqlClient >= 4.8.5"
+      "DataLayer >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -475,9 +493,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Synthesis assignment\\synthesis-assignment\\Software\\SynthesisAssignment\\SharedLibrary\\SharedLibrary.csproj",
-      "projectName": "SharedLibrary",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\Synthesis assignment\\synthesis-assignment\\Software\\SynthesisAssignment\\SharedLibrary\\SharedLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Synthesis assignment\\synthesis-assignment\\Software\\SynthesisAssignment\\SharedLibrary\\LogicLayer.csproj",
+      "projectName": "LogicLayer",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\Synthesis assignment\\synthesis-assignment\\Software\\SynthesisAssignment\\SharedLibrary\\LogicLayer.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Admin\\Desktop\\Synthesis assignment\\synthesis-assignment\\Software\\SynthesisAssignment\\SharedLibrary\\obj\\",
       "projectStyle": "PackageReference",
@@ -495,7 +513,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Admin\\Desktop\\Synthesis assignment\\synthesis-assignment\\Software\\SynthesisAssignment\\DataLayer\\DataLayer.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\Synthesis assignment\\synthesis-assignment\\Software\\SynthesisAssignment\\DataLayer\\DataLayer.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -507,12 +529,6 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
-        "dependencies": {
-          "System.Data.SqlClient": {
-            "target": "Package",
-            "version": "[4.8.5, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",

@@ -1,5 +1,4 @@
-﻿using SharedLibrary.LogicLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SharedLibrary.BusinessLayer
+namespace DataLayer
 {
     public class UserRepository
     {
-        public List<User> GetUsers()
+        public List<UserDTO> GetUsers()
         {
-            List<User> users = new List<User>();
+            List<UserDTO> users = new List<UserDTO>();
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
                 string sql = @"SELECT UserId, UserName, UserEmail ,UserType
@@ -23,15 +22,15 @@ namespace SharedLibrary.BusinessLayer
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 conn.Open();
 
-                User user = null;
+                UserDTO user = null;
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    user = new User();
+                    user = new UserDTO();
                     user.UserId = dr.GetInt32("UserId");
                     user.UserName = dr.GetString("UserName");
                     user.UserEmail = dr.GetString("UserEmail");
-                    user.EnumUserType = user.SetType(dr.GetString("UserType"));
+                    user.EnumUserType = dr.GetString("UserType");
                     users.Add(user);
                 }
                 conn.Close();
@@ -39,7 +38,7 @@ namespace SharedLibrary.BusinessLayer
             }
         }
 
-        public User FindUser(string email, string password)
+        public UserDTO FindUser(string email, string password)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
@@ -57,32 +56,32 @@ namespace SharedLibrary.BusinessLayer
                 cmd.Parameters.AddWithValue("@UserPassword", password);
 
                 conn.Open();
-                User user = null;
+                UserDTO user = null;
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
-                    user = new User();
+                    user = new UserDTO();
                     user.UserName = dr.GetString("UserName");
                     user.UserId = dr.GetInt32("UserId");
-                    user.EnumUserType = user.SetType(dr.GetString("UserType"));
+                    user.EnumUserType = dr.GetString("UserType");
                 }
                 conn.Close();
                 return user;
             }
         }
 
-        public void UpdateUser(User user)
+        public void UpdateUser(int id, string name, string email, string type)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
                 string sql = "UPDATE s_User SET UserName=@UserName, UserEmail=@UserEmail, UserType = @UserType WHERE UserId=@UserId";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
-                cmd.Parameters.AddWithValue("UserID", user.UserId);
-                cmd.Parameters.AddWithValue("UserName", user.UserName);
-                cmd.Parameters.AddWithValue("UserEmail", user.UserEmail);
-                cmd.Parameters.AddWithValue("UserType", user.GetType(user.EnumUserType));
+                cmd.Parameters.AddWithValue("UserID", id);
+                cmd.Parameters.AddWithValue("UserName", name);
+                cmd.Parameters.AddWithValue("UserEmail", email);
+                cmd.Parameters.AddWithValue("UserType", type);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -90,7 +89,7 @@ namespace SharedLibrary.BusinessLayer
             }
         }
 
-        public User GetUserByID(int ID)
+        public UserDTO GetUserByID(int ID)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
@@ -99,14 +98,14 @@ namespace SharedLibrary.BusinessLayer
 
                 cmd.Parameters.AddWithValue("UserId", ID);
 
-                User user = null;
+                UserDTO user = null;
                 conn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
 
 
                 while (dr.Read())
                 {
-                    user = new User();
+                    user = new UserDTO();
                     user.UserEmail = dr.GetString("UserEmail");
                     user.UserName = dr.GetString("UserName");
                     user.UserId = ID;
@@ -117,7 +116,7 @@ namespace SharedLibrary.BusinessLayer
             }
         }
 
-        public User GetUserByEmail(string email)
+        public UserDTO GetUserByEmail(string email)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
@@ -126,14 +125,14 @@ namespace SharedLibrary.BusinessLayer
 
                 cmd.Parameters.AddWithValue("UserEmail", email);
 
-                User user = null;
+                UserDTO user = null;
                 conn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
 
 
                 while (dr.Read())
                 {
-                    user = new User();
+                    user = new UserDTO();
                     user.UserId = dr.GetInt32("UserId");
                     user.UserName = dr.GetString("UserName");
                     user.UserEmail = email;
@@ -171,7 +170,7 @@ namespace SharedLibrary.BusinessLayer
             }
         }
 
-        public void UpdatePassword(User user) //for password change web part
+        public void UpdatePassword(UserDTO user) //for password change web part
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
@@ -192,7 +191,7 @@ namespace SharedLibrary.BusinessLayer
             }
         }
 
-        public void DeleteUser(User user)
+        public void DeleteUser(int id)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
@@ -200,7 +199,7 @@ namespace SharedLibrary.BusinessLayer
                                 WHERE UserId = @UserId";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
-                cmd.Parameters.AddWithValue("UserId", user.UserId);
+                cmd.Parameters.AddWithValue("UserId", id);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();

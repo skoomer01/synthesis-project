@@ -47,8 +47,7 @@
             this.tbxProductName = new System.Windows.Forms.TextBox();
             this.lblAllUsers = new System.Windows.Forms.Label();
             this.tbpEditProduct = new System.Windows.Forms.TabPage();
-            this.tabpCategoryManager = new System.Windows.Forms.TabPage();
-            this.lblProductManagerUser = new System.Windows.Forms.Label();
+            this.dgvEditProducts = new System.Windows.Forms.DataGridView();
             this.btnEditProduct = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -62,7 +61,8 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.dgvEditProducts = new System.Windows.Forms.DataGridView();
+            this.tabpCategoryManager = new System.Windows.Forms.TabPage();
+            this.lblProductManagerUser = new System.Windows.Forms.Label();
             this.tabcProductManagement.SuspendLayout();
             this.tbpViewAllProducts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllProducts)).BeginInit();
@@ -269,24 +269,15 @@
             this.tbpEditProduct.Text = "Edit Product";
             this.tbpEditProduct.UseVisualStyleBackColor = true;
             // 
-            // tabpCategoryManager
+            // dgvEditProducts
             // 
-            this.tabpCategoryManager.Location = new System.Drawing.Point(4, 24);
-            this.tabpCategoryManager.Name = "tabpCategoryManager";
-            this.tabpCategoryManager.Size = new System.Drawing.Size(1139, 499);
-            this.tabpCategoryManager.TabIndex = 3;
-            this.tabpCategoryManager.Text = "Category Manager";
-            this.tabpCategoryManager.UseVisualStyleBackColor = true;
-            // 
-            // lblProductManagerUser
-            // 
-            this.lblProductManagerUser.AutoSize = true;
-            this.lblProductManagerUser.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblProductManagerUser.Location = new System.Drawing.Point(51, 28);
-            this.lblProductManagerUser.Name = "lblProductManagerUser";
-            this.lblProductManagerUser.Size = new System.Drawing.Size(282, 32);
-            this.lblProductManagerUser.TabIndex = 1;
-            this.lblProductManagerUser.Text = "Welcome, <UserName>!";
+            this.dgvEditProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvEditProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEditProducts.Location = new System.Drawing.Point(3, 52);
+            this.dgvEditProducts.Name = "dgvEditProducts";
+            this.dgvEditProducts.RowTemplate.Height = 25;
+            this.dgvEditProducts.Size = new System.Drawing.Size(1132, 186);
+            this.dgvEditProducts.TabIndex = 32;
             // 
             // btnEditProduct
             // 
@@ -395,15 +386,24 @@
             this.textBox4.Size = new System.Drawing.Size(121, 23);
             this.textBox4.TabIndex = 19;
             // 
-            // dgvEditProducts
+            // tabpCategoryManager
             // 
-            this.dgvEditProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvEditProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEditProducts.Location = new System.Drawing.Point(3, 52);
-            this.dgvEditProducts.Name = "dgvEditProducts";
-            this.dgvEditProducts.RowTemplate.Height = 25;
-            this.dgvEditProducts.Size = new System.Drawing.Size(1132, 186);
-            this.dgvEditProducts.TabIndex = 32;
+            this.tabpCategoryManager.Location = new System.Drawing.Point(4, 24);
+            this.tabpCategoryManager.Name = "tabpCategoryManager";
+            this.tabpCategoryManager.Size = new System.Drawing.Size(1139, 499);
+            this.tabpCategoryManager.TabIndex = 3;
+            this.tabpCategoryManager.Text = "Category Manager";
+            this.tabpCategoryManager.UseVisualStyleBackColor = true;
+            // 
+            // lblProductManagerUser
+            // 
+            this.lblProductManagerUser.AutoSize = true;
+            this.lblProductManagerUser.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblProductManagerUser.Location = new System.Drawing.Point(51, 28);
+            this.lblProductManagerUser.Name = "lblProductManagerUser";
+            this.lblProductManagerUser.Size = new System.Drawing.Size(282, 32);
+            this.lblProductManagerUser.TabIndex = 1;
+            this.lblProductManagerUser.Text = "Welcome, <UserName>!";
             // 
             // ProductManagement
             // 
@@ -414,6 +414,7 @@
             this.Controls.Add(this.tabcProductManagement);
             this.Name = "ProductManagement";
             this.Text = "ProductManagement";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProductManagement_FormClosed);
             this.tabcProductManagement.ResumeLayout(false);
             this.tbpViewAllProducts.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllProducts)).EndInit();
