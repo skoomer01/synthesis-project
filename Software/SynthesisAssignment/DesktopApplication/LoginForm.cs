@@ -110,11 +110,11 @@ namespace DesktopApplication
                     userManager.CreateUser(tbxCreateEmail.Text, tbxCreatePassword.Text, tbxCreateName.Text, employeeType());
                     MessageBox.Show("Account created successfully!");
                 }
-        }
+            }
             catch (Exception error)
             {
                 MessageBox.Show(error.Message);
             }
-}
+        }
     }
 }

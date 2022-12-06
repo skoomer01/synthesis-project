@@ -25,7 +25,6 @@ namespace SharedLibrary.BusinessLayer
 
                 User user = null;
                 SqlDataReader dr = cmd.ExecuteReader();
-
                 while (dr.Read())
                 {
                     user = new User();
@@ -35,6 +34,7 @@ namespace SharedLibrary.BusinessLayer
                     user.EnumUserType = user.SetType(dr.GetString("UserType"));
                     users.Add(user);
                 }
+                conn.Close();
                 return users;
             }
         }
@@ -67,6 +67,7 @@ namespace SharedLibrary.BusinessLayer
                     user.UserId = dr.GetInt32("UserId");
                     user.EnumUserType = user.SetType(dr.GetString("UserType"));
                 }
+                conn.Close();
                 return user;
             }
         }
@@ -85,6 +86,7 @@ namespace SharedLibrary.BusinessLayer
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
+                conn.Close();
             }
         }
 
@@ -110,6 +112,7 @@ namespace SharedLibrary.BusinessLayer
                     user.UserId = ID;
 
                 }
+                conn.Close();
                 return user;
             }
         }
@@ -135,6 +138,7 @@ namespace SharedLibrary.BusinessLayer
                     user.UserName = dr.GetString("UserName");
                     user.UserEmail = email;
                 }
+                conn.Close();
                 return user;
             }
         }
@@ -163,6 +167,7 @@ namespace SharedLibrary.BusinessLayer
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
+                conn.Close();
             }
         }
 
@@ -183,6 +188,7 @@ namespace SharedLibrary.BusinessLayer
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
+                conn.Close();
             }
         }
 
@@ -198,6 +204,7 @@ namespace SharedLibrary.BusinessLayer
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
+                conn.Close();
             }
         }
     }

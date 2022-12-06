@@ -11,6 +11,7 @@ namespace SharedLibrary.BusinessLayer
 {
     public class ProductRepository
     {
+        CategoryRepository categoryRepository = new CategoryRepository();
         public List<Product> GetProducts()
         {
             List<Product> products = new List<Product>();

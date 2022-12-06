@@ -61,6 +61,7 @@
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(156, 23);
             this.tbxPassword.TabIndex = 1;
+            this.tbxPassword.UseSystemPasswordChar = true;
             // 
             // btnLogIn
             // 
@@ -95,6 +96,7 @@
             this.tbxCreatePassword.Name = "tbxCreatePassword";
             this.tbxCreatePassword.Size = new System.Drawing.Size(139, 23);
             this.tbxCreatePassword.TabIndex = 5;
+            this.tbxCreatePassword.UseSystemPasswordChar = true;
             // 
             // tbxCreateName
             // 
@@ -116,7 +118,7 @@
             this.pnlCreateAccount.Controls.Add(this.tbxCreatePassword);
             this.pnlCreateAccount.Controls.Add(this.tbxCreateName);
             this.pnlCreateAccount.Controls.Add(this.tbxCreateEmail);
-            this.pnlCreateAccount.Location = new System.Drawing.Point(238, 112);
+            this.pnlCreateAccount.Location = new System.Drawing.Point(240, 89);
             this.pnlCreateAccount.Name = "pnlCreateAccount";
             this.pnlCreateAccount.Size = new System.Drawing.Size(303, 206);
             this.pnlCreateAccount.TabIndex = 7;
