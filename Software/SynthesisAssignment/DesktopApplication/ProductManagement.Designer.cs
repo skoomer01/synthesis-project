@@ -30,6 +30,7 @@
         {
             this.tabcProductManagement = new System.Windows.Forms.TabControl();
             this.tbpViewAllProducts = new System.Windows.Forms.TabPage();
+            this.label18 = new System.Windows.Forms.Label();
             this.dgvAllProducts = new System.Windows.Forms.DataGridView();
             this.tabpCreateProduct = new System.Windows.Forms.TabPage();
             this.btnAddProduct = new System.Windows.Forms.Button();
@@ -47,6 +48,7 @@
             this.tbxProductName = new System.Windows.Forms.TextBox();
             this.lblAllUsers = new System.Windows.Forms.Label();
             this.tbpEditProduct = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
             this.dgvEditProducts = new System.Windows.Forms.DataGridView();
             this.btnEditProduct = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -55,13 +57,25 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbxEditImage = new System.Windows.Forms.TextBox();
+            this.tbxEditUnit = new System.Windows.Forms.TextBox();
+            this.cbxEditSubCategory = new System.Windows.Forms.ComboBox();
+            this.cbxEditCategory = new System.Windows.Forms.ComboBox();
+            this.tbxEditPrice = new System.Windows.Forms.TextBox();
+            this.tbxEditName = new System.Windows.Forms.TextBox();
             this.tabpCategoryManager = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dgvSubCategory = new System.Windows.Forms.DataGridView();
+            this.btnEditCategory = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tbxEditCategory = new System.Windows.Forms.TextBox();
+            this.btnCreateSubcategory = new System.Windows.Forms.Button();
+            this.btnCreateCategory = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.dgvCategory = new System.Windows.Forms.DataGridView();
+            this.tbxNewSubcategory = new System.Windows.Forms.TextBox();
+            this.tbxNewCataegory = new System.Windows.Forms.TextBox();
             this.lblProductManagerUser = new System.Windows.Forms.Label();
             this.tabcProductManagement.SuspendLayout();
             this.tbpViewAllProducts.SuspendLayout();
@@ -69,6 +83,9 @@
             this.tabpCreateProduct.SuspendLayout();
             this.tbpEditProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEditProducts)).BeginInit();
+            this.tabpCategoryManager.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // tabcProductManagement
@@ -85,6 +102,7 @@
             // 
             // tbpViewAllProducts
             // 
+            this.tbpViewAllProducts.Controls.Add(this.label18);
             this.tbpViewAllProducts.Controls.Add(this.dgvAllProducts);
             this.tbpViewAllProducts.Location = new System.Drawing.Point(4, 24);
             this.tbpViewAllProducts.Name = "tbpViewAllProducts";
@@ -93,12 +111,23 @@
             this.tbpViewAllProducts.Text = "View all  Products";
             this.tbpViewAllProducts.UseVisualStyleBackColor = true;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label18.Location = new System.Drawing.Point(4, 13);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(225, 21);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "View all products in the system";
+            // 
             // dgvAllProducts
             // 
             this.dgvAllProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAllProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAllProducts.Location = new System.Drawing.Point(4, 58);
             this.dgvAllProducts.Name = "dgvAllProducts";
+            this.dgvAllProducts.ReadOnly = true;
             this.dgvAllProducts.RowTemplate.Height = 25;
             this.dgvAllProducts.Size = new System.Drawing.Size(1132, 438);
             this.dgvAllProducts.TabIndex = 0;
@@ -129,9 +158,9 @@
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(443, 332);
+            this.btnAddProduct.Location = new System.Drawing.Point(397, 337);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(258, 23);
+            this.btnAddProduct.Size = new System.Drawing.Size(317, 23);
             this.btnAddProduct.TabIndex = 18;
             this.btnAddProduct.Text = "Add new Product to the System";
             this.btnAddProduct.UseVisualStyleBackColor = true;
@@ -140,7 +169,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(443, 280);
+            this.label6.Location = new System.Drawing.Point(397, 285);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 15);
             this.label6.TabIndex = 17;
@@ -149,7 +178,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(443, 251);
+            this.label5.Location = new System.Drawing.Point(397, 256);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(122, 15);
             this.label5.TabIndex = 16;
@@ -158,7 +187,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(443, 222);
+            this.label4.Location = new System.Drawing.Point(397, 227);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 15);
             this.label4.TabIndex = 15;
@@ -167,7 +196,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(443, 193);
+            this.label3.Location = new System.Drawing.Point(397, 198);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 15);
             this.label3.TabIndex = 14;
@@ -176,7 +205,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(443, 164);
+            this.label2.Location = new System.Drawing.Point(397, 169);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 15);
             this.label2.TabIndex = 13;
@@ -185,7 +214,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(443, 135);
+            this.label1.Location = new System.Drawing.Point(397, 140);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 15);
             this.label1.TabIndex = 12;
@@ -193,53 +222,54 @@
             // 
             // tbxImage
             // 
-            this.tbxImage.Location = new System.Drawing.Point(580, 277);
+            this.tbxImage.Location = new System.Drawing.Point(534, 282);
             this.tbxImage.Name = "tbxImage";
-            this.tbxImage.Size = new System.Drawing.Size(121, 23);
+            this.tbxImage.Size = new System.Drawing.Size(180, 23);
             this.tbxImage.TabIndex = 11;
             // 
             // tbxUnit
             // 
-            this.tbxUnit.Location = new System.Drawing.Point(580, 248);
+            this.tbxUnit.Location = new System.Drawing.Point(534, 253);
             this.tbxUnit.Name = "tbxUnit";
-            this.tbxUnit.Size = new System.Drawing.Size(121, 23);
+            this.tbxUnit.Size = new System.Drawing.Size(180, 23);
             this.tbxUnit.TabIndex = 10;
             // 
             // cbxSubCategory
             // 
             this.cbxSubCategory.FormattingEnabled = true;
-            this.cbxSubCategory.Location = new System.Drawing.Point(580, 190);
+            this.cbxSubCategory.Location = new System.Drawing.Point(534, 195);
             this.cbxSubCategory.Name = "cbxSubCategory";
-            this.cbxSubCategory.Size = new System.Drawing.Size(121, 23);
+            this.cbxSubCategory.Size = new System.Drawing.Size(180, 23);
             this.cbxSubCategory.TabIndex = 9;
             // 
             // cbxCategory
             // 
             this.cbxCategory.FormattingEnabled = true;
-            this.cbxCategory.Location = new System.Drawing.Point(580, 161);
+            this.cbxCategory.Location = new System.Drawing.Point(534, 166);
             this.cbxCategory.Name = "cbxCategory";
-            this.cbxCategory.Size = new System.Drawing.Size(121, 23);
+            this.cbxCategory.Size = new System.Drawing.Size(180, 23);
             this.cbxCategory.TabIndex = 8;
+            this.cbxCategory.SelectedIndexChanged += new System.EventHandler(this.cbxCategory_SelectedIndexChanged);
             // 
             // tbxPrice
             // 
-            this.tbxPrice.Location = new System.Drawing.Point(580, 219);
+            this.tbxPrice.Location = new System.Drawing.Point(534, 224);
             this.tbxPrice.Name = "tbxPrice";
-            this.tbxPrice.Size = new System.Drawing.Size(121, 23);
+            this.tbxPrice.Size = new System.Drawing.Size(180, 23);
             this.tbxPrice.TabIndex = 7;
             // 
             // tbxProductName
             // 
-            this.tbxProductName.Location = new System.Drawing.Point(580, 132);
+            this.tbxProductName.Location = new System.Drawing.Point(534, 137);
             this.tbxProductName.Name = "tbxProductName";
-            this.tbxProductName.Size = new System.Drawing.Size(121, 23);
+            this.tbxProductName.Size = new System.Drawing.Size(180, 23);
             this.tbxProductName.TabIndex = 4;
             // 
             // lblAllUsers
             // 
             this.lblAllUsers.AutoSize = true;
             this.lblAllUsers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblAllUsers.Location = new System.Drawing.Point(18, 32);
+            this.lblAllUsers.Location = new System.Drawing.Point(6, 13);
             this.lblAllUsers.Name = "lblAllUsers";
             this.lblAllUsers.Size = new System.Drawing.Size(238, 21);
             this.lblAllUsers.TabIndex = 3;
@@ -247,6 +277,7 @@
             // 
             // tbpEditProduct
             // 
+            this.tbpEditProduct.Controls.Add(this.label16);
             this.tbpEditProduct.Controls.Add(this.dgvEditProducts);
             this.tbpEditProduct.Controls.Add(this.btnEditProduct);
             this.tbpEditProduct.Controls.Add(this.label7);
@@ -255,12 +286,12 @@
             this.tbpEditProduct.Controls.Add(this.label10);
             this.tbpEditProduct.Controls.Add(this.label11);
             this.tbpEditProduct.Controls.Add(this.label12);
-            this.tbpEditProduct.Controls.Add(this.textBox1);
-            this.tbpEditProduct.Controls.Add(this.textBox2);
-            this.tbpEditProduct.Controls.Add(this.comboBox1);
-            this.tbpEditProduct.Controls.Add(this.comboBox2);
-            this.tbpEditProduct.Controls.Add(this.textBox3);
-            this.tbpEditProduct.Controls.Add(this.textBox4);
+            this.tbpEditProduct.Controls.Add(this.tbxEditImage);
+            this.tbpEditProduct.Controls.Add(this.tbxEditUnit);
+            this.tbpEditProduct.Controls.Add(this.cbxEditSubCategory);
+            this.tbpEditProduct.Controls.Add(this.cbxEditCategory);
+            this.tbpEditProduct.Controls.Add(this.tbxEditPrice);
+            this.tbpEditProduct.Controls.Add(this.tbxEditName);
             this.tbpEditProduct.Location = new System.Drawing.Point(4, 24);
             this.tbpEditProduct.Name = "tbpEditProduct";
             this.tbpEditProduct.Padding = new System.Windows.Forms.Padding(3);
@@ -268,6 +299,16 @@
             this.tbpEditProduct.TabIndex = 1;
             this.tbpEditProduct.Text = "Edit Product";
             this.tbpEditProduct.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label16.Location = new System.Drawing.Point(6, 13);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(289, 21);
+            this.label16.TabIndex = 33;
+            this.label16.Text = "Edit an existing product from the system";
             // 
             // dgvEditProducts
             // 
@@ -278,6 +319,7 @@
             this.dgvEditProducts.RowTemplate.Height = 25;
             this.dgvEditProducts.Size = new System.Drawing.Size(1132, 186);
             this.dgvEditProducts.TabIndex = 32;
+            this.dgvEditProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEditProducts_CellClick);
             // 
             // btnEditProduct
             // 
@@ -287,6 +329,7 @@
             this.btnEditProduct.TabIndex = 31;
             this.btnEditProduct.Text = "Edit product from the system";
             this.btnEditProduct.UseVisualStyleBackColor = true;
+            this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
             // 
             // label7
             // 
@@ -342,58 +385,180 @@
             this.label12.TabIndex = 25;
             this.label12.Text = "Product Name:";
             // 
-            // textBox1
+            // tbxEditImage
             // 
-            this.textBox1.Location = new System.Drawing.Point(569, 402);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 23);
-            this.textBox1.TabIndex = 24;
+            this.tbxEditImage.Location = new System.Drawing.Point(569, 402);
+            this.tbxEditImage.Name = "tbxEditImage";
+            this.tbxEditImage.Size = new System.Drawing.Size(121, 23);
+            this.tbxEditImage.TabIndex = 24;
             // 
-            // textBox2
+            // tbxEditUnit
             // 
-            this.textBox2.Location = new System.Drawing.Point(569, 373);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 23);
-            this.textBox2.TabIndex = 23;
+            this.tbxEditUnit.Location = new System.Drawing.Point(569, 373);
+            this.tbxEditUnit.Name = "tbxEditUnit";
+            this.tbxEditUnit.Size = new System.Drawing.Size(121, 23);
+            this.tbxEditUnit.TabIndex = 23;
             // 
-            // comboBox1
+            // cbxEditSubCategory
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(569, 315);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 22;
+            this.cbxEditSubCategory.FormattingEnabled = true;
+            this.cbxEditSubCategory.Location = new System.Drawing.Point(569, 315);
+            this.cbxEditSubCategory.Name = "cbxEditSubCategory";
+            this.cbxEditSubCategory.Size = new System.Drawing.Size(121, 23);
+            this.cbxEditSubCategory.TabIndex = 22;
             // 
-            // comboBox2
+            // cbxEditCategory
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(569, 286);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
-            this.comboBox2.TabIndex = 21;
+            this.cbxEditCategory.FormattingEnabled = true;
+            this.cbxEditCategory.Location = new System.Drawing.Point(569, 286);
+            this.cbxEditCategory.Name = "cbxEditCategory";
+            this.cbxEditCategory.Size = new System.Drawing.Size(121, 23);
+            this.cbxEditCategory.TabIndex = 21;
+            this.cbxEditCategory.SelectedIndexChanged += new System.EventHandler(this.cbxEditCategory_SelectedIndexChanged);
             // 
-            // textBox3
+            // tbxEditPrice
             // 
-            this.textBox3.Location = new System.Drawing.Point(569, 344);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 23);
-            this.textBox3.TabIndex = 20;
+            this.tbxEditPrice.Location = new System.Drawing.Point(569, 344);
+            this.tbxEditPrice.Name = "tbxEditPrice";
+            this.tbxEditPrice.Size = new System.Drawing.Size(121, 23);
+            this.tbxEditPrice.TabIndex = 20;
             // 
-            // textBox4
+            // tbxEditName
             // 
-            this.textBox4.Location = new System.Drawing.Point(569, 257);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(121, 23);
-            this.textBox4.TabIndex = 19;
+            this.tbxEditName.Location = new System.Drawing.Point(569, 257);
+            this.tbxEditName.Name = "tbxEditName";
+            this.tbxEditName.Size = new System.Drawing.Size(121, 23);
+            this.tbxEditName.TabIndex = 19;
             // 
             // tabpCategoryManager
             // 
+            this.tabpCategoryManager.Controls.Add(this.label17);
+            this.tabpCategoryManager.Controls.Add(this.dgvSubCategory);
+            this.tabpCategoryManager.Controls.Add(this.btnEditCategory);
+            this.tabpCategoryManager.Controls.Add(this.label15);
+            this.tabpCategoryManager.Controls.Add(this.tbxEditCategory);
+            this.tabpCategoryManager.Controls.Add(this.btnCreateSubcategory);
+            this.tabpCategoryManager.Controls.Add(this.btnCreateCategory);
+            this.tabpCategoryManager.Controls.Add(this.label14);
+            this.tabpCategoryManager.Controls.Add(this.label13);
+            this.tabpCategoryManager.Controls.Add(this.dgvCategory);
+            this.tabpCategoryManager.Controls.Add(this.tbxNewSubcategory);
+            this.tabpCategoryManager.Controls.Add(this.tbxNewCataegory);
             this.tabpCategoryManager.Location = new System.Drawing.Point(4, 24);
             this.tabpCategoryManager.Name = "tabpCategoryManager";
             this.tabpCategoryManager.Size = new System.Drawing.Size(1139, 499);
             this.tabpCategoryManager.TabIndex = 3;
             this.tabpCategoryManager.Text = "Category Manager";
             this.tabpCategoryManager.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label17.Location = new System.Drawing.Point(4, 15);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(207, 21);
+            this.label17.TabIndex = 34;
+            this.label17.Text = "Category management page";
+            // 
+            // dgvSubCategory
+            // 
+            this.dgvSubCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSubCategory.Location = new System.Drawing.Point(543, 258);
+            this.dgvSubCategory.Name = "dgvSubCategory";
+            this.dgvSubCategory.RowTemplate.Height = 25;
+            this.dgvSubCategory.Size = new System.Drawing.Size(409, 125);
+            this.dgvSubCategory.TabIndex = 10;
+            this.dgvSubCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubCategory_CellClick);
+            // 
+            // btnEditCategory
+            // 
+            this.btnEditCategory.Location = new System.Drawing.Point(203, 339);
+            this.btnEditCategory.Name = "btnEditCategory";
+            this.btnEditCategory.Size = new System.Drawing.Size(177, 23);
+            this.btnEditCategory.TabIndex = 9;
+            this.btnEditCategory.Text = "Edit";
+            this.btnEditCategory.UseVisualStyleBackColor = true;
+            this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(203, 292);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(224, 15);
+            this.label15.TabIndex = 8;
+            this.label15.Text = "Edit an existing Category or Subcategory:";
+            // 
+            // tbxEditCategory
+            // 
+            this.tbxEditCategory.Location = new System.Drawing.Point(203, 310);
+            this.tbxEditCategory.Name = "tbxEditCategory";
+            this.tbxEditCategory.Size = new System.Drawing.Size(177, 23);
+            this.tbxEditCategory.TabIndex = 7;
+            // 
+            // btnCreateSubcategory
+            // 
+            this.btnCreateSubcategory.Location = new System.Drawing.Point(203, 258);
+            this.btnCreateSubcategory.Name = "btnCreateSubcategory";
+            this.btnCreateSubcategory.Size = new System.Drawing.Size(177, 23);
+            this.btnCreateSubcategory.TabIndex = 6;
+            this.btnCreateSubcategory.Text = "Create a subcategory";
+            this.btnCreateSubcategory.UseVisualStyleBackColor = true;
+            this.btnCreateSubcategory.Click += new System.EventHandler(this.btnCreateSubcategory_Click);
+            // 
+            // btnCreateCategory
+            // 
+            this.btnCreateCategory.Location = new System.Drawing.Point(203, 151);
+            this.btnCreateCategory.Name = "btnCreateCategory";
+            this.btnCreateCategory.Size = new System.Drawing.Size(177, 23);
+            this.btnCreateCategory.TabIndex = 5;
+            this.btnCreateCategory.Text = "Create a category";
+            this.btnCreateCategory.UseVisualStyleBackColor = true;
+            this.btnCreateCategory.Click += new System.EventHandler(this.btnCreateCategory_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(203, 196);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(232, 30);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Add a new subcategory for a category\r\nFirst select an existing category to add it" +
+    " to\r\n";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(203, 104);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(203, 15);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Add a new category for the products:";
+            // 
+            // dgvCategory
+            // 
+            this.dgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategory.Location = new System.Drawing.Point(543, 101);
+            this.dgvCategory.Name = "dgvCategory";
+            this.dgvCategory.RowTemplate.Height = 25;
+            this.dgvCategory.Size = new System.Drawing.Size(409, 125);
+            this.dgvCategory.TabIndex = 2;
+            this.dgvCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategory_CellClick);
+            // 
+            // tbxNewSubcategory
+            // 
+            this.tbxNewSubcategory.Location = new System.Drawing.Point(203, 229);
+            this.tbxNewSubcategory.Name = "tbxNewSubcategory";
+            this.tbxNewSubcategory.Size = new System.Drawing.Size(177, 23);
+            this.tbxNewSubcategory.TabIndex = 1;
+            // 
+            // tbxNewCataegory
+            // 
+            this.tbxNewCataegory.Location = new System.Drawing.Point(203, 122);
+            this.tbxNewCataegory.Name = "tbxNewCataegory";
+            this.tbxNewCataegory.Size = new System.Drawing.Size(177, 23);
+            this.tbxNewCataegory.TabIndex = 0;
             // 
             // lblProductManagerUser
             // 
@@ -417,12 +582,17 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProductManagement_FormClosed);
             this.tabcProductManagement.ResumeLayout(false);
             this.tbpViewAllProducts.ResumeLayout(false);
+            this.tbpViewAllProducts.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllProducts)).EndInit();
             this.tabpCreateProduct.ResumeLayout(false);
             this.tabpCreateProduct.PerformLayout();
             this.tbpEditProduct.ResumeLayout(false);
             this.tbpEditProduct.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEditProducts)).EndInit();
+            this.tabpCategoryManager.ResumeLayout(false);
+            this.tabpCategoryManager.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,11 +629,25 @@
         private Label label10;
         private Label label11;
         private Label label12;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox tbxEditImage;
+        private TextBox tbxEditUnit;
+        private ComboBox cbxEditSubCategory;
+        private ComboBox cbxEditCategory;
+        private TextBox tbxEditPrice;
+        private TextBox tbxEditName;
+        private Label label18;
+        private Label label16;
+        private Label label17;
+        private DataGridView dgvSubCategory;
+        private Button btnEditCategory;
+        private Label label15;
+        private TextBox tbxEditCategory;
+        private Button btnCreateSubcategory;
+        private Button btnCreateCategory;
+        private Label label14;
+        private Label label13;
+        private DataGridView dgvCategory;
+        private TextBox tbxNewSubcategory;
+        private TextBox tbxNewCataegory;
     }
 }

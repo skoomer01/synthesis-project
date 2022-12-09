@@ -26,17 +26,18 @@ namespace LogicLayer
         public int Id { get; set; }
         [DisplayName("Product Name")]
         public string Name { get; set; }
-        [DisplayName("Category")]
         public Category Category { get; set; }
-        [DisplayName("Sub-Category")]
+        [DisplayName("Category")]
+        public string CategoryName { get { return Category.Name; } }
         public Category SubCategory { get; set; }
+        [DisplayName("Sub-category")]
+        public string SubCategoryName { get { return SubCategory.Name; } }
         [DisplayName("Price")]
         public decimal Price { get; set; }
         [DisplayName("Unit")]
         public string Unit { get; set; }
         [DisplayName("Image Link")]
         public string ProductImage { get; set; }
-
         public override string ToString()
         {
             return $"{Id}, {Name}, {Category.Name}, {SubCategory.Name}, {Price}, {Unit}, {ProductImage} ";

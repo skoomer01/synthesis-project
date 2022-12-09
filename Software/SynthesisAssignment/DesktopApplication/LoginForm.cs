@@ -14,8 +14,8 @@ namespace DesktopApplication
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             User user = new User();
-            //try
-            //{
+            try
+            {
                 if (EmailValidation.IsValidEmail(tbxEmail.Text) == true)
                 {
                     user = loginManager.Login(tbxEmail.Text, tbxPassword.Text);
@@ -54,17 +54,12 @@ namespace DesktopApplication
                     }
 
                 }
-                else
-                {
-                    throw new Exception("Invalid Credentials");
-                }
-
-            //}
-            //catch (Exception error)
-            //{
-            //    MessageBox.Show(error.Message);
-            //}
-        }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+}
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
@@ -97,19 +92,11 @@ namespace DesktopApplication
         {
             try
             {
-                if (tbxCreateName.Text != String.Empty &&
-                    tbxCreateEmail.Text != String.Empty &&
-                    tbxCreatePassword.Text != String.Empty)
+                if(userManager.CreateUser(tbxCreateEmail.Text, tbxCreatePassword.Text, tbxCreateName.Text, employeeType()) == true)
                 {
-
-                    if (EmailValidation.IsValidEmail(tbxCreateEmail.Text) == false)
-                    {
-                        throw new Exception("Invalid email\nExample: john.doe@email.com");
-                    }
-
-                    userManager.CreateUser(tbxCreateEmail.Text, tbxCreatePassword.Text, tbxCreateName.Text, employeeType());
-                    MessageBox.Show("Account created successfully!");
+                    MessageBox.Show("New account successfully created");
                 }
+                else { MessageBox.Show("Invalid creditentials");}
             }
             catch (Exception error)
             {

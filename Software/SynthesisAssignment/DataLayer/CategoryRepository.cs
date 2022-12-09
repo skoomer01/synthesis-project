@@ -39,16 +39,45 @@ namespace DataLayer
             }
         }
 
+        public List<CategoryDTO> GetSubCategories()
+        {
+            List<CategoryDTO> categories = new List<CategoryDTO>();
+            using (SqlConnection conn = DatabaseConnection.CreateConnection())
+            {
+                string sql = @"select * 
+                               from s_Category
+                               where Parent_Id is not null";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                conn.Open();
+
+                CategoryDTO category = null;
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    category = new CategoryDTO();
+                    category.Id = dr.GetInt32("Id");
+                    category.Name = dr.GetString("Name");
+                    category.ParentId = dr.GetInt32("Parent_Id");
+
+                    categories.Add(category);
+                }
+                conn.Close();
+                return categories;
+            }
+        }
+
         public List<CategoryDTO> GetSubCategories(int id)
         {
             List<CategoryDTO> categories = new List<CategoryDTO>();
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
-                string sql = @" Select sc.Id, sc1.[Name]
+                string sql = @"   Select sc1.Id, sc1.[Name], sc1.Parent_Id
                                 from s_Category sc
                                 join s_Category sc1
                                 on sc.Id = sc1.Parent_Id
-                                where sc.Id = @id";
+                                where sc1.Parent_Id = @id";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("id", id);
@@ -62,6 +91,7 @@ namespace DataLayer
                     category = new CategoryDTO();
                     category.Id = dr.GetInt32("Id");
                     category.Name = dr.GetString("Name");
+                    category.ParentId = dr.GetInt32("Parent_Id");
 
                     categories.Add(category);
                 }
@@ -134,19 +164,17 @@ namespace DataLayer
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
-                if(parent != null)
-                {
-                    string sql = @"INSERT INTO s_Category([Name], Parent_Id)
-                                            VALUES(@Name,@id);";
+                string sql = @"INSERT INTO s_Category([Name], Parent_Id)
+                                        VALUES(@Name,@id);";
 
-                    SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("Name", name);
-                    cmd.Parameters.AddWithValue("id", parent);
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("Name", name);
+                if(parent != null) { cmd.Parameters.AddWithValue("id", parent); }
+                else { cmd.Parameters.AddWithValue("id", DBNull.Value); }
 
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                }
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();              
             }
         }
 

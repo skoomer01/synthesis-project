@@ -28,14 +28,52 @@ namespace LogicLayer
             return products;
         }
 
-        public void AddProduct(string name, string category, string subcategory, decimal price, string unit, string productImage)
+        public bool AddProduct(string name, string category, string subcategory, string price, string unit, string productImage)
         {
-            productRepository.CreateProduct(name, category, subcategory, price, unit, productImage);
+            if (name != String.Empty &&
+                    price != String.Empty &&
+                    unit != String.Empty &&
+                    category != String.Empty &&
+                    subcategory != String.Empty)
+            {
+                decimal tryPrice;
+                if (Decimal.TryParse(price, out tryPrice))
+                {
+                    productRepository.CreateProduct(name, category, subcategory,Convert.ToDecimal(price), unit, productImage);
+                    return true;
+                }
+                else
+                {
+                    throw new Exception("Invalid price format. Should be in 0,00 format.");
+                }
+
+            }
+            else { throw new Exception("Please fill in all blanks."); }
+            
         }
 
-        public void UpdateProduct(int id, string name, string category, string subcategory, decimal price, string unit, string productImage)
+        public bool UpdateProduct(int id, string name, string category, string subcategory, string price, string unit, string productImage)
         {
-            productRepository.UpdateProduct(id, name, category, subcategory, price, unit, productImage);
+            if (name != String.Empty &&
+                    category != String.Empty &&
+                    subcategory != String.Empty &&
+                    price != String.Empty &&
+                    unit != String.Empty)
+            {
+                decimal tryPrice;
+                if (Decimal.TryParse(price, out tryPrice))
+                {
+                    productRepository.UpdateProduct(id, name, category, subcategory, Convert.ToDecimal(price), unit, productImage);
+                    return true;
+                }
+                else
+                {
+                    throw new Exception("The price should be in format 0,00.");
+                }
+
+            }
+            else { throw new Exception("Please fill in all fields."); }
+            
         }
 
         public Product GetProduct(int id)

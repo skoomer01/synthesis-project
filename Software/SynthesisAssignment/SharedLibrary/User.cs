@@ -14,6 +14,7 @@ namespace LogicLayer
         {
 
         }
+
         public User(UserDTO userDTO)
         {
             UserId = userDTO.UserId;

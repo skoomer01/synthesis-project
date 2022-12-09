@@ -9,9 +9,14 @@ namespace LogicLayer
 {
     public class CategoryManager
     {
-        CategoryRepository categoryRepository = new CategoryRepository();
-
-
+        private CategoryRepository categoryRepository = new CategoryRepository();
+        public List<Category> SubCategoriesList { get; set; }
+        public List<Category> CategoryList { get; set; }
+        public CategoryManager()
+        {
+            this.CategoryList = GetAllCategories();
+            this.SubCategoriesList = GetAllSubCategories();
+        }
         public void CreateCategory(string name, int? parent)
         {
             categoryRepository.CreateCategory(name, parent);
@@ -26,10 +31,21 @@ namespace LogicLayer
             }
             return categories;
         }
-        public List<Category> GetSubCAtegories(int id)
+        public List<Category> GetSubCategories(int id)
         {
             List<Category> subcategories = new List<Category>();
             foreach (CategoryDTO categoryDTO in categoryRepository.GetSubCategories(id))
+            {
+                Category category = new Category(categoryDTO);
+                subcategories.Add(category);
+            }
+            return subcategories;
+        }
+
+        public List<Category> GetAllSubCategories()
+        {
+            List<Category> subcategories = new List<Category>();
+            foreach (CategoryDTO categoryDTO in categoryRepository.GetSubCategories())
             {
                 Category category = new Category(categoryDTO);
                 subcategories.Add(category);

@@ -11,9 +11,17 @@ namespace LogicLayer
     {
         UserRepository userRepository = new UserRepository();
         public User Login(string email, string password)
-        {
-            User user =new User( userRepository.FindUser(email, password));
-            return user;
+        {  
+            if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            {
+                throw new Exception("Please fill in all blanks.");
+            }
+            else
+            {
+                UserDTO userDTO = userRepository.FindUser(email, password);
+                if (userDTO != null) { User user = new User(userDTO); return user; }
+                else { throw new Exception("Wrong password."); }
+            }            
         }
     }
 }

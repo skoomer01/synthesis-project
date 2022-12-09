@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "WebsiteApplication/1.0.0": {
         "dependencies": {
-          "SharedLibrary": "1.0.0",
+          "DataLayer": "1.0.0",
+          "LogicLayer": "1.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
         "runtime": {
@@ -90,12 +91,20 @@
         }
       },
       "System.Security.Principal.Windows/4.7.0": {},
-      "SharedLibrary/1.0.0": {
+      "DataLayer/1.0.0": {
         "dependencies": {
           "System.Data.SqlClient": "4.8.5"
         },
         "runtime": {
-          "SharedLibrary.dll": {}
+          "DataLayer.dll": {}
+        }
+      },
+      "LogicLayer/1.0.0": {
+        "dependencies": {
+          "DataLayer": "1.0.0"
+        },
+        "runtime": {
+          "LogicLayer.dll": {}
         }
       }
     }
@@ -169,7 +178,12 @@
       "path": "system.security.principal.windows/4.7.0",
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
     },
-    "SharedLibrary/1.0.0": {
+    "DataLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LogicLayer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
