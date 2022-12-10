@@ -77,6 +77,9 @@
             this.tbxNewSubcategory = new System.Windows.Forms.TextBox();
             this.tbxNewCataegory = new System.Windows.Forms.TextBox();
             this.lblProductManagerUser = new System.Windows.Forms.Label();
+            this.btnEditSubCategory = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.tbxEditSubCategory = new System.Windows.Forms.TextBox();
             this.tabcProductManagement.SuspendLayout();
             this.tbpViewAllProducts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllProducts)).BeginInit();
@@ -316,6 +319,7 @@
             this.dgvEditProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEditProducts.Location = new System.Drawing.Point(3, 52);
             this.dgvEditProducts.Name = "dgvEditProducts";
+            this.dgvEditProducts.ReadOnly = true;
             this.dgvEditProducts.RowTemplate.Height = 25;
             this.dgvEditProducts.Size = new System.Drawing.Size(1132, 186);
             this.dgvEditProducts.TabIndex = 32;
@@ -432,6 +436,9 @@
             // 
             // tabpCategoryManager
             // 
+            this.tabpCategoryManager.Controls.Add(this.btnEditSubCategory);
+            this.tabpCategoryManager.Controls.Add(this.label19);
+            this.tabpCategoryManager.Controls.Add(this.tbxEditSubCategory);
             this.tabpCategoryManager.Controls.Add(this.label17);
             this.tabpCategoryManager.Controls.Add(this.dgvSubCategory);
             this.tabpCategoryManager.Controls.Add(this.btnEditCategory);
@@ -463,9 +470,11 @@
             // 
             // dgvSubCategory
             // 
+            this.dgvSubCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSubCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubCategory.Location = new System.Drawing.Point(543, 258);
             this.dgvSubCategory.Name = "dgvSubCategory";
+            this.dgvSubCategory.ReadOnly = true;
             this.dgvSubCategory.RowTemplate.Height = 25;
             this.dgvSubCategory.Size = new System.Drawing.Size(409, 125);
             this.dgvSubCategory.TabIndex = 10;
@@ -486,9 +495,9 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(203, 292);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(224, 15);
+            this.label15.Size = new System.Drawing.Size(141, 15);
             this.label15.TabIndex = 8;
-            this.label15.Text = "Edit an existing Category or Subcategory:";
+            this.label15.Text = "Edit an existing Category:\r\n";
             // 
             // tbxEditCategory
             // 
@@ -538,9 +547,11 @@
             // 
             // dgvCategory
             // 
+            this.dgvCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategory.Location = new System.Drawing.Point(543, 101);
             this.dgvCategory.Name = "dgvCategory";
+            this.dgvCategory.ReadOnly = true;
             this.dgvCategory.RowTemplate.Height = 25;
             this.dgvCategory.Size = new System.Drawing.Size(409, 125);
             this.dgvCategory.TabIndex = 2;
@@ -569,6 +580,32 @@
             this.lblProductManagerUser.Size = new System.Drawing.Size(282, 32);
             this.lblProductManagerUser.TabIndex = 1;
             this.lblProductManagerUser.Text = "Welcome, <UserName>!";
+            // 
+            // btnEditSubCategory
+            // 
+            this.btnEditSubCategory.Location = new System.Drawing.Point(203, 432);
+            this.btnEditSubCategory.Name = "btnEditSubCategory";
+            this.btnEditSubCategory.Size = new System.Drawing.Size(177, 23);
+            this.btnEditSubCategory.TabIndex = 37;
+            this.btnEditSubCategory.Text = "Edit";
+            this.btnEditSubCategory.UseVisualStyleBackColor = true;
+            this.btnEditSubCategory.Click += new System.EventHandler(this.btnEditSubCategory_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(203, 385);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(159, 15);
+            this.label19.TabIndex = 36;
+            this.label19.Text = "Edit an existing Subcategory:";
+            // 
+            // tbxEditSubCategory
+            // 
+            this.tbxEditSubCategory.Location = new System.Drawing.Point(203, 403);
+            this.tbxEditSubCategory.Name = "tbxEditSubCategory";
+            this.tbxEditSubCategory.Size = new System.Drawing.Size(177, 23);
+            this.tbxEditSubCategory.TabIndex = 35;
             // 
             // ProductManagement
             // 
@@ -649,5 +686,8 @@
         private DataGridView dgvCategory;
         private TextBox tbxNewSubcategory;
         private TextBox tbxNewCataegory;
+        private Button btnEditSubCategory;
+        private Label label19;
+        private TextBox tbxEditSubCategory;
     }
 }

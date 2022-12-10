@@ -5,6 +5,18 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1>Welcome to our the online webshop</h1>
+    <div class="loggedin">
+        @if(Model.UserID != null)
+        {
+            <p>Welcome @Model.Username! Browse our catalogue and discover our most popular picks! </p>
+        }
+        else
+        {
+            <p>Oops, you are not logged in! You don't know what you are missing...</p>
+        }
+    </div>
+    <div class="mostpopular">
+
+    </div>
 </div>

@@ -19,7 +19,11 @@ namespace LogicLayer
         }
         public void CreateCategory(string name, int? parent)
         {
-            categoryRepository.CreateCategory(name, parent);
+            if(GetCategoryByName(name) != null)
+            {
+                throw new Exception("Category of that name already exists.");
+            }
+            else { categoryRepository.CreateCategory(name, parent);}
         }
         public List<Category> GetAllCategories()
         {
@@ -57,5 +61,42 @@ namespace LogicLayer
             categoryRepository.DeleteCategory(id);
         }
 
+        public Category GetCategoryByName(string name)
+        {
+            if(name == String.Empty!)
+            {
+                CategoryDTO categoryDTO = categoryRepository.GetCategoryByName(name);
+                if (categoryDTO != null)
+                {
+                    Category c = new Category(categoryDTO);
+                    return c;
+                }
+            }
+            return null;
+        }
+
+        public bool UpdateCategory(int id, string name)
+        {
+            if(name != String.Empty)
+            {
+                categoryRepository.UpdateCategory(id, name);
+                return true;
+            }
+            return false;
+        }
+        public void UpdateProductSubCategory(string newname, string oldname)
+        {
+            if(oldname != String.Empty && newname != String.Empty)
+            {
+                categoryRepository.UpdateProductSubCategory(newname, oldname);
+            }
+        }
+        public void UpdateProductCategory(string newname, string oldname)
+        {
+            if (oldname != String.Empty && newname != String.Empty)
+            {
+                categoryRepository.UpdateProductCategory(newname, oldname);
+            }
+        }
     }
 }

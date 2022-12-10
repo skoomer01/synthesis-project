@@ -5,6 +5,8 @@ namespace WebsiteApplication.Pages
 {
     public class IndexModel : PageModel
     {
+        public int? UserID { get; set; }
+        public string Username { get; set; }
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger)

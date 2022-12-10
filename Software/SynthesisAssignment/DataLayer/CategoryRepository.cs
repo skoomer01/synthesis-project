@@ -100,15 +100,15 @@ namespace DataLayer
             }
         }
 
-        public void UpdateCategory(CategoryDTO category)
+        public void UpdateCategory(int id, string name)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
                 string sql = "UPDATE s_Category SET [Name]=@Name WHERE Id=@Id";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
-                cmd.Parameters.AddWithValue("Id", category.Id);
-                cmd.Parameters.AddWithValue("Name", category.Name);
+                cmd.Parameters.AddWithValue("Id", id);
+                cmd.Parameters.AddWithValue("Name", name);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -116,16 +116,31 @@ namespace DataLayer
             }
         }
 
-        public void UpdateSubCategory(CategoryDTO category)
+        public void UpdateProductSubCategory(string newname, string oldname)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
-                string sql = "UPDATE s_Category SET [Name]=@Name, Parent_Id = @ParentID WHERE Id=@Id";
+                string sql = "UPDATE s_Product SET SubCategory=@NewSubCategory WHERE SubCategory=@OldSubCategory";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
-                cmd.Parameters.AddWithValue("Id", category.Id);
-                cmd.Parameters.AddWithValue("Name", category.Name);
-                cmd.Parameters.AddWithValue("ParentID", category.ParentId);
+                cmd.Parameters.AddWithValue("NewSubCategory", newname);
+                cmd.Parameters.AddWithValue("OldSubCategory", oldname);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+        }
+
+        public void UpdateProductCategory(string newname, string oldname)
+        {
+            using (SqlConnection conn = DatabaseConnection.CreateConnection())
+            {
+                string sql = "UPDATE s_Product SET Category=@NewCategory WHERE Category=@OldCategory";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("NewCategory", newname);
+                cmd.Parameters.AddWithValue("OldCategory", oldname);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();

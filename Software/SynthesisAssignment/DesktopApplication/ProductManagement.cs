@@ -186,7 +186,7 @@ namespace DesktopApplication
                     DataGridViewRow row = dgvCategory.Rows[index];
                     categoryID = Convert.ToInt32(row.Cells[0].Value.ToString());
                     categoryManager.CreateCategory(tbxNewSubcategory.Text, categoryID);
-                    MessageBox.Show("SubCategory added successfully!");
+                    MessageBox.Show("Sub-Category added successfully!");
 
                 }
                 else { MessageBox.Show("Please fill the field first."); }
@@ -199,7 +199,19 @@ namespace DesktopApplication
 
         private void btnEditCategory_Click(object sender, EventArgs e)
         {
-            
+             Category category = dgvCategory.CurrentRow.DataBoundItem as Category;
+
+            Category c =  categoryManager.GetCategoryByName(tbxEditCategory.Text);
+            if(c == null)
+            {
+                if (categoryManager.UpdateCategory(category.Id,tbxEditCategory.Text) == true)
+                {
+                    categoryManager.UpdateProductCategory(tbxEditCategory.Text, category.Name);
+                    MessageBox.Show("Category updated successfully");
+                }
+                else { MessageBox.Show("Oops, something went wrong.");}
+            }
+            else { MessageBox.Show("Category by that name already exists.");}           
         }
 
         private void dgvCategory_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -224,8 +236,26 @@ namespace DesktopApplication
 
             foreach (Category category in categoryManager.GetAllSubCategories())
             {
-                if (category.Id == subcategoryID) { tbxEditCategory.Text = category.Name; }
+                if (category.Id == subcategoryID) { tbxEditSubCategory.Text = category.Name; }
             }
+        }
+
+        private void btnEditSubCategory_Click(object sender, EventArgs e)
+        {
+            Category category= dgvSubCategory.CurrentRow.DataBoundItem as Category;
+
+
+            Category c = categoryManager.GetCategoryByName(tbxEditSubCategory.Text);
+            if (c == null)
+            {
+                if (categoryManager.UpdateCategory(category.Id, tbxEditSubCategory.Text) == true)
+                {
+                    categoryManager.UpdateProductSubCategory(tbxEditSubCategory.Text, category.Name);
+                    MessageBox.Show("SubCategory updated successfully");
+                }
+                else { MessageBox.Show("Oops, something went wrong."); }
+            }
+            else { MessageBox.Show("SubCategory by that name already exists."); }
         }
     }
 }

@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicLayer", "SharedLibrary
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebsiteApplication", "WebsiteApplication\WebsiteApplication.csproj", "{997E077F-40A4-42A3-A409-72EC539C531A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{68A72111-2B03-4124-B6AC-61AAFC3D730F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\DataLayer.csproj", "{68A72111-2B03-4124-B6AC-61AAFC3D730F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
