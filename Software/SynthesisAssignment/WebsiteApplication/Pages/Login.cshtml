@@ -1,0 +1,23 @@
+﻿@page
+@model WebsiteApplication.Pages.LoginModel
+@{
+    ViewData["Title"] = "Log in";
+}
+<title>Log in - RobertHeijn</title>
+<link rel="stylesheet" href=@Url.Content("~/css/Login.css" ) />
+<form class="loginForm" method="post" asp-page-handler="User">
+    <div class="form-field">
+        <span asp-validation-for="Model.Email"></span>
+        <input asp-for="Model.Email" type="email" placeholder="Email"/>
+    </div>
+    <div class="form-field">
+        <span asp-validation-for="Model.Password"></span>
+        <input asp-for="Model.Password" type="password" placeholder="Password" required />
+    </div>
+    <div class="form-field">
+        <button class="btn" type="submit" asp-page-handler="Login" value="login">Log in</button>
+    </div>
+    <div class="form-field">
+        <button class="btn" type="submit" value="signin" asp-page-handler="Signin">Sign in</button>
+    </div>
+</form>

@@ -64,6 +64,9 @@
             this.tbxEditPrice = new System.Windows.Forms.TextBox();
             this.tbxEditName = new System.Windows.Forms.TextBox();
             this.tabpCategoryManager = new System.Windows.Forms.TabPage();
+            this.btnEditSubCategory = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.tbxEditSubCategory = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.dgvSubCategory = new System.Windows.Forms.DataGridView();
             this.btnEditCategory = new System.Windows.Forms.Button();
@@ -77,9 +80,6 @@
             this.tbxNewSubcategory = new System.Windows.Forms.TextBox();
             this.tbxNewCataegory = new System.Windows.Forms.TextBox();
             this.lblProductManagerUser = new System.Windows.Forms.Label();
-            this.btnEditSubCategory = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.tbxEditSubCategory = new System.Windows.Forms.TextBox();
             this.tabcProductManagement.SuspendLayout();
             this.tbpViewAllProducts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllProducts)).BeginInit();
@@ -458,6 +458,32 @@
             this.tabpCategoryManager.Text = "Category Manager";
             this.tabpCategoryManager.UseVisualStyleBackColor = true;
             // 
+            // btnEditSubCategory
+            // 
+            this.btnEditSubCategory.Location = new System.Drawing.Point(203, 432);
+            this.btnEditSubCategory.Name = "btnEditSubCategory";
+            this.btnEditSubCategory.Size = new System.Drawing.Size(177, 23);
+            this.btnEditSubCategory.TabIndex = 37;
+            this.btnEditSubCategory.Text = "Edit";
+            this.btnEditSubCategory.UseVisualStyleBackColor = true;
+            this.btnEditSubCategory.Click += new System.EventHandler(this.btnEditSubCategory_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(203, 385);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(159, 15);
+            this.label19.TabIndex = 36;
+            this.label19.Text = "Edit an existing Subcategory:";
+            // 
+            // tbxEditSubCategory
+            // 
+            this.tbxEditSubCategory.Location = new System.Drawing.Point(203, 403);
+            this.tbxEditSubCategory.Name = "tbxEditSubCategory";
+            this.tbxEditSubCategory.Size = new System.Drawing.Size(177, 23);
+            this.tbxEditSubCategory.TabIndex = 35;
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -580,32 +606,6 @@
             this.lblProductManagerUser.Size = new System.Drawing.Size(282, 32);
             this.lblProductManagerUser.TabIndex = 1;
             this.lblProductManagerUser.Text = "Welcome, <UserName>!";
-            // 
-            // btnEditSubCategory
-            // 
-            this.btnEditSubCategory.Location = new System.Drawing.Point(203, 432);
-            this.btnEditSubCategory.Name = "btnEditSubCategory";
-            this.btnEditSubCategory.Size = new System.Drawing.Size(177, 23);
-            this.btnEditSubCategory.TabIndex = 37;
-            this.btnEditSubCategory.Text = "Edit";
-            this.btnEditSubCategory.UseVisualStyleBackColor = true;
-            this.btnEditSubCategory.Click += new System.EventHandler(this.btnEditSubCategory_Click);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(203, 385);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(159, 15);
-            this.label19.TabIndex = 36;
-            this.label19.Text = "Edit an existing Subcategory:";
-            // 
-            // tbxEditSubCategory
-            // 
-            this.tbxEditSubCategory.Location = new System.Drawing.Point(203, 403);
-            this.tbxEditSubCategory.Name = "tbxEditSubCategory";
-            this.tbxEditSubCategory.Size = new System.Drawing.Size(177, 23);
-            this.tbxEditSubCategory.TabIndex = 35;
             // 
             // ProductManagement
             // 
