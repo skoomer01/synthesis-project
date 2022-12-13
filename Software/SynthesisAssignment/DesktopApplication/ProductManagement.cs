@@ -24,15 +24,21 @@ namespace DesktopApplication
             this.user = user;
             InitializeComponent();
             UpdateCategories();
-            dgvAllProducts.DataSource = productManager.Products;
+            Refreshdgv();
+            
+            lblProductManagerUser.Text ="Welcome, "+ user.UserName +"!";
+        }
+        
+        public void Refreshdgv()
+        {
+            dgvAllProducts.DataSource = productManager.GetAllProducts();
             dgvAllProducts.Columns[2].Visible = false;
             dgvAllProducts.Columns[4].Visible = false;
-            dgvEditProducts.DataSource = productManager.Products;
+            dgvEditProducts.DataSource = productManager.GetAllProducts();
             dgvEditProducts.Columns[2].Visible = false;
             dgvEditProducts.Columns[4].Visible = false;
             dgvCategory.DataSource = categoryManager.GetAllCategories();
-            
-            lblProductManagerUser.Text ="Welcome, "+ user.UserName +"!";
+            dgvDeleteProduct.DataSource = productManager.GetAllProducts();
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -43,6 +49,7 @@ namespace DesktopApplication
                if( productManager.AddProduct(tbxProductName.Text, cbxCategory.Text, cbxSubCategory.Text,tbxPrice.Text, tbxUnit.Text, tbxImage.Text) == true)
                 {
                     MessageBox.Show("Product successfully added to the system.");
+                    Refreshdgv();
                 }
                 
             }
@@ -121,7 +128,9 @@ namespace DesktopApplication
                 DataGridViewRow row = dgvEditProducts.Rows[index];
                 productID = Convert.ToInt32(row.Cells[0].Value.ToString());
                 if(productManager.UpdateProduct(productID, tbxEditName.Text, cbxEditCategory.Text, cbxEditSubCategory.Text, tbxEditPrice.Text, tbxEditUnit.Text, tbxEditImage.Text) == true)
-                { MessageBox.Show("Product data successfully updated in the system");}
+                { MessageBox.Show("Product data successfully updated in the system");
+                    Refreshdgv();
+                }
 
                 
             }
@@ -165,6 +174,7 @@ namespace DesktopApplication
                 {
                     categoryManager.CreateCategory(tbxNewCataegory.Text, null);
                     MessageBox.Show("Category added successfully!");
+                    UpdateCategories();
 
                 }
                 else { MessageBox.Show("Please fill the field first."); }
@@ -187,6 +197,7 @@ namespace DesktopApplication
                     categoryID = Convert.ToInt32(row.Cells[0].Value.ToString());
                     categoryManager.CreateCategory(tbxNewSubcategory.Text, categoryID);
                     MessageBox.Show("Sub-Category added successfully!");
+                    UpdateSubCategories();
 
                 }
                 else { MessageBox.Show("Please fill the field first."); }
@@ -208,6 +219,7 @@ namespace DesktopApplication
                 {
                     categoryManager.UpdateProductCategory(tbxEditCategory.Text, category.Name);
                     MessageBox.Show("Category updated successfully");
+                    UpdateCategories();
                 }
                 else { MessageBox.Show("Oops, something went wrong.");}
             }
@@ -252,10 +264,16 @@ namespace DesktopApplication
                 {
                     categoryManager.UpdateProductSubCategory(tbxEditSubCategory.Text, category.Name);
                     MessageBox.Show("SubCategory updated successfully");
+                    UpdateSubCategories();
                 }
                 else { MessageBox.Show("Oops, something went wrong."); }
             }
             else { MessageBox.Show("SubCategory by that name already exists."); }
+        }
+
+        private void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

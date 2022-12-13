@@ -8,7 +8,7 @@
         <Name>User</Name>
         <Access>Public</Access>
         <Location left="1222" top="856" />
-        <Size width="269" height="218" />
+        <Size width="269" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Property">public int UserId { get; set; }</Member>
         <Member type="Property">public string UserName { get; set; }</Member>
@@ -16,6 +16,7 @@
         <Member type="Property">public string UserEmail { get; set; }</Member>
         <Member type="Property">public EnumTypeOfUser EnumUserType { get; set; }</Member>
         <Member type="Constructor">public User()</Member>
+        <Member type="Constructor">public User(UserDTO userDTO)</Member>
         <Member type="Method">public EnumTypeOfUser SetType()</Member>
         <Member type="Method">public EnumTypeOfUser GetType()</Member>
         <Modifier>None</Modifier>
@@ -104,7 +105,7 @@
       <Entity type="Class">
         <Name>ProductManager</Name>
         <Access>Public</Access>
-        <Location left="2025" top="148" />
+        <Location left="1890" top="141" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -125,8 +126,108 @@
       <Entity type="Class">
         <Name>ProductManager</Name>
         <Access>Public</Access>
-        <Location left="1831" top="620" />
-        <Size width="500" height="164" />
+        <Location left="1721" top="504" />
+        <Size width="500" height="232" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">List&lt;Product&gt; products</Member>
+        <Member type="Field">ProductRepository productRepository</Member>
+        <Member type="Constructor">public ProductManager()</Member>
+        <Member type="Method">public List&lt;Product&gt; GetAllProducts()</Member>
+        <Member type="Property">public List&lt;Product&gt; Products { get; set; }</Member>
+        <Member type="Method">public bool AddProduct(string name, string category, string subcategory, string price, string unit, string productImage)</Member>
+        <Member type="Method">public bool UpdateProduct(int id, string name, string category, string subcategory, string price, string unit, string productImage)</Member>
+        <Member type="Method">public Product GetProduct(int id)</Member>
+        <Member type="Method">public void DeleteProduct(int id)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Product</Name>
+        <Access>Public</Access>
+        <Location left="2023" top="949" />
+        <Size width="308" height="270" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public Product()</Member>
+        <Member type="Constructor">public Product(ProductDTO productDTO)</Member>
+        <Member type="Property">public int Id { get; set; }</Member>
+        <Member type="Property">public int Name { get; set; }</Member>
+        <Member type="Property">public Categoryt Category { get; set; }</Member>
+        <Member type="Property">public Category SubCAtegory { get; set; }</Member>
+        <Member type="Property">public decimal Price { get; set; }</Member>
+        <Member type="Property">public string Unit { get; set; }</Member>
+        <Member type="Property">public string ProductImage { get; set; }</Member>
+        <Member type="Method">public string ToString()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>CategoryManager</Name>
+        <Access>Public</Access>
+        <Location left="2447" top="504" />
+        <Size width="488" height="303" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">CategoryRepository categoryRepository</Member>
+        <Member type="Field">List&lt;Category&gt; SubCategoriesList</Member>
+        <Member type="Field">List&lt;Category&gt; CategoryList</Member>
+        <Member type="Constructor">public CategoryManager()</Member>
+        <Member type="Method">public void CreateCategory(string name, int? parent)</Member>
+        <Member type="Method">public List&lt;Category&gt; GetAllCategories()</Member>
+        <Member type="Method">public List&lt;Category&gt; GetSubCategories(int id)</Member>
+        <Member type="Method">public List&lt;Category&gt; GetAllSubCategories()</Member>
+        <Member type="Method">public Category GetCategoryByName(string name)</Member>
+        <Member type="Method">public bool UpdateCategory(int id, string name)</Member>
+        <Member type="Method">public void UpdateProductSubCategory(string newname, string oldname)</Member>
+        <Member type="Method">public void UpdateProductCategory(string newname, string oldname)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Category</Name>
+        <Access>Public</Access>
+        <Location left="2662" top="964" />
+        <Size width="273" height="169" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public int Id { get; set; }</Member>
+        <Member type="Property">public string Name { get; set; }</Member>
+        <Member type="Property">public int? ParentId { get; set; }</Member>
+        <Member type="Constructor">public Category()</Member>
+        <Member type="Constructor">public Category(CategoryDTO categoryDTO)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>CategoryRepository</Name>
+        <Access>Public</Access>
+        <Location left="2477" top="1462" />
+        <Size width="528" height="218" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public List&lt;CategoryDTO&gt; GetCategories()</Member>
+        <Member type="Method">public List&lt;CategoryDTO&gt; GetSubCategories()</Member>
+        <Member type="Method">public List&lt;CategoryDTO&gt; GetSubCategories(int id)</Member>
+        <Member type="Method">public void UpdateCategory(int id, string name)</Member>
+        <Member type="Method">public void UpdateProductSubCategory(string newname, string oldname)</Member>
+        <Member type="Method">public void UpdateProductCategory(string newname, string oldname)</Member>
+        <Member type="Method">public CategoryDTO GetCategoryByName(string name)</Member>
+        <Member type="Method">public void CreateCategory(string name, int? parent)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>CategoryDTO</Name>
+        <Access>Public</Access>
+        <Location left="2924" top="1168" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ProductDTO</Name>
+        <Access>Public</Access>
+        <Location left="1351" top="1467" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>UserDTO</Name>
+        <Access>Public</Access>
+        <Location left="1023" top="1196" />
+        <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
       </Entity>
@@ -134,6 +235,8 @@
     <Containers />
     <Relationships>
       <Relationship type="Association" first="1" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -147,11 +250,9 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Dependency" first="5" second="1">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
       <Relationship type="Association" first="4" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -161,40 +262,36 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Dependency" first="3" second="0">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Dependency" first="0" second="1">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1366</X>
-          <Y>831</Y>
-        </BendPoint>
-      </Relationship>
       <Relationship type="Dependency" first="6" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="7" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="8" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="9" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1972</X>
-          <Y>284</Y>
+          <X>1837</X>
+          <Y>277</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>1345</X>
@@ -204,6 +301,8 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Dependency" first="6" second="10">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -212,12 +311,112 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="9" second="11">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="11" second="10">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="9" second="13">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>2084</X>
+          <Y>274</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="13" second="15">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>2571</X>
+          <Y>868</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Dependency" first="6" second="15">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1233</X>
+          <Y>1801</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>2725</X>
+          <Y>1705</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Dependency" first="5" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="1" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="11" second="12">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="13" second="14">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="3">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1323</X>
+          <Y>1186</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="10" second="17">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="2" second="18">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="15" second="16">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>

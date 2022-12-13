@@ -1,0 +1,15 @@
+﻿@page
+@using LogicLayer;
+@model WebsiteApplication.Pages.AllCategoriesModel
+@{
+}
+
+<div class="allcategories">
+     @foreach(Category c in Model.Categories)
+     {
+         <div class=" category">
+             <p> @c.Name</p>
+            <a asp-page="/Subcategory" asp-route-id="@c.Id">See subactegories</a>
+         </div>
+     }
+</div>

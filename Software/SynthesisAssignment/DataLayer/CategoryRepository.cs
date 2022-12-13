@@ -192,21 +192,5 @@ namespace DataLayer
                 conn.Close();              
             }
         }
-
-        public void DeleteCategory(int id)
-        {
-            using (SqlConnection conn = DatabaseConnection.CreateConnection())
-            {
-                string sql = @"DELETE from s_Category
-                                WHERE Id = @Id";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("Id", id);
-
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
-            }
-        }
     }
 }

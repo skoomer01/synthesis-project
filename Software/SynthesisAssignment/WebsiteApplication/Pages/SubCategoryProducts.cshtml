@@ -1,0 +1,18 @@
+﻿@page
+@using LogicLayer;
+@model WebsiteApplication.Pages.SubCategoryProductsModel
+@{
+}
+<div class="subcategory-products">
+    @foreach(Product product in Model.SubcategoryProducts)
+    {
+        <div class=" ProductItem">
+            <img src="@product.ProductImage" width="200" height="200" />
+            <a class="link" asp-page="/Overview" asp-route-id="@product.Id" data-replace="Info"><span>@product.Name</span></a>
+            <p class=" productPrice">@product.Price</p>
+            <p class="productUnit">@product.Unit</p>
+            <button class="addToFavorites btn btn-primary" name="id" type="submit" asp-page-handler="Favorite" value="@product.Id">Add to favorites</button>
+            <button class="addToCart btn btn-primary" name="id" type="submit" asp-page-handler="Cart" value="@product.Id">+</button>
+        </div>
+    }
+</div>

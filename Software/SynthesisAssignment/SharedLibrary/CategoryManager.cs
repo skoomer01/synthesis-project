@@ -56,10 +56,6 @@ namespace LogicLayer
             }
             return subcategories;
         }
-        public void DeleteCategory(int id)
-        {
-            categoryRepository.DeleteCategory(id);
-        }
 
         public Category GetCategoryByName(string name)
         {

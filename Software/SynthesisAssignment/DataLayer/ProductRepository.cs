@@ -42,6 +42,39 @@ namespace DataLayer
             }
         }
 
+        public List<ProductDTO> GetProductsBySubcategory(string name)
+        {
+            List<ProductDTO> products = new List<ProductDTO>();
+            using (SqlConnection conn = DatabaseConnection.CreateConnection())
+            {
+                string sql = @"SELECT ProductID, ProductName, Category ,SubCategory, Price, Unit, ProductImage
+                                FROM s_Product
+                                WHERE SubCategory = @Subcategory
+                                ORDER BY ProductID";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("Subcategory", name);
+                conn.Open();
+
+                ProductDTO product = null;
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    product = new ProductDTO();
+                    product.Id = dr.GetInt32("ProductID");
+                    product.Name = dr.GetString("ProductName");
+                    product.Category = categoryRepository.GetCategoryByName(dr.GetString("Category"));
+                    product.SubCategory = categoryRepository.GetCategoryByName(dr.GetString("SubCategory"));
+                    product.Price = dr.GetDecimal("Price");
+                    product.Unit = dr.GetString("Unit");
+                    product.ProductImage = dr.GetString("ProductImage");
+                    products.Add(product);
+                }
+                return products;
+            }
+        }
+
 
         public void UpdateProduct(int id,string name, string category, string subcategory, decimal price, string unit, string productImage)
         {

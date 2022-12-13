@@ -1,0 +1,15 @@
+﻿@page
+@using LogicLayer;
+@model WebsiteApplication.Pages.SubcategoryProductsModel
+@{
+}
+<div class="subacategories">
+    @foreach(Category c in Model.Subcategories)
+    {
+        <div class=" subcategory">
+            <p> @c.Name</p>
+            <a asp-page="/SubcategoryProducts" asp-route-name="@c.Name l">See subactegories</a>
+            <button onclick="location.href='/SubcategoryProducts?name=@c.Name'">See products</button>
+        </div>
+    }
+</div>

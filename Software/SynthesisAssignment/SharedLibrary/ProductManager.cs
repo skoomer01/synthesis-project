@@ -28,6 +28,17 @@ namespace LogicLayer
             return products;
         }
 
+        public List<Product> GetProductsBySubcategory(string name)
+        {
+            List<Product> products = new List<Product>();
+            foreach (ProductDTO productDTO in productRepository.GetProductsBySubcategory(name))
+            {
+                Product product = new Product(productDTO);
+                products.Add(product);
+            }
+            return products;
+        }
+
         public bool AddProduct(string name, string category, string subcategory, string price, string unit, string productImage)
         {
             if (name != String.Empty &&
@@ -86,5 +97,7 @@ namespace LogicLayer
         {
             productRepository.DeleteProduct(id);
         }
+
+
     }
 }

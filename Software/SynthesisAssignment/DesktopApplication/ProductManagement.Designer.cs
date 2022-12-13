@@ -63,6 +63,10 @@
             this.cbxEditCategory = new System.Windows.Forms.ComboBox();
             this.tbxEditPrice = new System.Windows.Forms.TextBox();
             this.tbxEditName = new System.Windows.Forms.TextBox();
+            this.tabpDeleteProduct = new System.Windows.Forms.TabPage();
+            this.btnDeleteProduct = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.dgvDeleteProduct = new System.Windows.Forms.DataGridView();
             this.tabpCategoryManager = new System.Windows.Forms.TabPage();
             this.btnEditSubCategory = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
@@ -86,6 +90,8 @@
             this.tabpCreateProduct.SuspendLayout();
             this.tbpEditProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEditProducts)).BeginInit();
+            this.tabpDeleteProduct.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteProduct)).BeginInit();
             this.tabpCategoryManager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
@@ -96,6 +102,7 @@
             this.tabcProductManagement.Controls.Add(this.tbpViewAllProducts);
             this.tabcProductManagement.Controls.Add(this.tabpCreateProduct);
             this.tabcProductManagement.Controls.Add(this.tbpEditProduct);
+            this.tabcProductManagement.Controls.Add(this.tabpDeleteProduct);
             this.tabcProductManagement.Controls.Add(this.tabpCategoryManager);
             this.tabcProductManagement.Location = new System.Drawing.Point(43, 74);
             this.tabcProductManagement.Name = "tabcProductManagement";
@@ -239,6 +246,7 @@
             // 
             // cbxSubCategory
             // 
+            this.cbxSubCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSubCategory.FormattingEnabled = true;
             this.cbxSubCategory.Location = new System.Drawing.Point(534, 195);
             this.cbxSubCategory.Name = "cbxSubCategory";
@@ -247,6 +255,7 @@
             // 
             // cbxCategory
             // 
+            this.cbxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCategory.FormattingEnabled = true;
             this.cbxCategory.Location = new System.Drawing.Point(534, 166);
             this.cbxCategory.Name = "cbxCategory";
@@ -405,6 +414,7 @@
             // 
             // cbxEditSubCategory
             // 
+            this.cbxEditSubCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxEditSubCategory.FormattingEnabled = true;
             this.cbxEditSubCategory.Location = new System.Drawing.Point(569, 315);
             this.cbxEditSubCategory.Name = "cbxEditSubCategory";
@@ -413,6 +423,7 @@
             // 
             // cbxEditCategory
             // 
+            this.cbxEditCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxEditCategory.FormattingEnabled = true;
             this.cbxEditCategory.Location = new System.Drawing.Point(569, 286);
             this.cbxEditCategory.Name = "cbxEditCategory";
@@ -433,6 +444,49 @@
             this.tbxEditName.Name = "tbxEditName";
             this.tbxEditName.Size = new System.Drawing.Size(121, 23);
             this.tbxEditName.TabIndex = 19;
+            // 
+            // tabpDeleteProduct
+            // 
+            this.tabpDeleteProduct.Controls.Add(this.btnDeleteProduct);
+            this.tabpDeleteProduct.Controls.Add(this.label20);
+            this.tabpDeleteProduct.Controls.Add(this.dgvDeleteProduct);
+            this.tabpDeleteProduct.Location = new System.Drawing.Point(4, 24);
+            this.tabpDeleteProduct.Name = "tabpDeleteProduct";
+            this.tabpDeleteProduct.Size = new System.Drawing.Size(1139, 499);
+            this.tabpDeleteProduct.TabIndex = 4;
+            this.tabpDeleteProduct.Text = "Delete Product";
+            this.tabpDeleteProduct.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteProduct
+            // 
+            this.btnDeleteProduct.Location = new System.Drawing.Point(388, 379);
+            this.btnDeleteProduct.Name = "btnDeleteProduct";
+            this.btnDeleteProduct.Size = new System.Drawing.Size(317, 23);
+            this.btnDeleteProduct.TabIndex = 36;
+            this.btnDeleteProduct.Text = "DeleteProduct from the System";
+            this.btnDeleteProduct.UseVisualStyleBackColor = true;
+            this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label20.Location = new System.Drawing.Point(3, 13);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(289, 21);
+            this.label20.TabIndex = 35;
+            this.label20.Text = "Edit an existing product from the system";
+            // 
+            // dgvDeleteProduct
+            // 
+            this.dgvDeleteProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDeleteProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDeleteProduct.Location = new System.Drawing.Point(0, 52);
+            this.dgvDeleteProduct.Name = "dgvDeleteProduct";
+            this.dgvDeleteProduct.ReadOnly = true;
+            this.dgvDeleteProduct.RowTemplate.Height = 25;
+            this.dgvDeleteProduct.Size = new System.Drawing.Size(1132, 186);
+            this.dgvDeleteProduct.TabIndex = 34;
             // 
             // tabpCategoryManager
             // 
@@ -626,6 +680,9 @@
             this.tbpEditProduct.ResumeLayout(false);
             this.tbpEditProduct.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEditProducts)).EndInit();
+            this.tabpDeleteProduct.ResumeLayout(false);
+            this.tabpDeleteProduct.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteProduct)).EndInit();
             this.tabpCategoryManager.ResumeLayout(false);
             this.tabpCategoryManager.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCategory)).EndInit();
@@ -689,5 +746,9 @@
         private Button btnEditSubCategory;
         private Label label19;
         private TextBox tbxEditSubCategory;
+        private TabPage tabpDeleteProduct;
+        private Button btnDeleteProduct;
+        private Label label20;
+        private DataGridView dgvDeleteProduct;
     }
 }
