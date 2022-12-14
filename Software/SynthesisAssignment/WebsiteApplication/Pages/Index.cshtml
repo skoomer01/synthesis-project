@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Home page";
 }
-
+<link rel="stylesheet" href=@Url.Content("~/css/Index.css" ) />
 <div class="text-center">
     <h1>Welcome to our the online webshop</h1>
     <div class="loggedin">
@@ -19,17 +19,23 @@
     <div class="mostpopular">
 
     </div>
-
-    <div class="quickaccess">
-        <p>All products</p>
-        <button onclick="location.href='/Catalogue'">Go now</button>
+    <h2>Quickly go to</h2>
+    <div class="quickaccessParent">
+        <div class="quickaccess">
+            <img src="/img/allproducts.jpg" width="300" height="200" />
+            <p>All products</p>
+            <button onclick="location.href='/Catalogue'">Go now</button>
+        </div>
+        <div class="quickaccess">
+            <img src="/img/categoriespicture.jpg" width="300" height="200" />
+            <p>All Categoies</p>
+            <button onclick="location.href='/Allcategories'">Go now</button>
+        </div>
+        <div class="quickaccess">
+            <img src="/img/favorite.png" width="300" height="200" />
+            <p>Go to favorites</p>
+            <button onclick="location.href='/Favorites'">Go now</button>
+        </div>
     </div>
-    <div class="quickaccess">
-        <p>All Categoies</p>
-        <button onclick="location.href='/Allcategories'">Go now</button>
-    </div>
-    <div class="quickaccess">
-        <p>Go to favorites</p>
-        <button onclick="location.href='/Favorites'">Go now</button>
-    </div>
+    
 </div>

@@ -2,3 +2,28 @@
 @model WebsiteApplication.Pages.CartModel
 @{
 }
+<h1>Your cart</h1>
+<form method="get" asp-page="cart">
+    <table border="1">
+        <tr>
+            <th>Delete</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        @foreach (var item in Model.cart)
+        {
+            <tr align="center">
+                <td align="center">
+                    <a class="btn-primary btn" asp-page="cart" asp-page-handler="delete" asp-route-id="@item.Id">Remove</a>
+                </td>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+            </tr>
+        }
+        <tr>
+            <td colspan="5" align="left">Total @Model.Total$</td>
+        </tr>
+    </table>
+</form>

@@ -23,7 +23,6 @@ namespace WebsiteApplication.Pages
             {
 
                 UserID = HttpContext.Session.GetInt32("UserId");
-                //UserManager.GetUserByID(UserID);
             }
         }
     }

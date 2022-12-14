@@ -5,15 +5,15 @@
 }
 <link rel="stylesheet" href=@Url.Content("~/css/Catalogue.css" ) />
 <div class="parent">
-    @foreach (var product in Model.ProductManager.GetAllProducts())
+    @foreach (var product in Model.Products)
     {
-        <div class=" ProductItem">
+        <div class="ProductItem">
             <img src="@product.ProductImage" width="200" height="200" />
             <a class="link" asp-page="/Overview" asp-route-id="@product.Id" data-replace="Info"><span>@product.Name</span></a>
             <p class=" productPrice">@product.Price</p>
             <p class="productUnit">@product.Unit</p>
-            <button class="addToFavorites btn btn-primary" name="id" type="submit" asp-page-handler="Favorite" value="@product.Id">Add to favorites</button>
-            <button class="addToCart btn btn-primary" name="id" type="submit" asp-page-handler="Cart" value="@product.Id">+</button>
+            <a class="addToFavorites btn btn-primary" name="id" type="submit" asp-page-handler="Favorite" value="@product.Id"><img src="/img/favorite.png" width="25" height="25" /></a>
+            <a class="addToCart btn btn-primary" name="id" type="submit" asp-page="/Cart" asp-page-handler="Cart" asp-route-id="@product.Id" >+ Add to cart</a>
         </div>
     }
 </div>

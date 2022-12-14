@@ -8,8 +8,7 @@
     {
         <div class=" subcategory">
             <p> @c.Name</p>
-            <a asp-page="/SubcategoryProducts" asp-route-name="@c.Name l">See subactegories</a>
-            <button onclick="location.href='/SubcategoryProducts?name=@c.Name'">See products</button>
+            <a asp-page="/SubcategoryProducts" asp-route-name="@c.Name">See subactegories</a>
         </div>
     }
 </div>

@@ -1,0 +1,25 @@
+﻿body {
+
+}
+
+.quickaccessParent {
+    display: flex;
+    justify-content:center;
+    gap: 30px;
+    align-items: stretch;
+
+}
+
+.quickaccess {
+    
+    padding: 5px;
+    margin: 0px;
+    border: groove;
+    border-color: #0d6efd;
+    border-width: 2px;
+}
+
+    .quickaccess * {
+        padding: 5px;
+        margin: 0px;
+    }
