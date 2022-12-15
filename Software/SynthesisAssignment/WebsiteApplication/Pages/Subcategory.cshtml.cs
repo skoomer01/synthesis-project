@@ -11,8 +11,7 @@ namespace WebsiteApplication.Pages
         public void OnGet(int id)
         {
             _categoryManager = new CategoryManager();
-            
-            Subcategories = _categoryManager.GetSubCategories(id);
+            Subcategories = _categoryManager.GetSubCategories(id);           
         }
     }
 }

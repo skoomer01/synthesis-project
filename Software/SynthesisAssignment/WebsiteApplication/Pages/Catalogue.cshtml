@@ -12,7 +12,7 @@
             <a class="link" asp-page="/Overview" asp-route-id="@product.Id" data-replace="Info"><span>@product.Name</span></a>
             <p class=" productPrice">@product.Price</p>
             <p class="productUnit">@product.Unit</p>
-            <a class="addToFavorites btn btn-primary" name="id" type="submit" asp-page-handler="Favorite" value="@product.Id"><img src="/img/favorite.png" width="25" height="25" /></a>
+            <a class="addToFavorites btn btn-primary" name="id" type="submit" asp-page="/Favorites" asp-page-handler="Favorite" asp-route-id="@product.Id"><img src="/img/favorite.png" width="25" height="25" /></a>
             <a class="addToCart btn btn-primary" name="id" type="submit" asp-page="/Cart" asp-page-handler="Cart" asp-route-id="@product.Id" >+ Add to cart</a>
         </div>
     }

@@ -49,10 +49,14 @@ namespace LogicLayer
             }
             return false;
         }
-        public User GetUserByID(int ID)
+        public User GetUserByID(int? ID)
         {
-            User user = new User(userRepository.GetUserByID(ID));
-            return user;
+            if(ID != null)
+            {
+                User user = new User(userRepository.GetUserByID((int)ID));
+                return user;
+            }
+            return null;
         }
         public bool UpdateUser(int id, string name, string email, string type)
         {
