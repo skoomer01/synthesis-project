@@ -1,3 +1,4 @@
+using LogicLayer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -5,8 +6,13 @@ namespace WebsiteApplication.Pages
 {
     public class OverviewModel : PageModel
     {
-        public void OnGet()
+        public ProductManager ProductManager { get; set; }
+        public Product Product { get; set; }
+        public void OnGet(int id)
         {
+            ProductManager = new ProductManager();
+            Product = ProductManager.GetProduct(id);
+
         }
     }
 }

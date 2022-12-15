@@ -1,4 +1,13 @@
 ﻿@page
 @model WebsiteApplication.Pages.OverviewModel
 @{
+    ViewData["Title"] = "Overview";
 }
+
+<img src="@Model.Product.ProductImage" width="500" height="500" />
+<h1>@Model.Product.Name</h1>
+<p>Category: @Model.Product.CategoryName</p>
+<p>Sub-Category: @Model.Product.SubCategoryName</p>
+<p>Price: @Model.Product.Price </p>
+<p>Unit: @Model.Product.Unit </p>
+<hr>

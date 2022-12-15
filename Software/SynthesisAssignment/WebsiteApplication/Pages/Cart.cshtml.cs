@@ -9,16 +9,22 @@ namespace WebsiteApplication.Pages
     {
         public List<Product>? cart { get; set; }
         public decimal Total { get; set; }
-
+        [BindProperty]
+        public Dictionary<int, int> productsQuantity { get; set; }
         public void OnGet()
         {
-        
             cart = HttpContext.Session.GetObjectFromJson("cart");
-            foreach (Product product in cart)
+            if (cart is null)
             {
-                Total += product.Price;
+                cart = new List<Product>();
             }
-            
+            else
+            {
+                foreach (Product product in cart)
+                {
+                    Total += product.Price;
+                }
+            }
         }
 
         public IActionResult OnGetCart(string id)
