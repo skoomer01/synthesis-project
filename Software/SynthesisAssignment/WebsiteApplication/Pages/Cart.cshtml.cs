@@ -14,6 +14,7 @@ namespace WebsiteApplication.Pages
         public void OnGet()
         {
             cart = HttpContext.Session.GetObjectFromJson("cart");
+            productsQuantity = new Dictionary<int, int>();
             if (cart is null)
             {
                 cart = new List<Product>();

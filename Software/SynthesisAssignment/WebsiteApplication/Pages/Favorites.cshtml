@@ -4,3 +4,27 @@
     ViewData["Title"] = "My favorites";
 
 }
+
+<h1>My favorites</h1>
+<form method="post">
+    @if(Model.UserID != null)
+    {
+        @if (Model.Favorites.Count == 0 || Model.Favorites is null)
+        {
+        <p>You dont have any favorites...</p>
+        }
+        @foreach (var product in Model.Favorites)
+        {
+        <div class=" FavoriteProduct">
+            <span><a asp-page="/Overview" asp-route-id="@product.Id">@product.Name</a></span>
+            <button class="RemoveFromFavorite" name="id" type="submit" asp-page-handler="Remove" value="@product.Id">Remove</button>
+        </div>
+        <br>
+        }
+    }
+    else
+    {
+        <p>You are not logged in...</p>
+    }
+    
+</form>

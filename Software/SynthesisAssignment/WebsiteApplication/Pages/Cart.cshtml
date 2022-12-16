@@ -27,8 +27,6 @@
         </tr>
     </table>
 </form>
-<form method="post">
-    <div class="btnContainer">
-        <button type="submit" class="btn-primary btn" >Checkout</button>
-    </div>
-</form>
+<div class="btnContainer">
+    <a type="submit" asp-page="/Checkout" asp-page-handler="Checkout" asp-route-total=@Model.Total class="btn-primary btn" >Checkout</a>
+</div>

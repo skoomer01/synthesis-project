@@ -16,9 +16,11 @@ namespace DataLayer
             List<ProductDTO> favorites = new List<ProductDTO>();
             using (SqlConnection connection = DatabaseConnection.CreateConnection())
             {
-                string sql = @"select *
-                               from s_Favorite
-							   where [User].UserId = @userID;";
+                string sql = @"select p.ProductID, p.ProductName, p.Category, p.SubCategory, p.Price, p.Unit, p.ProductImage
+                               from s_Favorite as f 
+                               inner join s_Product as p on
+                               f.ProductID = p.ProductID
+                               where f.UserID = @userID;";
 
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("userID", userID);
@@ -71,7 +73,7 @@ namespace DataLayer
                             and UserID = @userID";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
-                cmd.Parameters.AddWithValue("articleID", productID);
+                cmd.Parameters.AddWithValue("productID", productID);
                 cmd.Parameters.AddWithValue("userID", userID);
 
                 conn.Open();
@@ -84,13 +86,13 @@ namespace DataLayer
         {
             using (SqlConnection connection = DatabaseConnection.CreateConnection())
             {
-                string sql = @"select ArticleID, UserID
+                string sql = @"select ProductID, UserID
                                from s_Favorite 
-							   where UserID = @userID and ArticleID = @articleID";
+							   where UserID = @userID and ProductID = @productID";
 
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("userID", userID);
-                command.Parameters.AddWithValue("articleID", productID);
+                command.Parameters.AddWithValue("productID", productID);
                 connection.Open();
 
                 SqlDataReader reader = command.ExecuteReader();

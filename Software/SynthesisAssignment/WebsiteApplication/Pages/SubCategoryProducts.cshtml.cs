@@ -3,6 +3,8 @@ using LogicLayer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Runtime.CompilerServices;
+using System.Xml.Linq;
 
 namespace WebsiteApplication.Pages
 {
@@ -22,7 +24,7 @@ namespace WebsiteApplication.Pages
             else { SubcategoryProducts = new List<Product>(); }
             
         }
-        public IActionResult OnPostFavorite()
+        public IActionResult OnPostFavorite(int id, string name)
         {
             ProductManager = new ProductManager();
             UserRepository userRepository = new UserRepository();
@@ -30,15 +32,14 @@ namespace WebsiteApplication.Pages
             if (HttpContext.Session.Get("UserID") != null)
             {
                 UserId = HttpContext.Session.GetInt32("UserID");
-                int id = Convert.ToInt32(Request.Form["id"]);
                 User user = userManager.GetUserByID(UserId);
                 FavoriteManager favoriteManager = new FavoriteManager();
-                int productID = Convert.ToInt32(Request.Form["id"]);
-                if (favoriteManager.IsAlreadyFavorite(productID, (int)UserId) == true)
+                if (favoriteManager.IsAlreadyFavorite(id, (int)UserId) == true)
                 {
-                    favoriteManager.AddFavorite(productID, (int)UserId);
+                    favoriteManager.AddFavorite(id, (int)UserId);
                 }
             }
+            SubcategoryProducts = ProductManager.GetProductsBySubcategory(name);
             return Page();
         }
     }
