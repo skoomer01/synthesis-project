@@ -3,30 +3,40 @@
 @{
 }
 <h1>Your cart</h1>
-<form method="get" asp-page="cart">
-    <table border="1">
-        <tr>
-            <th>Delete</th>
-            <th>Name</th>
-            <th>Price</th>
-        </tr>
-        @foreach (var item in Model.cart)
-        {
-            Model.productsQuantity.Add(item.Id, 0);
-            <tr align="center">
-                <td align="center">
-                    <a class="btn-primary btn" asp-page="cart" asp-page-handler="delete" asp-route-id="@item.Id">Remove</a>
-                </td>
-                <td>@item.Name</td>
-                <td>@item.Price</td>
-                <td><input type="number" asp-for="productsQuantity[item.Id]" value="0" min="0" /></td>
-            </tr>
-        }
-        <tr>
-            <td colspan="5" align="left">Total @Model.Total$</td>
-        </tr>
-    </table>
-</form>
-<div class="btnContainer">
-    <a type="submit" asp-page="/Checkout" asp-page-handler="Checkout" asp-route-total=@Model.Total class="btn-primary btn" >Checkout</a>
-</div>
+@if(Model.cart is null || Model.cart.Count == 0)
+{
+    <p>You don't have any products in the cart.</p>
+    <p>go back to shopping :)</p>
+}
+else{
+    <form method="get" asp-page="cart">
+        <form method="post">
+            <table border="1">
+                <tr>
+                    <th>Delete</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+                @foreach (var item in Model.cart)
+                {
+                    <tr align="center">
+                        <td align="center">
+                            <a class="btn-primary btn" asp-page="cart" asp-page-handler="Delete" asp-route-id="@item.Product.Id">Remove</a>
+                        </td>
+                        <td>@item.Product.Name</td>
+                        <td>@item.Price</td>
+                        <td><input type="number" asp-for="OrderProduct.Quantity" value="@item.Quantity" readonly="readonly" min="1" max="10" /></td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="5" align="left">Total @Model.Total$</td>
+                </tr>
+            </table>
+            <div class="btnContainer">
+                <a type="submit" asp-page="/Checkout" asp-page-handler="Checkout" asp-route-total=@Model.Total class="btn-primary btn">Checkout</a>
+            </div>
+        </form>       
+    </form> 
+    
+}
+

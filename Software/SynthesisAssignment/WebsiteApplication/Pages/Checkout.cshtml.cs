@@ -1,3 +1,4 @@
+using DataLayer;
 using LogicLayer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -7,20 +8,23 @@ namespace WebsiteApplication.Pages
 {
     public class CheckoutModel : PageModel
     {
-        public List<Product> cart { get; set; } 
+        public List<OrderProduct> cart { get; set; } 
+        public decimal Total { get; set; }
         public void OnGet()
         {
-            ProductManager productManager = new ProductManager();
             cart = HttpContext.Session.GetObjectFromJson("cart");
-            if (cart == null)
+            foreach (OrderProduct product in cart)
             {
-                cart = new List<Product>();
-                SessionHepler.SetObjectAsJson(HttpContext.Session, "cart", cart);
-                if(cart.Count > 0)
-                {
-
-                }
+                Total += product.Price;
             }
+        }
+
+        public IActionResult OnPostOrder()
+        {
+            Order order = new Order(HttpContext.Session.GetObjectFromJson("cart"), Total);
+            OrderManager orderManager = new OrderManager();
+            orderManager.AddOrder(order.OrderDate, order.EnumOrderStatus, order.Total, order.Products);
+            return RedirectToPage("Receipt");
         }
     }
 }

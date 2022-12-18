@@ -16,5 +16,12 @@ namespace DataLayer
         {
 
         }
+
+        public CategoryDTO(int id, string name, int? parentId)
+        {
+            Id = id;
+            Name = name;
+            ParentId = parentId;
+        }
     }
 }

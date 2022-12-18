@@ -7,21 +7,21 @@ namespace WebsiteApplication.Pages
 {
     public class CartModel : PageModel
     {
-        public List<Product>? cart { get; set; }
+        public List<OrderProduct>? cart { get; set; }
         public decimal Total { get; set; }
         [BindProperty]
-        public Dictionary<int, int> productsQuantity { get; set; }
+        public OrderProduct OrderProduct { get; set; }
         public void OnGet()
         {
             cart = HttpContext.Session.GetObjectFromJson("cart");
-            productsQuantity = new Dictionary<int, int>();
             if (cart is null)
             {
-                cart = new List<Product>();
+                cart = new List<OrderProduct>();
+                OrderProduct = new OrderProduct();
             }
             else
             {
-                foreach (Product product in cart)
+                foreach (OrderProduct product in cart)
                 {
                     Total += product.Price;
                 }
@@ -34,18 +34,23 @@ namespace WebsiteApplication.Pages
             cart = HttpContext.Session.GetObjectFromJson("cart");
             if (cart == null)
             {
-                cart = new List<Product>();
-                int x = Int32.Parse(id);
-                cart.Add(productManager.GetProduct(x));
+                cart = new List<OrderProduct>();
+                OrderProduct orderProduct = new OrderProduct(productManager.GetProduct(Convert.ToInt32(id)), 1);
+                cart.Add(orderProduct);
                 SessionHepler.SetObjectAsJson(HttpContext.Session, "cart", cart);
             }
             else
             {
-                int index = Exists(cart, id);
+                int index = Exists(id);
                 if (index == -1)
                 {
-                    int x = Int32.Parse(id);
-                    cart.Add(productManager.GetProduct(x));
+                    OrderProduct orderProduct = new OrderProduct(productManager.GetProduct(Convert.ToInt32(id)), quantity: 1);
+                    cart.Add(orderProduct);
+                }
+                else
+                {
+                    cart.ElementAt(index).Quantity++;
+                    cart.ElementAt(index).Price = cart.ElementAt(index).Quantity * cart.ElementAt(index).Product.Price;
                 }
                 SessionHepler.SetObjectAsJson(HttpContext.Session, "cart", cart);
             }
@@ -55,17 +60,18 @@ namespace WebsiteApplication.Pages
         public IActionResult OnGetDelete(string id)
         {
             cart = SessionHepler.GetObjectFromJson(HttpContext.Session, "cart");
-            int index = Exists(cart, id);
-            cart.RemoveAt(index);
+            int index = Exists(id);
+            cart.RemoveAt(index);//zice ca e out of collection indexul lol
             SessionHepler.SetObjectAsJson(HttpContext.Session, "cart", cart);
             return RedirectToPage("Cart");
         }
 
-        private int Exists(List<Product> cart, string id)
+        private int Exists(string id)
         {
+            List<OrderProduct> cart = SessionHepler.GetObjectFromJson(HttpContext.Session, "cart");
             for (var i = 0; i < cart.Count; i++)
             {
-                if (cart[i].Id == Convert.ToInt32(id))
+                if (cart.ElementAt(i).Product.Id == Convert.ToInt32(id))
                 {
                     return i;
                 }

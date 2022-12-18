@@ -5,15 +5,15 @@ namespace WebsiteApplication.Models
 {
     public static class SessionHepler
     {
-        public static void SetObjectAsJson(this ISession session, string key, List<Product> value)
+        public static void SetObjectAsJson(this ISession session, string key, List<OrderProduct> value)
         {
             session.SetString(key, JsonSerializer.Serialize(value));
         }
 
-        public static List<Product>? GetObjectFromJson(this ISession session, string key)
+        public static List<OrderProduct>? GetObjectFromJson(this ISession session, string key)
         {
             var value = session.GetString(key);
-            return value == null ? default : JsonSerializer.Deserialize<List<Product>>(value);
+            return value == null ? default : JsonSerializer.Deserialize<List<OrderProduct>>(value);
         }
     }
 }
