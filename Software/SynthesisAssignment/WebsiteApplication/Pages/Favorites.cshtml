@@ -4,6 +4,7 @@
     ViewData["Title"] = "My favorites";
 
 }
+<link rel="stylesheet" href=@Url.Content("~/css/Catalogue.css" ) />
 
 <h1>My favorites</h1>
 <form method="post">
@@ -13,14 +14,19 @@
         {
         <p>You dont have any favorites...</p>
         }
-        @foreach (var product in Model.Favorites)
-        {
-        <div class=" FavoriteProduct">
-            <span><a asp-page="/Overview" asp-route-id="@product.Id">@product.Name</a></span>
-            <button class="RemoveFromFavorite" name="id" type="submit" asp-page-handler="Remove" value="@product.Id">Remove</button>
+        <div class="parent">
+            @foreach (var product in Model.Favorites)
+            {
+                <div class=" ProductItem">
+                    <img src="@product.ProductImage" width="200" height="200" />
+                    <a class="link" asp-page="/Overview" asp-route-id="@product.Id" data-replace="Info"><span>@product.Name</span></a>
+                    <p class=" productPrice">@product.Price</p>
+                    <p class="productUnit">@product.Unit</p>
+                <button class="RemoveFromFavorite btn btn-primary" name="id" type="submit" asp-page-handler="Remove" value="@product.Id">Remove</button>
+            </div>
+            <br>
+            }
         </div>
-        <br>
-        }
     }
     else
     {

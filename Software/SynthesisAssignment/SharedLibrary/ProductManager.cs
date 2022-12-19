@@ -10,10 +10,10 @@ namespace LogicLayer
     public class ProductManager
     {
         private List<Product> products;
-        private ProductRepository productRepository = new ProductRepository();
-
-        public ProductManager()
+        private IProductRepo productRepository;
+        public ProductManager(IProductRepo productRepo)
         {
+            this.productRepository = productRepo;
             products = GetAllProducts();
         }
         public List<Product> Products { get { return products; } set { products = value; } }

@@ -18,7 +18,8 @@ namespace WebsiteApplication.Pages
         {
             if(name != null)
             {
-                ProductManager = new ProductManager();
+                ProductRepository productRepository = new ProductRepository();
+                ProductManager = new ProductManager(productRepository);
                 SubcategoryProducts = ProductManager.GetProductsBySubcategory(name);
             }
             else { SubcategoryProducts = new List<Product>(); }
@@ -26,9 +27,10 @@ namespace WebsiteApplication.Pages
         }
         public IActionResult OnPostFavorite(int id, string name)
         {
-            ProductManager = new ProductManager();
+            ProductRepository productRepository = new ProductRepository();
+            ProductManager = new ProductManager(productRepository);
             UserRepository userRepository = new UserRepository();
-            userManager = new UserManager();
+            userManager = new UserManager(userRepository);
             if (HttpContext.Session.Get("UserID") != null)
             {
                 UserId = HttpContext.Session.GetInt32("UserID");

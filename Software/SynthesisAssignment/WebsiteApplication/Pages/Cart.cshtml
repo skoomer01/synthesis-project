@@ -10,7 +10,6 @@
 }
 else{
     <form method="get" asp-page="cart">
-        <form method="post">
             <table border="1">
                 <tr>
                     <th>Delete</th>
@@ -33,9 +32,8 @@ else{
                 </tr>
             </table>
             <div class="btnContainer">
-                <a type="submit" asp-page="/Checkout" asp-page-handler="Checkout" asp-route-total=@Model.Total class="btn-primary btn">Checkout</a>
-            </div>
-        </form>       
+                <a type="submit" asp-page="/Checkout" asp-page-handler="Checkout" asp-route-total="@Model.Total" class="btn-primary btn">Checkout</a>
+            </div>     
     </form> 
     
 }

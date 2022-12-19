@@ -9,7 +9,13 @@ namespace LogicLayer
 {
     public class UserManager
     {
-        UserRepository userRepository = new UserRepository();
+        IUserRepo userRepository;
+
+        public UserManager(IUserRepo userRepository)
+        {
+            this.userRepository = userRepository;
+        }   
+
         public List<User> GetAllUsers()
         {
             List<User> users = new List<User>();
@@ -75,11 +81,6 @@ namespace LogicLayer
                 throw new Exception(error.Message);
             }
             return false;            
-        }
-
-        public void DeleteUser(int id)
-        {
-            userRepository.DeleteUser(id);
         }
     }
 }

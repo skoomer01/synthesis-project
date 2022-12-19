@@ -27,33 +27,30 @@ namespace LogicLayer
             }
             return products;
         }
-        public bool AddOrder(DateTime orderDate, EnumOrderStatus orderStatus, decimal total, List<OrderProduct> products)
+        public bool AddOrder(DateTime orderDate, EnumOrderStatus orderStatus, decimal total, List<OrderProduct> products, string name, string email, string postalcode)
         {
             try
             {
-
-            }
-            catch(Exception ex) { throw new Exception(ex.Message); }
-            if(products != null && products.Count > 0) 
-            {
-                List<OrderProductDTO> orderProductDTOs = new List<OrderProductDTO>();
-                foreach (OrderProduct orderProduct in products)
+                if (products != null && products.Count > 0)
                 {
-                    CategoryDTO categoryDTO = new CategoryDTO(orderProduct.Product.Category.Id, orderProduct.Product.Category.Name,
-                        orderProduct.Product.Category.ParentId);
-                    CategoryDTO subcategoryDTO = new CategoryDTO(orderProduct.Product.SubCategory.Id, orderProduct.Product.SubCategory.Name,
-                        orderProduct.Product.SubCategory.ParentId);
-                    ProductDTO productDTO = new ProductDTO(orderProduct.Product.Id, orderProduct.Product.Name, categoryDTO, subcategoryDTO,
-                        orderProduct.Product.Price, orderProduct.Product.Unit, orderProduct.Product.ProductImage);
-                    OrderProductDTO orderProductDTO = new OrderProductDTO(orderProduct.Id, productDTO, orderProduct.Quantity, orderProduct.Price);
-                    orderProductDTOs.Add(orderProductDTO);
+                    List<OrderProductDTO> orderProductDTOs = new List<OrderProductDTO>();
+                    foreach (OrderProduct orderProduct in products)
+                    {
+                        CategoryDTO categoryDTO = new CategoryDTO(orderProduct.Product.Category.Id, orderProduct.Product.Category.Name,
+                            orderProduct.Product.Category.ParentId);
+                        CategoryDTO subcategoryDTO = new CategoryDTO(orderProduct.Product.SubCategory.Id, orderProduct.Product.SubCategory.Name,
+                            orderProduct.Product.SubCategory.ParentId);
+                        ProductDTO productDTO = new ProductDTO(orderProduct.Product.Id, orderProduct.Product.Name, categoryDTO, subcategoryDTO,
+                            orderProduct.Product.Price, orderProduct.Product.Unit, orderProduct.Product.ProductImage);
+                        OrderProductDTO orderProductDTO = new OrderProductDTO(orderProduct.Id, productDTO, orderProduct.Quantity, orderProduct.Price);
+                        orderProductDTOs.Add(orderProductDTO);
+                    }
+                    orderRepository.CreateOrder(orderDate, orderStatus.ToString(), total, orderProductDTOs, name, email, postalcode);
+                    return true;
                 }
-                orderRepository.CreateOrder(orderDate, orderStatus.ToString(), total, orderProductDTOs);
-                return true;
+                else { return false; }
             }
-            else { return false; }
-            
-
+            catch(Exception ex) { throw new Exception(ex.Message); }    
         }
         public Order GetOrder(int id)
         {

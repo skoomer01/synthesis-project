@@ -15,7 +15,7 @@ namespace DataLayer
             List<OrderDTO> orders = new List<OrderDTO>();
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
-                string sql = @"SELECT OrderID, OrderDate, OrderStatus ,Total
+                string sql = @"SELECT *
                                 FROM s_Order
                                 ORDER BY OrderID";
 
@@ -30,6 +30,9 @@ namespace DataLayer
                     orderDTO.Id = dr.GetInt32("OrderID");
                     orderDTO.OrderDate = dr.GetDateTime("OrderDate");
                     orderDTO.Products = GetOrderProducts(orderDTO.Id);
+                    orderDTO.Name = dr.GetString("Name");
+                    orderDTO.Email = dr.GetString("Email");
+                    orderDTO.PostalCode = dr.GetString("PostalCode");
                     orderDTO.EnumOrderStatus = dr.GetString("OrderStatus");
                     orderDTO.Total = dr.GetDecimal("Total");
                     orders.Add(orderDTO);
@@ -74,6 +77,9 @@ namespace DataLayer
                     orderDTO = new OrderDTO();
                     orderDTO.Id = dr.GetInt32("OrderID");
                     orderDTO.OrderDate = dr.GetDateTime("OrderDate");
+                    orderDTO.Name = dr.GetString("Name");
+                    orderDTO.Email = dr.GetString("Email");
+                    orderDTO.PostalCode = dr.GetString("PostalCode");
                     orderDTO.EnumOrderStatus = dr.GetString("OrderStatus");
                     orderDTO.Total = dr.GetInt32("Total");
 
@@ -83,21 +89,30 @@ namespace DataLayer
             }
         }
 
-        public void CreateOrder(DateTime orderDate, string orderStatus, decimal total, List<OrderProductDTO> products)
+        public void CreateOrder(DateTime orderDate, string orderStatus, decimal total, List<OrderProductDTO> products, string name, string email, string postalcode)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
                 string sql = @"INSERT INTO s_Order(OrderDate,
                                                     OrderStatus,
-                                                    Total)
+                                                    Total,
+                                                    Name,
+                                                    Email,
+                                                    PostalCode)
                                             VALUES(@OrderDate,
                                                     @OrderStatus,
-                                                    @Total);";
+                                                    @Total,
+                                                    @Name,
+                                                    @Email,
+                                                    @PostalCode);";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("OrderDate",orderDate);
                 cmd.Parameters.AddWithValue("OrderStatus", orderStatus);
                 cmd.Parameters.AddWithValue("Total", total);
+                cmd.Parameters.AddWithValue("Name", name);
+                cmd.Parameters.AddWithValue("Email", email);
+                cmd.Parameters.AddWithValue("PostalCode", postalcode);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -110,20 +125,20 @@ namespace DataLayer
                 {
                     string sql = @"INSERT INTO s_OrderProduct(OrderID,
                                                     ProductID,
-                                                    Price)
+                                                    OrderPrice)
                                             VALUES(@OrderID,
                                                     @ProductID,
-                                                    @Price);";
+                                                    @OrderPrice);";
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("OrderID", GetLastOredrID());
                     cmd.Parameters.AddWithValue("ProductID", productDTO.Product.Id);
-                    cmd.Parameters.AddWithValue("Price", productDTO.Price);
+                    cmd.Parameters.AddWithValue("OrderPrice", productDTO.Price);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
-                }
-                conn.Close();
+                    conn.Close();
+                }               
             }
         }
         public int GetLastOredrID()
@@ -151,12 +166,12 @@ namespace DataLayer
             List<OrderProductDTO> products = new List<OrderProductDTO>();
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
-                string sql = @"  SELECT s.ProductID, ProductName, Category ,SubCategory, s.Price, Unit, ProductImage,op.Price
+                string sql = @"  SELECT s.ProductID, ProductName, Category ,SubCategory, Price, Unit, ProductImage,OrderPrice
                                 FROM s_Product as s
                                 INNER JOIN s_OrderProduct as op
                                 on s.ProductID = op.ProductID
                                 WHERE op.OrderID = @orderID
-                                ORDER BY s.ProductID";
+                                ORDER BY ProductID";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("orderID", orderID);
@@ -173,11 +188,11 @@ namespace DataLayer
                     product.Name = dr.GetString("ProductName");
                     product.Category = categoryRepository.GetCategoryByName(dr.GetString("Category"));
                     product.SubCategory = categoryRepository.GetCategoryByName(dr.GetString("SubCategory"));
-                    product.Price = dr.GetDecimal("s.Price");
+                    product.Price = dr.GetDecimal("Price");
                     product.Unit = dr.GetString("Unit");
                     product.ProductImage = dr.GetString("ProductImage");
                     orderProduct.Product = product;
-                    orderProduct.Price = dr.GetDecimal("op.Price");
+                    orderProduct.Price = dr.GetDecimal("OrderPrice");
                     products.Add(orderProduct);
                 }
                 return products;

@@ -1,3 +1,4 @@
+using DataLayer;
 using LogicLayer;
 using System.Text.RegularExpressions;
 namespace DesktopApplication
@@ -5,9 +6,11 @@ namespace DesktopApplication
     public partial class LoginForm : Form
     {
         LoginManager loginManager = new LoginManager();
-        UserManager userManager = new UserManager();
+        UserRepository userRepository = new UserRepository();
+        UserManager userManager;
         public LoginForm()
         {
+            userManager = new UserManager(userRepository);
             InitializeComponent();
         }
 

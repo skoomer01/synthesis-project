@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public class UserRepository
+    public class UserRepository : IUserRepo
     {
         public List<UserDTO> GetUsers()
         {
@@ -184,22 +184,6 @@ namespace DataLayer
 
                 cmd.Parameters.AddWithValue("UserId", user.UserId);
                 cmd.Parameters.AddWithValue("UserPassword", user.UserPassword);
-
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
-            }
-        }
-
-        public void DeleteUser(int id)
-        {
-            using (SqlConnection conn = DatabaseConnection.CreateConnection())
-            {
-                string sql = @"DELETE from s_User
-                                WHERE UserId = @UserId";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("UserId", id);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();

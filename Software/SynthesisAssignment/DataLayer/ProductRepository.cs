@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public class ProductRepository
+    public class ProductRepository:IProductRepo
     {
         CategoryRepository categoryRepository = new CategoryRepository();
         public List<ProductDTO> GetProducts()

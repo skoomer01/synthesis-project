@@ -2,6 +2,7 @@ using LogicLayer;
 using WebsiteApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using DataLayer;
 
 namespace WebsiteApplication.Pages
 {
@@ -30,7 +31,8 @@ namespace WebsiteApplication.Pages
 
         public IActionResult OnGetCart(string id)
         {
-            ProductManager productManager = new ProductManager();
+            ProductRepository productRepository = new ProductRepository();
+            ProductManager productManager = new ProductManager(productRepository);
             cart = HttpContext.Session.GetObjectFromJson("cart");
             if (cart == null)
             {

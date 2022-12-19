@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace DataLayer
 {
-    public  class CategoryRepository
+    public  class CategoryRepository:ICategoryRepo
     {
         public List<CategoryDTO> GetCategories()
         {

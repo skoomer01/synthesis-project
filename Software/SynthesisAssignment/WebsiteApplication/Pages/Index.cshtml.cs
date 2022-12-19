@@ -1,4 +1,5 @@
-﻿using LogicLayer;
+﻿using DataLayer;
+using LogicLayer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -18,11 +19,11 @@ namespace WebsiteApplication.Pages
 
         public void OnGet()
         {
-            UserManager = new UserManager();
+            UserRepository userRepository = new UserRepository();
+            UserManager = new UserManager(userRepository);
             if (HttpContext.Session.Get("UserID") != null)
             {
-
-                UserID = HttpContext.Session.GetInt32("UserId");
+                UserID = HttpContext.Session.GetInt32("UserID");
             }
         }
     }

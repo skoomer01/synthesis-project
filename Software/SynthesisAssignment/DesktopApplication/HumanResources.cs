@@ -1,4 +1,5 @@
-﻿using LogicLayer;
+﻿using DataLayer;
+using LogicLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,11 +19,12 @@ namespace DesktopApplication
         private LoginForm loginForm;
         private UserManager userManager;
         private List<User> users;
+        UserRepository userRepository = new UserRepository();
         public HumanResources(LoginForm loginForm, User user)
         {
             this.loginForm = loginForm;
             this.user = user;
-            userManager = new UserManager();
+            userManager = new UserManager(userRepository);
 
             InitializeComponent();
 

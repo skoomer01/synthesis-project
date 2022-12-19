@@ -12,10 +12,12 @@ namespace LogicLayer
         private CategoryRepository categoryRepository = new CategoryRepository();
         public List<Category> SubCategoriesList { get; set; }
         public List<Category> CategoryList { get; set; }
-        public CategoryManager()
+        ICategoryRepo categoryRepo;
+        public CategoryManager(ICategoryRepo categoryRepo)
         {
             this.CategoryList = GetAllCategories();
             this.SubCategoriesList = GetAllSubCategories();
+            this.categoryRepo = categoryRepo;
         }
         public void CreateCategory(string name, int? parent)
         {

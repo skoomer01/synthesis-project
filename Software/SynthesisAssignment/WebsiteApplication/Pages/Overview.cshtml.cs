@@ -1,3 +1,4 @@
+using DataLayer;
 using LogicLayer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -10,7 +11,8 @@ namespace WebsiteApplication.Pages
         public Product Product { get; set; }
         public void OnGet(int id)
         {
-            ProductManager = new ProductManager();
+            ProductRepository productRepository = new ProductRepository();
+            ProductManager = new ProductManager(productRepository);
             Product = ProductManager.GetProduct(id);
 
         }

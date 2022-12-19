@@ -1,3 +1,4 @@
+using DataLayer;
 using LogicLayer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -10,7 +11,8 @@ namespace WebsiteApplication.Pages
         public List<Category> Categories { get; set; }
         public void OnGet()
         {
-            CategoryManager = new CategoryManager();
+            CategoryRepository categoryRepository = new CategoryRepository();
+            CategoryManager = new CategoryManager(categoryRepository);
             Categories = CategoryManager.GetAllCategories();
         }
     }

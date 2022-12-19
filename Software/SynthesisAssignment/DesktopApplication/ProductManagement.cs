@@ -1,4 +1,5 @@
 ﻿ using LogicLayer;
+using DataLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,10 +17,15 @@ namespace DesktopApplication
     {
         private LoginForm loginForm;
         private User user;
-        private ProductManager productManager = new ProductManager();
-        private CategoryManager categoryManager = new CategoryManager();
+        private ProductManager productManager;
+        private CategoryManager categoryManager;
+        ProductRepository productRepository = new ProductRepository();
+        CategoryRepository categoryRepository  = new CategoryRepository();
+
         public ProductManagement(LoginForm loginForm, User user)
         {
+            productManager = new ProductManager(productRepository);
+            categoryManager = new CategoryManager(categoryRepository);
             this.loginForm = loginForm;
             this.user = user;
             InitializeComponent();
@@ -39,6 +45,8 @@ namespace DesktopApplication
             dgvEditProducts.Columns[4].Visible = false;
             dgvCategory.DataSource = categoryManager.GetAllCategories();
             dgvDeleteProduct.DataSource = productManager.GetAllProducts();
+            dgvDeleteProduct.Columns[2].Visible = false;
+            dgvDeleteProduct.Columns[4].Visible = false;
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)

@@ -15,15 +15,17 @@ namespace WebsiteApplication.Pages
 
         public void OnGet()
         {
-            ProductManager = new ProductManager();
+            ProductRepository productRepository = new ProductRepository();
+            ProductManager = new ProductManager(productRepository);
             Products = ProductManager.Products;
         }
 
         public IActionResult OnPostFavorite(int id)
         {
-            ProductManager = new ProductManager();
+            ProductRepository productRepository = new ProductRepository();
+            ProductManager = new ProductManager(productRepository);
             UserRepository userRepository = new UserRepository();
-            userManager = new UserManager();
+            userManager = new UserManager(userRepository);
             if (HttpContext.Session.Get("UserID") != null)
             {
                 UserId = HttpContext.Session.GetInt32("UserID");

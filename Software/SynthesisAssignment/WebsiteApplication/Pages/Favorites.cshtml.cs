@@ -17,10 +17,11 @@ namespace WebsiteApplication.Pages
         public void OnGet()
         {
             Favorites = new List<Product>();
-            _productManager = new ProductManager();
+            ProductRepository productRepository = new ProductRepository();
+            _productManager = new ProductManager(productRepository);
             UserRepository userRepository = new UserRepository();
             FavoriteManager = new FavoriteManager();
-            userManager = new UserManager();
+            userManager = new UserManager(userRepository);
             if (HttpContext.Session.Get("UserID") != null)
             {
                 UserID = HttpContext.Session.GetInt32("UserID");
@@ -31,8 +32,10 @@ namespace WebsiteApplication.Pages
         public void OnPostRemove()
         {
             Favorites = new List<Product>();
-            _productManager = new ProductManager();
-            userManager = new UserManager();
+            ProductRepository productRepository = new ProductRepository();
+            _productManager = new ProductManager(productRepository);
+            UserRepository userRepository = new UserRepository();
+            userManager = new UserManager(userRepository);
             FavoriteManager = new FavoriteManager();
             if (HttpContext.Session.Get("UserID") != null)
             {
