@@ -11,8 +11,10 @@ namespace LogicLayer
     {
         public int Id { get; set; }
         public Product Product { get; set; }
+        public string ProductName { get { return Product.Name; } }
         public int Quantity { get; set; }
         public decimal Price { get; set; }
+        
 
 
         public OrderProduct(Product product, int quantity)

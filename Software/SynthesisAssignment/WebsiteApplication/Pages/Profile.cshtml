@@ -1,0 +1,37 @@
+﻿@page
+@model WebsiteApplication.Pages.ReceiptModel
+@{
+    ViewData["Title"] = "Profile";
+}
+<h1>Profile</h1>
+@if (Model.UserID != null)
+{
+    if(Model.orders.Count == 0 || Model.orders is null)
+    {
+        <p>You don't have any orders.</p>
+    }
+    else
+    {
+        foreach(var order in Model.orders)
+        {
+            <div class="order-0">
+                <p>Order number:@order.Id</p>
+                <p>Adress: @order.PostalCode</p>
+                <p>Date: @order.OrderDate</p>
+                <p>Email: @order.Email</p>
+                <p>Total price: @order.Total $</p>
+                <p>Status: @order.EnumOrderStatus.ToString()</p>
+            </div>
+                <p>Products:</p>
+                foreach(var product in @order.Products)
+                {
+                    <p>@product.Product.Name</p>
+                }
+                <hr/>    
+        }
+    }
+}
+else
+{
+    <p>You are not logged in...</p>
+}

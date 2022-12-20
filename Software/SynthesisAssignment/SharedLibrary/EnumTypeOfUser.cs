@@ -10,6 +10,7 @@ namespace LogicLayer
     {
         CUSTOMER = 0,
         PRODUCTEMPLOYEE = 1,
-        HUMANRESOURCES = 2
+        HUMANRESOURCES = 2,
+        ORDERMANAGER = 3
     }
 }

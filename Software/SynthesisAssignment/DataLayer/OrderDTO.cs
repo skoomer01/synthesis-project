@@ -9,6 +9,7 @@ namespace DataLayer
     public class OrderDTO
     {
         public int Id { get; set; }
+        public int UserId { get; set; }
         public DateTime OrderDate { get; set; }
         public List<OrderProductDTO> Products { get; set; }
         public string Name { get; set; }

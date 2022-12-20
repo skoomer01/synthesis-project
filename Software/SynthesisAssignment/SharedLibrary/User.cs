@@ -52,6 +52,9 @@ namespace LogicLayer
                 case "HUMANRESOURCES":
                     setType = EnumTypeOfUser.HUMANRESOURCES;
                     break;
+                case "ORDERMANAGER":
+                    setType = EnumTypeOfUser.ORDERMANAGER;
+                    break;
 
             }
             return setType;
@@ -68,6 +71,9 @@ namespace LogicLayer
 
                 case EnumTypeOfUser.HUMANRESOURCES:
                     setType = "HUMANRESOURCES";
+                    break;
+                case EnumTypeOfUser.ORDERMANAGER:
+                    setType = "ORDERMANAGER";
                     break;
 
             }

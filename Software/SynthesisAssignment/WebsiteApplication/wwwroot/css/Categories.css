@@ -1,6 +1,4 @@
-﻿body {
-}
-
-.category {
-
+﻿
+.allcategories .category {
+    display:flex;
 }

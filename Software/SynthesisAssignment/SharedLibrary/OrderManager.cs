@@ -10,10 +10,11 @@ namespace LogicLayer
     public class OrderManager
     {
         private List<Order> orders;
-        private OrderRepository orderRepository = new OrderRepository();
+        private IOrderRepo orderRepository;
 
-        public OrderManager()
+        public OrderManager(IOrderRepo orderRepo)
         {
+            orderRepository = orderRepo;
             orders = GetAllOrders();
         }
         public List<Order> Orders { get { return orders; } set { orders = value; } }
@@ -27,7 +28,20 @@ namespace LogicLayer
             }
             return products;
         }
-        public bool AddOrder(DateTime orderDate, EnumOrderStatus orderStatus, decimal total, List<OrderProduct> products, string name, string email, string postalcode)
+
+
+        public List<Order> GetUserOrders(int userID)
+        {
+            List<Order> orders = new List<Order>();
+            foreach (OrderDTO orderDTO in orderRepository.GetUserOrders(userID))
+            {
+                Order order = new Order(orderDTO);
+                orders.Add(order);             
+            }
+            return orders;
+        }
+
+        public bool AddOrder(int userID,DateTime orderDate, EnumOrderStatus orderStatus, decimal total, List<OrderProduct> products, string name, string email, string postalcode)
         {
             try
             {
@@ -45,7 +59,7 @@ namespace LogicLayer
                         OrderProductDTO orderProductDTO = new OrderProductDTO(orderProduct.Id, productDTO, orderProduct.Quantity, orderProduct.Price);
                         orderProductDTOs.Add(orderProductDTO);
                     }
-                    orderRepository.CreateOrder(orderDate, orderStatus.ToString(), total, orderProductDTOs, name, email, postalcode);
+                    orderRepository.CreateOrder(userID,orderDate, orderStatus.ToString(), total, orderProductDTOs, name, email, postalcode);
                     return true;
                 }
                 else { return false; }
@@ -66,6 +80,17 @@ namespace LogicLayer
                 return true;
             }
             return false;
+        }
+
+        public List<OrderProduct> GetOrderProducts(int orderID)
+        {
+            List<OrderProduct> productList = new List<OrderProduct>();
+            foreach(OrderProductDTO orderProductDTO in orderRepository.GetOrderProducts(orderID))
+            {
+                OrderProduct orderProduct = new OrderProduct(orderProductDTO);
+                productList.Add(orderProduct);
+            }
+            return productList;
         }
     }
 }

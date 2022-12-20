@@ -20,7 +20,7 @@
                 <div class=" ProductItem">
                     <img src="@product.ProductImage" width="200" height="200" />
                     <a class="link" asp-page="/Overview" asp-route-id="@product.Id" data-replace="Info"><span>@product.Name</span></a>
-                    <p class=" productPrice">@product.Price</p>
+                    <p class=" productPrice">@product.Price$</p>
                     <p class="productUnit">@product.Unit</p>
                 <button class="RemoveFromFavorite btn btn-primary" name="id" type="submit" asp-page-handler="Remove" value="@product.Id">Remove</button>
             </div>

@@ -3,7 +3,12 @@
 @{
 }
 <h1>Your cart</h1>
-@if(Model.cart is null || Model.cart.Count == 0)
+@if(Model.UserID ==  null)
+{
+    <p>You  need to  log in too make purchases.</p>
+    <p>Go to the sign up page and to create an account.</p>
+}
+else if(Model.cart is null || Model.cart.Count == 0)
 {
     <p>You don't have any products in the cart.</p>
     <p>go back to shopping :)</p>

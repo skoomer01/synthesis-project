@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public class OrderRepository
+    public class OrderRepository : IOrderRepo
     {
         public List<OrderDTO> GetOrders()
         {
@@ -28,6 +28,42 @@ namespace DataLayer
                 {
                     orderDTO = new OrderDTO();
                     orderDTO.Id = dr.GetInt32("OrderID");
+                    orderDTO.UserId = dr.GetInt32("UserID");
+                    orderDTO.OrderDate = dr.GetDateTime("OrderDate");
+                    orderDTO.Products = GetOrderProducts(orderDTO.Id);
+                    orderDTO.Name = dr.GetString("Name");
+                    orderDTO.Email = dr.GetString("Email");
+                    orderDTO.PostalCode = dr.GetString("PostalCode");
+                    orderDTO.EnumOrderStatus = dr.GetString("OrderStatus");
+                    orderDTO.Total = dr.GetDecimal("Total");
+                    orders.Add(orderDTO);
+                }
+                conn.Close();
+                return orders;
+            }
+        }
+
+        public List<OrderDTO> GetUserOrders(int userID)
+        {
+            List<OrderDTO> orders = new List<OrderDTO>();
+            using (SqlConnection conn = DatabaseConnection.CreateConnection())
+            {
+                string sql = @"SELECT *
+                                FROM s_Order
+                                where s_Order.UserID = @userID
+                                ORDER BY OrderID";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("userID", userID);
+                conn.Open();
+
+                OrderDTO orderDTO = null;
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    orderDTO = new OrderDTO();
+                    orderDTO.Id = dr.GetInt32("OrderID");
+                    orderDTO.UserId = dr.GetInt32("UserID");
                     orderDTO.OrderDate = dr.GetDateTime("OrderDate");
                     orderDTO.Products = GetOrderProducts(orderDTO.Id);
                     orderDTO.Name = dr.GetString("Name");
@@ -76,12 +112,14 @@ namespace DataLayer
                 {
                     orderDTO = new OrderDTO();
                     orderDTO.Id = dr.GetInt32("OrderID");
+                    orderDTO.UserId = dr.GetInt32("UserID");
                     orderDTO.OrderDate = dr.GetDateTime("OrderDate");
                     orderDTO.Name = dr.GetString("Name");
                     orderDTO.Email = dr.GetString("Email");
                     orderDTO.PostalCode = dr.GetString("PostalCode");
                     orderDTO.EnumOrderStatus = dr.GetString("OrderStatus");
-                    orderDTO.Total = dr.GetInt32("Total");
+                    orderDTO.Total = dr.GetDecimal("Total");
+                    orderDTO.Products = GetOrderProducts(orderDTO.Id);
 
                 }
                 conn.Close();
@@ -89,17 +127,19 @@ namespace DataLayer
             }
         }
 
-        public void CreateOrder(DateTime orderDate, string orderStatus, decimal total, List<OrderProductDTO> products, string name, string email, string postalcode)
+        public void CreateOrder(int userID,DateTime orderDate, string orderStatus, decimal total, List<OrderProductDTO> products, string name, string email, string postalcode)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
-                string sql = @"INSERT INTO s_Order(OrderDate,
+                string sql = @"INSERT INTO s_Order(UserID,
+                                                    OrderDate,
                                                     OrderStatus,
                                                     Total,
                                                     Name,
                                                     Email,
                                                     PostalCode)
-                                            VALUES(@OrderDate,
+                                            VALUES(@UserID,
+                                                    @OrderDate,
                                                     @OrderStatus,
                                                     @Total,
                                                     @Name,
@@ -107,6 +147,7 @@ namespace DataLayer
                                                     @PostalCode);";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("UserID", userID);
                 cmd.Parameters.AddWithValue("OrderDate",orderDate);
                 cmd.Parameters.AddWithValue("OrderStatus", orderStatus);
                 cmd.Parameters.AddWithValue("Total", total);
@@ -125,10 +166,12 @@ namespace DataLayer
                 {
                     string sql = @"INSERT INTO s_OrderProduct(OrderID,
                                                     ProductID,
-                                                    OrderPrice)
+                                                    OrderPrice,
+                                                    Quantity)
                                             VALUES(@OrderID,
                                                     @ProductID,
-                                                    @OrderPrice);";
+                                                    @OrderPrice,
+                                                    @Quantity);";
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("OrderID", GetLastOredrID());
@@ -166,7 +209,7 @@ namespace DataLayer
             List<OrderProductDTO> products = new List<OrderProductDTO>();
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
-                string sql = @"  SELECT s.ProductID, ProductName, Category ,SubCategory, Price, Unit, ProductImage,OrderPrice
+                string sql = @"  SELECT s.ProductID, ProductName, Category ,SubCategory, Price, Unit, ProductImage,OrderPrice, Quantity, op.ID
                                 FROM s_Product as s
                                 INNER JOIN s_OrderProduct as op
                                 on s.ProductID = op.ProductID
@@ -191,8 +234,10 @@ namespace DataLayer
                     product.Price = dr.GetDecimal("Price");
                     product.Unit = dr.GetString("Unit");
                     product.ProductImage = dr.GetString("ProductImage");
+                    orderProduct.Id = dr.GetInt32("ID");
                     orderProduct.Product = product;
                     orderProduct.Price = dr.GetDecimal("OrderPrice");
+                    orderProduct.Quantity = dr.GetInt32("Quantity");
                     products.Add(orderProduct);
                 }
                 return products;

@@ -5,11 +5,12 @@
 }
 <link rel="stylesheet" href=@Url.Content("~/css/Categories.css" ) />
 <div class="allcategories">
+    <h1>Categories</h1>
      @foreach(Category c in Model.Categories)
      {
          <div class="category">
-             <p> @c.Name</p>
-            <a asp-page="/Subcategory" asp-route-id="@c.Id">See subactegories</a>
+             <h3> @c.Name</h3>
+            <a asp-page="/Subcategory" class="btn btn-primary" asp-route-id="@c.Id">See subactegories</a>
          </div>
      }
 </div>

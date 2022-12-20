@@ -7,8 +7,8 @@
     @foreach(Category c in Model.Subcategories)
     {
         <div class=" subcategory">
-            <p> @c.Name</p>
-            <a asp-page="/SubcategoryProducts" asp-route-name="@c.Name">See subactegories</a>
+            <h4> @c.Name</h4>
+            <a class="btn btn-primary" asp-page="/SubcategoryProducts" asp-route-name="@c.Name">See subactegories</a>
         </div>
     }
 </div>
