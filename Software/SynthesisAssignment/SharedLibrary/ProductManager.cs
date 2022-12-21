@@ -66,7 +66,7 @@ namespace LogicLayer
                 }
                 else
                 {
-                    throw new Exception("Invalid price format. Should be in 0,00 format.");
+                    throw new Exception ("Invalid price format. Should be in 0,00 format.");
                 }
 
             }

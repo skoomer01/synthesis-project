@@ -19,13 +19,17 @@ namespace LogicLayer
             this.SubCategoriesList = GetAllSubCategories();
             this.categoryRepo = categoryRepo;
         }
-        public void CreateCategory(string name, int? parent)
+        public bool CreateCategory(string name, int? parent)
         {
             if(GetCategoryByName(name) != null)
             {
                 throw new Exception("Category of that name already exists.");
             }
-            else { categoryRepository.CreateCategory(name, parent);}
+            else 
+            { 
+                categoryRepository.CreateCategory(name, parent);
+                return true;
+            }
         }
         public List<Category> GetAllCategories()
         {
