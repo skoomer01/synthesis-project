@@ -17,7 +17,7 @@ namespace WebsiteApplication.Pages
         {
             ProductRepository productRepository = new ProductRepository();
             ProductManager = new ProductManager(productRepository);
-            Products = ProductManager.Products;
+            Products = ProductManager.GetAvailableProducts();
         }
 
         public IActionResult OnPostFavorite(int id)
@@ -36,7 +36,7 @@ namespace WebsiteApplication.Pages
                     favoriteManager.AddFavorite(id, (int)UserId);
                 }
             }
-            Products = ProductManager.Products;
+            Products = ProductManager.GetAvailableProducts();
             return Page();
         }
     }

@@ -27,7 +27,9 @@ namespace DataLayer
         public CategoryDTO Category { get; set; }
         public CategoryDTO SubCategory { get; set; }
         public decimal Price { get; set; }
+        public int Discount { get; set; }
         public string Unit { get; set; }
         public string ProductImage { get; set; }
+        public string Availability { get; set; }
     }
 }

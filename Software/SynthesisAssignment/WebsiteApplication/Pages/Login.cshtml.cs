@@ -22,23 +22,25 @@ namespace WebsiteApplication.Pages
             {
                 if (EmailValidation.IsValidEmail(Model.Email))
                 {
-                    LoginManager loginManager = new LoginManager();
-                    User user = loginManager.Login(Model.Email, Model.Password);
-
-                    if (user is not null)
+                    try
                     {
-                        HttpContext.Session.SetInt32("UserID", user.UserId);
-                        HttpContext.Session.SetString("Email", Model.Email);
+                        LoginManager loginManager = new LoginManager();
+                        User user = loginManager.Login(Model.Email, Model.Password);
 
-                        return RedirectToPage("/Index");
+                        if (user is not null)
+                        {
+                            HttpContext.Session.SetInt32("UserID", user.UserId);
+                            HttpContext.Session.SetString("Email", Model.Email);
+
+                            return RedirectToPage("/Index");
+                        }
                     }
-                    else
+                    catch
                     {
-                        ModelState.AddModelError("WrongCredentials", "Email or password is incorrect");
+                        ModelState.AddModelError("Invalid", "Invalid creditentials");
                     }
                 }
             }
-
             return Page();
         }
     }

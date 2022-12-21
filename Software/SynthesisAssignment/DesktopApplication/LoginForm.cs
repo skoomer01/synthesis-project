@@ -55,6 +55,14 @@ namespace DesktopApplication
                         orderManagement.Show();
                         this.Hide();
                     }
+                    else if (user.EnumUserType == EnumTypeOfUser.MARKETINGMANAGER)
+                    {
+                        tbxPassword.Text = String.Empty;
+
+                        MarketingDepartment marketingDepartment = new MarketingDepartment(this, user);
+                        marketingDepartment.Show();
+                        this.Hide();
+                    }
                     else if (user.EnumUserType == EnumTypeOfUser.CUSTOMER)
                     {
                         throw new Exception("You are not authorized to access the desktop application");
@@ -98,6 +106,10 @@ namespace DesktopApplication
             else if (cbxUserType.Text == "Order Manager")
             {
                 return "ORDERMANAGER";
+            }
+            else if (cbxUserType.Text == "Marketing Manager")
+            {
+                return "MARKETINGMANAGER";
             }
             else
                 return "CUSTOMER";

@@ -64,7 +64,7 @@
             this.tbxEditPrice = new System.Windows.Forms.TextBox();
             this.tbxEditName = new System.Windows.Forms.TextBox();
             this.tabpDeleteProduct = new System.Windows.Forms.TabPage();
-            this.btnDeleteProduct = new System.Windows.Forms.Button();
+            this.btnStatusProduct = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.dgvDeleteProduct = new System.Windows.Forms.DataGridView();
             this.tabpCategoryManager = new System.Windows.Forms.TabPage();
@@ -447,25 +447,25 @@
             // 
             // tabpDeleteProduct
             // 
-            this.tabpDeleteProduct.Controls.Add(this.btnDeleteProduct);
+            this.tabpDeleteProduct.Controls.Add(this.btnStatusProduct);
             this.tabpDeleteProduct.Controls.Add(this.label20);
             this.tabpDeleteProduct.Controls.Add(this.dgvDeleteProduct);
             this.tabpDeleteProduct.Location = new System.Drawing.Point(4, 24);
             this.tabpDeleteProduct.Name = "tabpDeleteProduct";
             this.tabpDeleteProduct.Size = new System.Drawing.Size(1139, 499);
             this.tabpDeleteProduct.TabIndex = 4;
-            this.tabpDeleteProduct.Text = "Delete Product";
+            this.tabpDeleteProduct.Text = "Status Product";
             this.tabpDeleteProduct.UseVisualStyleBackColor = true;
             // 
-            // btnDeleteProduct
+            // btnStatusProduct
             // 
-            this.btnDeleteProduct.Location = new System.Drawing.Point(388, 379);
-            this.btnDeleteProduct.Name = "btnDeleteProduct";
-            this.btnDeleteProduct.Size = new System.Drawing.Size(317, 23);
-            this.btnDeleteProduct.TabIndex = 36;
-            this.btnDeleteProduct.Text = "Mark as unaivalable";
-            this.btnDeleteProduct.UseVisualStyleBackColor = true;
-            this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
+            this.btnStatusProduct.Location = new System.Drawing.Point(372, 304);
+            this.btnStatusProduct.Name = "btnStatusProduct";
+            this.btnStatusProduct.Size = new System.Drawing.Size(317, 23);
+            this.btnStatusProduct.TabIndex = 36;
+            this.btnStatusProduct.Text = "Mark as unaivalable";
+            this.btnStatusProduct.UseVisualStyleBackColor = true;
+            this.btnStatusProduct.Click += new System.EventHandler(this.btnStatusProduct_Click);
             // 
             // label20
             // 
@@ -747,7 +747,7 @@
         private Label label19;
         private TextBox tbxEditSubCategory;
         private TabPage tabpDeleteProduct;
-        private Button btnDeleteProduct;
+        private Button btnStatusProduct;
         private Label label20;
         private DataGridView dgvDeleteProduct;
     }

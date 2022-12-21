@@ -29,7 +29,7 @@ namespace DesktopApplication
             InitializeComponent();
 
             users = userManager.GetAllUsers();
-            lblUserNameDisplay.Text = user.UserName;
+            lblUserNameDisplay.Text = "Welcome, " + user.UserName + "!";
 
             RefreshUserData();
         }

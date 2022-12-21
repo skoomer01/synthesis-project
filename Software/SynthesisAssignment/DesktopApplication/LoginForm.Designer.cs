@@ -176,7 +176,8 @@
             this.cbxUserType.Items.AddRange(new object[] {
             "Human Resources",
             "Product Manager",
-            "Order Manager"});
+            "Order Manager",
+            "Marketing Manager"});
             this.cbxUserType.Location = new System.Drawing.Point(128, 124);
             this.cbxUserType.Name = "cbxUserType";
             this.cbxUserType.Size = new System.Drawing.Size(139, 23);

@@ -11,7 +11,14 @@
             <div class="ProductItem">
                 <img src="@product.ProductImage" width="200" height="200" />
                 <a class="link" asp-page="/Overview" asp-route-id="@product.Id" data-replace="Info"><span>@product.Name</span></a>
-                <p class=" productPrice">@product.Price$</p>
+                @if(@product.Discount == 0)
+                {
+                    <p class=" productPrice">@product.Price$</p>
+                }
+                else
+                {
+                    <p class=" productPrice">@product.Price$ - @product.Discount %</p>
+                }
                 <p class="productUnit">@product.Unit</p>
                 <button class="addToFavorites btn btn-primary" type="submit" asp-page-handler="Favorite"  asp-route-id="@product.Id"><img src="/img/favorite.png" width="25" height="25" /></button>
                 <a class="addToCart btn btn-primary" name="id" type="submit" asp-page="/Cart" asp-page-handler="Cart" asp-route-id="@product.Id">+ Add to cart</a>

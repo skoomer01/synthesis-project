@@ -53,7 +53,7 @@ namespace WebsiteApplication.Pages
                         else { ModelState.AddModelError("WrongCredentials", "Email is incorrect format");
                         }
                     }
-                    catch { ModelState.AddModelError("WrongCredentials", "Email is already taken"); }
+                    catch { ModelState.AddModelError("Invalid", "Email is already taken"); }
                     
                 }
             }

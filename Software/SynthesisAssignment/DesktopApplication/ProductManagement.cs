@@ -279,9 +279,14 @@ namespace DesktopApplication
             else { MessageBox.Show("SubCategory by that name already exists."); }
         }
 
-        private void btnDeleteProduct_Click(object sender, EventArgs e)
+        private void btnStatusProduct_Click(object sender, EventArgs e)
         {
+            int index = dgvDeleteProduct.CurrentRow.Index;
+            int productID;
+            DataGridViewRow row = dgvDeleteProduct.Rows[index];
+            productID = Convert.ToInt32(row.Cells[0].Value.ToString());
 
+            productManager.UpdateStatusProduct(productID, "Unavailable");
         }
     }
 }

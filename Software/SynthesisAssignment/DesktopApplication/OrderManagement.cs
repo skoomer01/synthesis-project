@@ -17,13 +17,16 @@ namespace DesktopApplication
         private LoginForm loginForm;
         public OrderRepository OrderRepository = new OrderRepository();
         public OrderManager orderManager;
+        private User user;
         public OrderManagement(LoginForm loginForm, User user)
         {
             orderManager = new OrderManager(OrderRepository);
             this.loginForm = loginForm;
+            this.user = user;
             InitializeComponent();
             dgvOrders.DataSource = orderManager.GetAllOrders();
             cbxStatus.DataSource = Enum.GetValues(typeof(EnumOrderStatus));
+            lblOrderManagerUser.Text = "Welcome, " + user.UserName + "!";
         }
 
         private void btnChangeStatus_Click(object sender, EventArgs e)

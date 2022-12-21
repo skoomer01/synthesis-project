@@ -10,7 +10,6 @@ namespace LogicLayer
 {
     public class Product
     {
-
         public Product() { }
         public Product(ProductDTO productDTO)
         {
@@ -21,6 +20,8 @@ namespace LogicLayer
             Price = productDTO.Price;
             Unit = productDTO.Unit;
             ProductImage = productDTO.ProductImage;
+            Discount = productDTO.Discount;
+            Availability = productDTO.Availability;
         }
         [DisplayName("Identification number")]
         public int Id { get; set; }
@@ -34,10 +35,13 @@ namespace LogicLayer
         public string SubCategoryName { get { return SubCategory.Name; } }
         [DisplayName("Price")]
         public decimal Price { get; set; }
+        public int Discount { get; set; }
         [DisplayName("Unit")]
         public string Unit { get; set; }
         [DisplayName("Image Link")]
         public string ProductImage { get; set; }
+        [DisplayName("Availability")]
+        public string Availability { get; set; }
         public override string ToString()
         {
             return $"{Id}, {Name}, {Category.Name}, {SubCategory.Name}, {Price}, {Unit}, {ProductImage} ";

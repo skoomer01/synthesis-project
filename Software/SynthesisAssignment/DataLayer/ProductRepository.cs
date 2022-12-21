@@ -16,7 +16,7 @@ namespace DataLayer
             List<ProductDTO> products = new List<ProductDTO>();
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
-                string sql = @"SELECT ProductID, ProductName, Category ,SubCategory, Price, Unit, ProductImage
+                string sql = @"SELECT *
                                 FROM s_Product
                                 ORDER BY ProductID";
 
@@ -36,6 +36,41 @@ namespace DataLayer
                     product.Price = dr.GetDecimal("Price");
                     product.Unit = dr.GetString("Unit");
                     product.ProductImage = dr.GetString("ProductImage");
+                    product.Discount = dr.GetInt32("Discount");
+                    product.Availability = dr.GetString("AvailabilityStatus");
+                    products.Add(product);
+                }
+                return products;
+            }
+        }
+        public List<ProductDTO> GetAvailableProducts()
+        {
+            List<ProductDTO> products = new List<ProductDTO>();
+            using (SqlConnection conn = DatabaseConnection.CreateConnection())
+            {
+                string sql = @"SELECT *
+                                FROM s_Product
+                                WHERE AvailabilityStatus = 'Available'
+                                ORDER BY ProductID";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                conn.Open();
+
+                ProductDTO product = null;
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    product = new ProductDTO();
+                    product.Id = dr.GetInt32("ProductID");
+                    product.Name = dr.GetString("ProductName");
+                    product.Category = categoryRepository.GetCategoryByName(dr.GetString("Category"));
+                    product.SubCategory = categoryRepository.GetCategoryByName(dr.GetString("SubCategory"));
+                    product.Price = dr.GetDecimal("Price");
+                    product.Unit = dr.GetString("Unit");
+                    product.ProductImage = dr.GetString("ProductImage");
+                    product.Discount = dr.GetInt32("Discount");
+                    product.Availability = dr.GetString("AvailabilityStatus");
                     products.Add(product);
                 }
                 return products;
@@ -69,6 +104,8 @@ namespace DataLayer
                     product.Price = dr.GetDecimal("Price");
                     product.Unit = dr.GetString("Unit");
                     product.ProductImage = dr.GetString("ProductImage");
+                    product.Discount = dr.GetInt32("Discount");
+                    product.Availability = dr.GetString("AvailabilityStatus");
                     products.Add(product);
                 }
                 return products;
@@ -120,6 +157,8 @@ namespace DataLayer
                     product.Price = dr.GetDecimal("Price");
                     product.Unit = dr.GetString("Unit");
                     product.ProductImage = dr.GetString("ProductImage");
+                    product.Discount = dr.GetInt32("Discount");
+                    product.Availability = dr.GetString("AvailabilityStatus");
                 }
                 return product;
             }
@@ -134,13 +173,17 @@ namespace DataLayer
                                                     SubCategory,
                                                     Price,
                                                     Unit,
-                                                    ProductImage)
+                                                    ProductImage,
+                                                    AvailabilityStatus,
+                                                    Discount)
                                             VALUES(@ProductName,
                                                     @Category,
                                                     @SubCategory,
                                                     @Price,
                                                     @Unit,
-                                                    @ProductImage);";
+                                                    @ProductImage,
+                                                    @AvailabilityStatus,
+                                                    @Discount);";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("ProductName", name);
@@ -149,20 +192,22 @@ namespace DataLayer
                 cmd.Parameters.AddWithValue("Price", price);
                 cmd.Parameters.AddWithValue("Unit", unit);
                 cmd.Parameters.AddWithValue("ProductImage", productImage);
+                cmd.Parameters.AddWithValue("Discount", "Available");
+                cmd.Parameters.AddWithValue("Discount", 0);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
         }
 
-        public void DeleteProduct(int id)
+        public void ChangeStatusProduct(int id, string status)
         {
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
-                string sql = @"DELETE from s_Product
-                                WHERE ProductID = @ProductID";
+                string sql = @"UPDATE s_Product SET  AvailabilityStatus=@AvailabilityStatus WHERE ProductID=@ProductID";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
+                cmd.Parameters.AddWithValue("AvailabilityStatus", status);
                 cmd.Parameters.AddWithValue("ProductID", id);
 
                 conn.Open();

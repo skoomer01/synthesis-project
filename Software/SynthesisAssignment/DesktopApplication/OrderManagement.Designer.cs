@@ -30,7 +30,7 @@
         {
             this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblProductManagerUser = new System.Windows.Forms.Label();
+            this.lblOrderManagerUser = new System.Windows.Forms.Label();
             this.cbxStatus = new System.Windows.Forms.ComboBox();
             this.btnChangeStatus = new System.Windows.Forms.Button();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
@@ -59,15 +59,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "All Orders";
             // 
-            // lblProductManagerUser
+            // lblOrderManagerUser
             // 
-            this.lblProductManagerUser.AutoSize = true;
-            this.lblProductManagerUser.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblProductManagerUser.Location = new System.Drawing.Point(15, 9);
-            this.lblProductManagerUser.Name = "lblProductManagerUser";
-            this.lblProductManagerUser.Size = new System.Drawing.Size(282, 32);
-            this.lblProductManagerUser.TabIndex = 2;
-            this.lblProductManagerUser.Text = "Welcome, <UserName>!";
+            this.lblOrderManagerUser.AutoSize = true;
+            this.lblOrderManagerUser.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblOrderManagerUser.Location = new System.Drawing.Point(15, 9);
+            this.lblOrderManagerUser.Name = "lblOrderManagerUser";
+            this.lblOrderManagerUser.Size = new System.Drawing.Size(282, 32);
+            this.lblOrderManagerUser.TabIndex = 2;
+            this.lblOrderManagerUser.Text = "Welcome, <UserName>!";
             // 
             // cbxStatus
             // 
@@ -115,7 +115,7 @@
             this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.btnChangeStatus);
             this.Controls.Add(this.cbxStatus);
-            this.Controls.Add(this.lblProductManagerUser);
+            this.Controls.Add(this.lblOrderManagerUser);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvOrders);
             this.Name = "OrderManagement";
@@ -132,7 +132,7 @@
 
         private DataGridView dgvOrders;
         private Label label1;
-        private Label lblProductManagerUser;
+        private Label lblOrderManagerUser;
         private ComboBox cbxStatus;
         private Button btnChangeStatus;
         private DataGridView dgvProducts;

@@ -19,6 +19,8 @@
         <span asp-validation-for="Model.Password"></span>
         <input asp-for="Model.Password" type="password" placeholder="Password" />
     </div>
+    <span style="color: red;">@Html.ValidationMessage("WrongCredentials")</span><br>
+    <span style="color: red;">@Html.ValidationMessage("Invalid")</span><br>
     <div class="form-field">
         <button class="btn" type="submit" asp-page-handler="Signin" value="login">Sign in</button>
     </div>

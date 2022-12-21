@@ -28,6 +28,17 @@ namespace LogicLayer
             return products;
         }
 
+        public List<Product> GetAvailableProducts()
+        {
+            List<Product> products = new List<Product>();
+            foreach (ProductDTO productDTO in productRepository.GetAvailableProducts())
+            {
+                Product product = new Product(productDTO);
+                products.Add(product);
+            }
+            return products;
+        }
+
         public List<Product> GetProductsBySubcategory(string name)
         {
             List<Product> products = new List<Product>();
@@ -93,11 +104,14 @@ namespace LogicLayer
             return product;
         }
 
-        public void DeleteProduct(int id)
+        public bool UpdateStatusProduct(int id, string status)
         {
-            productRepository.DeleteProduct(id);
+            if(status != String.Empty)
+            {
+                productRepository.ChangeStatusProduct(id, status);
+                return true;
+            }
+            return false;
         }
-
-
     }
 }

@@ -55,6 +55,9 @@ namespace LogicLayer
                 case "ORDERMANAGER":
                     setType = EnumTypeOfUser.ORDERMANAGER;
                     break;
+                case "MARKETINGMANAGER":
+                    setType = EnumTypeOfUser.MARKETINGMANAGER;
+                    break;
 
             }
             return setType;
@@ -75,7 +78,9 @@ namespace LogicLayer
                 case EnumTypeOfUser.ORDERMANAGER:
                     setType = "ORDERMANAGER";
                     break;
-
+                case EnumTypeOfUser.MARKETINGMANAGER:
+                    setType = "MARKETINGMANAGER";
+                    break;
             }
             return setType;
         }
