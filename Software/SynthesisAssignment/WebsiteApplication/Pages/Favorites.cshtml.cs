@@ -13,6 +13,12 @@ namespace WebsiteApplication.Pages
         public User user { get; set; }
         public List<Product> Favorites { get; set; }
         public FavoriteManager FavoriteManager { get; set; }
+        private readonly ILogger<FavoritesModel> _logger;
+        
+        public FavoritesModel(ILogger<FavoritesModel> logger)
+        {
+            _logger = logger;
+        }
 
         public void OnGet()
         {
@@ -39,11 +45,10 @@ namespace WebsiteApplication.Pages
             FavoriteManager = new FavoriteManager();
             if (HttpContext.Session.Get("UserID") != null)
             {
-
-                UserID = HttpContext.Session.GetInt32("UserID");
-                Favorites = FavoriteManager.GetAllFavorites((int)UserID);            
+                UserID = HttpContext.Session.GetInt32("UserID");                           
                 int id = Convert.ToInt32(Request.Form["id"]);
                 FavoriteManager.RemoveFavorite(id, (int)UserID);
+                Favorites = FavoriteManager.GetAllFavorites((int)UserID);
             }
         }
     }

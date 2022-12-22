@@ -9,32 +9,36 @@ namespace LogicLayer
 {
     public class CategoryManager
     {
-        private CategoryRepository categoryRepository = new CategoryRepository();
         public List<Category> SubCategoriesList { get; set; }
         public List<Category> CategoryList { get; set; }
-        ICategoryRepo categoryRepo;
+        private ICategoryRepo categoryRepo;
         public CategoryManager(ICategoryRepo categoryRepo)
         {
+            this.categoryRepo = categoryRepo;
             this.CategoryList = GetAllCategories();
             this.SubCategoriesList = GetAllSubCategories();
-            this.categoryRepo = categoryRepo;
+            
         }
         public bool CreateCategory(string name, int? parent)
         {
+            if(name == String.Empty)
+            {
+                throw new Exception("Category name is empty.");
+            }
             if(GetCategoryByName(name) != null)
             {
                 throw new Exception("Category of that name already exists.");
             }
             else 
-            { 
-                categoryRepository.CreateCategory(name, parent);
+            {
+                categoryRepo.CreateCategory(name, parent);
                 return true;
             }
         }
         public List<Category> GetAllCategories()
         {
             List<Category> categories = new List<Category>();
-            foreach(CategoryDTO categoryDTO in categoryRepository.GetCategories())
+            foreach(CategoryDTO categoryDTO in categoryRepo.GetCategories())
             {
                 Category category = new Category(categoryDTO);
                 categories.Add(category);
@@ -44,7 +48,7 @@ namespace LogicLayer
         public List<Category> GetSubCategories(int id)
         {
             List<Category> subcategories = new List<Category>();
-            foreach (CategoryDTO categoryDTO in categoryRepository.GetSubCategories(id))
+            foreach (CategoryDTO categoryDTO in categoryRepo.GetSubCategories(id))
             {
                 Category category = new Category(categoryDTO);
                 subcategories.Add(category);
@@ -55,7 +59,7 @@ namespace LogicLayer
         public List<Category> GetAllSubCategories()
         {
             List<Category> subcategories = new List<Category>();
-            foreach (CategoryDTO categoryDTO in categoryRepository.GetSubCategories())
+            foreach (CategoryDTO categoryDTO in categoryRepo.GetSubCategories())
             {
                 Category category = new Category(categoryDTO);
                 subcategories.Add(category);
@@ -67,7 +71,7 @@ namespace LogicLayer
         {
             if(name == String.Empty!)
             {
-                CategoryDTO categoryDTO = categoryRepository.GetCategoryByName(name);
+                CategoryDTO categoryDTO = categoryRepo.GetCategoryByName(name);
                 if (categoryDTO != null)
                 {
                     Category c = new Category(categoryDTO);
@@ -81,7 +85,7 @@ namespace LogicLayer
         {
             if(name != String.Empty)
             {
-                categoryRepository.UpdateCategory(id, name);
+                categoryRepo.UpdateCategory(id, name);
                 return true;
             }
             return false;
@@ -90,14 +94,14 @@ namespace LogicLayer
         {
             if(oldname != String.Empty && newname != String.Empty)
             {
-                categoryRepository.UpdateProductSubCategory(newname, oldname);
+                categoryRepo.UpdateProductSubCategory(newname, oldname);
             }
         }
         public void UpdateProductCategory(string newname, string oldname)
         {
             if (oldname != String.Empty && newname != String.Empty)
             {
-                categoryRepository.UpdateProductCategory(newname, oldname);
+                categoryRepo.UpdateProductCategory(newname, oldname);
             }
         }
     }

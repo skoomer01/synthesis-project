@@ -21,7 +21,7 @@ namespace LogicLayer
         {
             Product = product;
             Quantity = quantity;
-            Price = Quantity*Product.Price;
+            Price = (decimal)Quantity * Product.Price;
         }
 
         public OrderProduct() { }

@@ -107,5 +107,11 @@ namespace DesktopApplication
         {
             Application.Exit();
         }
+
+        private void btn_LogOut_Click(object sender, EventArgs e)
+        {
+            loginForm.Show();
+            this.Close();
+        }
     }
 }

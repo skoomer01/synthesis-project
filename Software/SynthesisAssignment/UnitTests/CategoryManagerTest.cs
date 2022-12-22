@@ -35,7 +35,6 @@ namespace UnitTests
             CategoryManager categoryManager = new CategoryManager(CreateTestRepo());
             bool throwex = categoryManager.CreateCategory("", 1);
 
-            Assert.ThrowsException<Exception>(() => throwex);
         }
 
 

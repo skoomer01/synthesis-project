@@ -177,6 +177,7 @@ namespace DataLayer
                     cmd.Parameters.AddWithValue("OrderID", GetLastOredrID());
                     cmd.Parameters.AddWithValue("ProductID", productDTO.Product.Id);
                     cmd.Parameters.AddWithValue("OrderPrice", productDTO.Price);
+                    cmd.Parameters.AddWithValue("Quantity", productDTO.Quantity);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();

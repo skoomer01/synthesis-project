@@ -45,19 +45,22 @@
             this.btn_CreateAccount = new System.Windows.Forms.Button();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblUserNameDisplay = new System.Windows.Forms.Label();
             this.pnlCreateAccount.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbxEmail
             // 
-            this.tbxEmail.Location = new System.Drawing.Point(347, 176);
+            this.tbxEmail.Location = new System.Drawing.Point(157, 193);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(156, 23);
             this.tbxEmail.TabIndex = 0;
             // 
             // tbxPassword
             // 
-            this.tbxPassword.Location = new System.Drawing.Point(347, 215);
+            this.tbxPassword.Location = new System.Drawing.Point(157, 232);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(156, 23);
             this.tbxPassword.TabIndex = 1;
@@ -65,7 +68,7 @@
             // 
             // btnLogIn
             // 
-            this.btnLogIn.Location = new System.Drawing.Point(263, 258);
+            this.btnLogIn.Location = new System.Drawing.Point(73, 275);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(117, 23);
             this.btnLogIn.TabIndex = 2;
@@ -75,7 +78,7 @@
             // 
             // btnSignIn
             // 
-            this.btnSignIn.Location = new System.Drawing.Point(386, 258);
+            this.btnSignIn.Location = new System.Drawing.Point(196, 275);
             this.btnSignIn.Name = "btnSignIn";
             this.btnSignIn.Size = new System.Drawing.Size(117, 23);
             this.btnSignIn.TabIndex = 3;
@@ -118,7 +121,7 @@
             this.pnlCreateAccount.Controls.Add(this.tbxCreatePassword);
             this.pnlCreateAccount.Controls.Add(this.tbxCreateName);
             this.pnlCreateAccount.Controls.Add(this.tbxCreateEmail);
-            this.pnlCreateAccount.Location = new System.Drawing.Point(240, 89);
+            this.pnlCreateAccount.Location = new System.Drawing.Point(50, 106);
             this.pnlCreateAccount.Name = "pnlCreateAccount";
             this.pnlCreateAccount.Size = new System.Drawing.Size(303, 206);
             this.pnlCreateAccount.TabIndex = 7;
@@ -126,12 +129,14 @@
             // 
             // btn_Back
             // 
+            this.btn_Back.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_Back.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Back.Location = new System.Drawing.Point(33, 167);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(56, 23);
             this.btn_Back.TabIndex = 13;
             this.btn_Back.Text = "Back";
-            this.btn_Back.UseVisualStyleBackColor = true;
+            this.btn_Back.UseVisualStyleBackColor = false;
             this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
             // label4
@@ -185,18 +190,20 @@
             // 
             // btn_CreateAccount
             // 
+            this.btn_CreateAccount.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_CreateAccount.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_CreateAccount.Location = new System.Drawing.Point(95, 167);
             this.btn_CreateAccount.Name = "btn_CreateAccount";
             this.btn_CreateAccount.Size = new System.Drawing.Size(172, 23);
             this.btn_CreateAccount.TabIndex = 8;
             this.btn_CreateAccount.Text = "Create Account";
-            this.btn_CreateAccount.UseVisualStyleBackColor = true;
+            this.btn_CreateAccount.UseVisualStyleBackColor = false;
             this.btn_CreateAccount.Click += new System.EventHandler(this.btn_CreateAccount_Click);
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(263, 184);
+            this.lblEmail.Location = new System.Drawing.Point(73, 201);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(39, 15);
             this.lblEmail.TabIndex = 13;
@@ -205,17 +212,41 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(263, 223);
+            this.lblPassword.Location = new System.Drawing.Point(73, 240);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(60, 15);
             this.lblPassword.TabIndex = 14;
             this.lblPassword.Text = "Password:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DesktopApplication.Properties.Resources.facebook_profile_image;
+            this.pictureBox1.InitialImage = global::DesktopApplication.Properties.Resources.facebook_profile_image;
+            this.pictureBox1.Location = new System.Drawing.Point(399, 61);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(360, 295);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblUserNameDisplay
+            // 
+            this.lblUserNameDisplay.AutoSize = true;
+            this.lblUserNameDisplay.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUserNameDisplay.Location = new System.Drawing.Point(50, 34);
+            this.lblUserNameDisplay.Name = "lblUserNameDisplay";
+            this.lblUserNameDisplay.Size = new System.Drawing.Size(254, 32);
+            this.lblUserNameDisplay.TabIndex = 16;
+            this.lblUserNameDisplay.Text = "Please Login or Signin";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblUserNameDisplay);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.pnlCreateAccount);
@@ -227,6 +258,7 @@
             this.Text = "Log In";
             this.pnlCreateAccount.ResumeLayout(false);
             this.pnlCreateAccount.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,5 +283,7 @@
         private Label lblEmail;
         private Label lblPassword;
         private Button btn_Back;
+        private PictureBox pictureBox1;
+        private Label lblUserNameDisplay;
     }
 }

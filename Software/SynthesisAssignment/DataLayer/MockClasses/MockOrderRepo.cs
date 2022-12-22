@@ -11,42 +11,22 @@ namespace DataLayer.MockClasses
         List<OrderDTO> _orders = new List<OrderDTO>();
         public void CreateOrder(int userID, DateTime orderDate, string orderStatus, decimal total, List<OrderProductDTO> products, string name, string email, string postalcode)
         {
-            OrderDTO order = new OrderDTO();
-            order.UserId = userID;
-            order.OrderDate = orderDate;
-            order.Products = products;
-            order.EnumOrderStatus = orderStatus;
-            order.Name = name;
-            order.Email = email;
-            order.PostalCode = postalcode;
+            
         }
 
         public int GetLastOredrID()
         {
-            throw new NotImplementedException();
+            return 0;
         }
 
         public OrderDTO GetOrderByID(int ID)
         {
-            foreach (OrderDTO order in _orders)
-            {
-                if(order.Id == ID)
-                {
-                    return order;
-                }
-            }
-            return null;
+            OrderDTO dto = new OrderDTO();
+            return dto;
         }
 
         public List<OrderProductDTO> GetOrderProducts(int orderID)
         {
-            foreach (OrderDTO order in _orders)
-            {
-                if (order.Id == orderID)
-                {
-                    return order.Products;
-                }
-            }
             return null;
         }
 
@@ -57,26 +37,12 @@ namespace DataLayer.MockClasses
 
         public List<OrderDTO> GetUserOrders(int userID)
         {
-            List<OrderDTO> userOrders = new List<OrderDTO>();
-            foreach (OrderDTO order in _orders)
-            {
-                if (order.UserId == userID)
-                {
-                    userOrders.Add(order);
-                }
-            }
-            return userOrders;
+            return null;
         }
 
         public void UpdateStatus(int id, string status)
         {
-            foreach (OrderDTO order in _orders)
-            {
-                if (order.Id == id)
-                {
-                    order.EnumOrderStatus = status;
-                }
-            }
+
         }
     }
 }

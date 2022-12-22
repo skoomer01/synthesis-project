@@ -84,6 +84,7 @@
             this.tbxNewSubcategory = new System.Windows.Forms.TextBox();
             this.tbxNewCataegory = new System.Windows.Forms.TextBox();
             this.lblProductManagerUser = new System.Windows.Forms.Label();
+            this.btn_LogOut = new System.Windows.Forms.Button();
             this.tabcProductManagement.SuspendLayout();
             this.tbpViewAllProducts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllProducts)).BeginInit();
@@ -168,12 +169,14 @@
             // 
             // btnAddProduct
             // 
+            this.btnAddProduct.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnAddProduct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddProduct.Location = new System.Drawing.Point(397, 337);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(317, 23);
             this.btnAddProduct.TabIndex = 18;
             this.btnAddProduct.Text = "Add product";
-            this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.btnAddProduct.UseVisualStyleBackColor = false;
             this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // label6
@@ -336,12 +339,14 @@
             // 
             // btnEditProduct
             // 
+            this.btnEditProduct.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnEditProduct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditProduct.Location = new System.Drawing.Point(432, 457);
             this.btnEditProduct.Name = "btnEditProduct";
             this.btnEditProduct.Size = new System.Drawing.Size(258, 23);
             this.btnEditProduct.TabIndex = 31;
             this.btnEditProduct.Text = "Editt product";
-            this.btnEditProduct.UseVisualStyleBackColor = true;
+            this.btnEditProduct.UseVisualStyleBackColor = false;
             this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
             // 
             // label7
@@ -459,12 +464,14 @@
             // 
             // btnStatusProduct
             // 
+            this.btnStatusProduct.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnStatusProduct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStatusProduct.Location = new System.Drawing.Point(372, 304);
             this.btnStatusProduct.Name = "btnStatusProduct";
             this.btnStatusProduct.Size = new System.Drawing.Size(317, 23);
             this.btnStatusProduct.TabIndex = 36;
             this.btnStatusProduct.Text = "Mark as unaivalable";
-            this.btnStatusProduct.UseVisualStyleBackColor = true;
+            this.btnStatusProduct.UseVisualStyleBackColor = false;
             this.btnStatusProduct.Click += new System.EventHandler(this.btnStatusProduct_Click);
             // 
             // label20
@@ -514,12 +521,14 @@
             // 
             // btnEditSubCategory
             // 
+            this.btnEditSubCategory.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnEditSubCategory.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditSubCategory.Location = new System.Drawing.Point(203, 432);
             this.btnEditSubCategory.Name = "btnEditSubCategory";
             this.btnEditSubCategory.Size = new System.Drawing.Size(177, 23);
             this.btnEditSubCategory.TabIndex = 37;
             this.btnEditSubCategory.Text = "Edit";
-            this.btnEditSubCategory.UseVisualStyleBackColor = true;
+            this.btnEditSubCategory.UseVisualStyleBackColor = false;
             this.btnEditSubCategory.Click += new System.EventHandler(this.btnEditSubCategory_Click);
             // 
             // label19
@@ -562,12 +571,14 @@
             // 
             // btnEditCategory
             // 
+            this.btnEditCategory.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnEditCategory.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditCategory.Location = new System.Drawing.Point(203, 339);
             this.btnEditCategory.Name = "btnEditCategory";
             this.btnEditCategory.Size = new System.Drawing.Size(177, 23);
             this.btnEditCategory.TabIndex = 9;
             this.btnEditCategory.Text = "Edit";
-            this.btnEditCategory.UseVisualStyleBackColor = true;
+            this.btnEditCategory.UseVisualStyleBackColor = false;
             this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click);
             // 
             // label15
@@ -588,22 +599,26 @@
             // 
             // btnCreateSubcategory
             // 
+            this.btnCreateSubcategory.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnCreateSubcategory.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCreateSubcategory.Location = new System.Drawing.Point(203, 258);
             this.btnCreateSubcategory.Name = "btnCreateSubcategory";
             this.btnCreateSubcategory.Size = new System.Drawing.Size(177, 23);
             this.btnCreateSubcategory.TabIndex = 6;
             this.btnCreateSubcategory.Text = "Create a subcategory";
-            this.btnCreateSubcategory.UseVisualStyleBackColor = true;
+            this.btnCreateSubcategory.UseVisualStyleBackColor = false;
             this.btnCreateSubcategory.Click += new System.EventHandler(this.btnCreateSubcategory_Click);
             // 
             // btnCreateCategory
             // 
+            this.btnCreateCategory.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnCreateCategory.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCreateCategory.Location = new System.Drawing.Point(203, 151);
             this.btnCreateCategory.Name = "btnCreateCategory";
             this.btnCreateCategory.Size = new System.Drawing.Size(177, 23);
             this.btnCreateCategory.TabIndex = 5;
             this.btnCreateCategory.Text = "Create a category";
-            this.btnCreateCategory.UseVisualStyleBackColor = true;
+            this.btnCreateCategory.UseVisualStyleBackColor = false;
             this.btnCreateCategory.Click += new System.EventHandler(this.btnCreateCategory_Click);
             // 
             // label14
@@ -661,11 +676,25 @@
             this.lblProductManagerUser.TabIndex = 1;
             this.lblProductManagerUser.Text = "Welcome, <UserName>!";
             // 
+            // btn_LogOut
+            // 
+            this.btn_LogOut.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_LogOut.Location = new System.Drawing.Point(1087, 28);
+            this.btn_LogOut.Name = "btn_LogOut";
+            this.btn_LogOut.Size = new System.Drawing.Size(103, 23);
+            this.btn_LogOut.TabIndex = 34;
+            this.btn_LogOut.Text = "Log out";
+            this.btn_LogOut.UseVisualStyleBackColor = false;
+            this.btn_LogOut.Click += new System.EventHandler(this.btn_LogOut_Click);
+            // 
             // ProductManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(1231, 629);
+            this.Controls.Add(this.btn_LogOut);
             this.Controls.Add(this.lblProductManagerUser);
             this.Controls.Add(this.tabcProductManagement);
             this.Name = "ProductManagement";
@@ -750,5 +779,6 @@
         private Button btnStatusProduct;
         private Label label20;
         private DataGridView dgvDeleteProduct;
+        private Button btn_LogOut;
     }
 }

@@ -45,6 +45,7 @@
             this.dgvRemoveDiscount = new System.Windows.Forms.DataGridView();
             this.btnRemoveDiscount = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.btn_LogOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostPopular)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeastPopular)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMost)).BeginInit();
@@ -83,22 +84,26 @@
             // 
             // btnUpdateMostPoppular
             // 
+            this.btnUpdateMostPoppular.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnUpdateMostPoppular.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdateMostPoppular.Location = new System.Drawing.Point(433, 86);
             this.btnUpdateMostPoppular.Name = "btnUpdateMostPoppular";
             this.btnUpdateMostPoppular.Size = new System.Drawing.Size(158, 23);
             this.btnUpdateMostPoppular.TabIndex = 3;
             this.btnUpdateMostPoppular.Text = "Add popular discount";
-            this.btnUpdateMostPoppular.UseVisualStyleBackColor = true;
+            this.btnUpdateMostPoppular.UseVisualStyleBackColor = false;
             this.btnUpdateMostPoppular.Click += new System.EventHandler(this.btnUpdateMostPoppular_Click);
             // 
             // btnUpdateLeastPopular
             // 
+            this.btnUpdateLeastPopular.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnUpdateLeastPopular.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdateLeastPopular.Location = new System.Drawing.Point(433, 278);
             this.btnUpdateLeastPopular.Name = "btnUpdateLeastPopular";
             this.btnUpdateLeastPopular.Size = new System.Drawing.Size(158, 23);
             this.btnUpdateLeastPopular.TabIndex = 5;
             this.btnUpdateLeastPopular.Text = "Add least popular discount";
-            this.btnUpdateLeastPopular.UseVisualStyleBackColor = true;
+            this.btnUpdateLeastPopular.UseVisualStyleBackColor = false;
             this.btnUpdateLeastPopular.Click += new System.EventHandler(this.btnUpdateLeastPopular_Click);
             // 
             // nudLeast
@@ -213,12 +218,14 @@
             // 
             // btnRemoveDiscount
             // 
+            this.btnRemoveDiscount.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnRemoveDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRemoveDiscount.Location = new System.Drawing.Point(185, 240);
             this.btnRemoveDiscount.Name = "btnRemoveDiscount";
             this.btnRemoveDiscount.Size = new System.Drawing.Size(419, 23);
             this.btnRemoveDiscount.TabIndex = 13;
             this.btnRemoveDiscount.Text = "Remove Discount";
-            this.btnRemoveDiscount.UseVisualStyleBackColor = true;
+            this.btnRemoveDiscount.UseVisualStyleBackColor = false;
             this.btnRemoveDiscount.Click += new System.EventHandler(this.btnRemoveDiscount_Click);
             // 
             // label5
@@ -231,11 +238,25 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Products with discount";
             // 
+            // btn_LogOut
+            // 
+            this.btn_LogOut.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_LogOut.Location = new System.Drawing.Point(707, 61);
+            this.btn_LogOut.Name = "btn_LogOut";
+            this.btn_LogOut.Size = new System.Drawing.Size(103, 23);
+            this.btn_LogOut.TabIndex = 35;
+            this.btn_LogOut.Text = "Log out";
+            this.btn_LogOut.UseVisualStyleBackColor = false;
+            this.btn_LogOut.Click += new System.EventHandler(this.btn_LogOut_Click);
+            // 
             // MarketingDepartment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(813, 516);
+            this.Controls.Add(this.btn_LogOut);
             this.Controls.Add(this.tabDiscount);
             this.Controls.Add(this.lblMarketingManagerUser);
             this.Name = "MarketingDepartment";
@@ -275,5 +296,6 @@
         private DataGridView dgvRemoveDiscount;
         private Button btnRemoveDiscount;
         private Label label5;
+        private Button btn_LogOut;
     }
 }

@@ -30,7 +30,6 @@ namespace UnitTests
             ProductManager productManager = new ProductManager(CreateTestRepo());
 
             bool throwExceptionBlank = productManager.AddProduct("", "Meat", "Pork", "2.33", "per 100g", "image.jpeg");
-            Assert.ThrowsException<Exception>(() => throwExceptionBlank);
         }
 
         [TestMethod]
@@ -40,7 +39,6 @@ namespace UnitTests
             ProductManager productManager = new ProductManager(CreateTestRepo());
             bool throwExceptionDecimal = productManager.AddProduct("Ham", "Meat", "Pork", "notdecimal", "per 100g", "image.jpeg");
 
-            Assert.ThrowsException<Exception>(() => throwExceptionDecimal);
         }
 
         [TestMethod]
@@ -59,7 +57,6 @@ namespace UnitTests
             ProductManager productManager = new ProductManager(CreateTestRepo());
             bool throwExceptionBlank = productManager.UpdateProduct(1, "", "Meat", "Pork", "2.33", "per 100g", "image.jpeg");
 
-            Assert.ThrowsException<Exception>(() => throwExceptionBlank);
         }
         [TestMethod]
         [ExpectedException(typeof(Exception))]
@@ -68,7 +65,6 @@ namespace UnitTests
             ProductManager productManager = new ProductManager(CreateTestRepo());
             bool throwExceptionDecimal = productManager.UpdateProduct(1, "Ham", "Meat", "Pork", "notdecimal", "per 100g", "image.jpeg");
 
-            Assert.ThrowsException<Exception>(() => throwExceptionDecimal);
         }
 
         [TestMethod]

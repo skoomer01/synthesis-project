@@ -43,6 +43,7 @@
             this.tbxEditName = new System.Windows.Forms.TextBox();
             this.btnEditUser = new System.Windows.Forms.Button();
             this.dgvEditUsers = new System.Windows.Forms.DataGridView();
+            this.btn_LogOut = new System.Windows.Forms.Button();
             this.tabcUserManagement.SuspendLayout();
             this.tabpAllUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllUsers)).BeginInit();
@@ -186,12 +187,14 @@
             // 
             // btnEditUser
             // 
+            this.btnEditUser.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnEditUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditUser.Location = new System.Drawing.Point(19, 339);
             this.btnEditUser.Name = "btnEditUser";
             this.btnEditUser.Size = new System.Drawing.Size(218, 23);
             this.btnEditUser.TabIndex = 2;
             this.btnEditUser.Text = "Update user information";
-            this.btnEditUser.UseVisualStyleBackColor = true;
+            this.btnEditUser.UseVisualStyleBackColor = false;
             this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
             // dgvEditUsers
@@ -205,11 +208,25 @@
             this.dgvEditUsers.TabIndex = 1;
             this.dgvEditUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEditUsers_CellClick);
             // 
+            // btn_LogOut
+            // 
+            this.btn_LogOut.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_LogOut.Location = new System.Drawing.Point(1104, 54);
+            this.btn_LogOut.Name = "btn_LogOut";
+            this.btn_LogOut.Size = new System.Drawing.Size(103, 23);
+            this.btn_LogOut.TabIndex = 35;
+            this.btn_LogOut.Text = "Log out";
+            this.btn_LogOut.UseVisualStyleBackColor = false;
+            this.btn_LogOut.Click += new System.EventHandler(this.btn_LogOut_Click);
+            // 
             // HumanResources
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(1231, 629);
+            this.Controls.Add(this.btn_LogOut);
             this.Controls.Add(this.tabcUserManagement);
             this.Controls.Add(this.lblUserNameDisplay);
             this.Name = "HumanResources";
@@ -244,5 +261,6 @@
         private Label lblEditEmail;
         private Label lblEditName;
         private Label label1;
+        private Button btn_LogOut;
     }
 }

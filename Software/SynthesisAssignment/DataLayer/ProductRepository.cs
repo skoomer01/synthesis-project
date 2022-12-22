@@ -82,7 +82,7 @@ namespace DataLayer
             List<ProductDTO> products = new List<ProductDTO>();
             using (SqlConnection conn = DatabaseConnection.CreateConnection())
             {
-                string sql = @"SELECT ProductID, ProductName, Category ,SubCategory, Price, Unit, ProductImage
+                string sql = @"SELECT ProductID, ProductName, Category ,SubCategory, Price, Unit, ProductImage,Discount,AvailabilityStatus
                                 FROM s_Product
                                 WHERE SubCategory = @Subcategory
                                 ORDER BY ProductID";

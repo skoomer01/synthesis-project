@@ -35,6 +35,7 @@
             this.btnChangeStatus = new System.Windows.Forms.Button();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.btn_LogOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
@@ -79,12 +80,14 @@
             // 
             // btnChangeStatus
             // 
+            this.btnChangeStatus.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnChangeStatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnChangeStatus.Location = new System.Drawing.Point(293, 386);
             this.btnChangeStatus.Name = "btnChangeStatus";
             this.btnChangeStatus.Size = new System.Drawing.Size(181, 23);
             this.btnChangeStatus.TabIndex = 4;
             this.btnChangeStatus.Text = "Change Status";
-            this.btnChangeStatus.UseVisualStyleBackColor = true;
+            this.btnChangeStatus.UseVisualStyleBackColor = false;
             this.btnChangeStatus.Click += new System.EventHandler(this.btnChangeStatus_Click);
             // 
             // dgvProducts
@@ -106,11 +109,25 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Products";
             // 
+            // btn_LogOut
+            // 
+            this.btn_LogOut.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_LogOut.Location = new System.Drawing.Point(685, 47);
+            this.btn_LogOut.Name = "btn_LogOut";
+            this.btn_LogOut.Size = new System.Drawing.Size(103, 23);
+            this.btn_LogOut.TabIndex = 35;
+            this.btn_LogOut.Text = "Log out";
+            this.btn_LogOut.UseVisualStyleBackColor = false;
+            this.btn_LogOut.Click += new System.EventHandler(this.btn_LogOut_Click);
+            // 
             // OrderManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_LogOut);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.btnChangeStatus);
@@ -137,5 +154,6 @@
         private Button btnChangeStatus;
         private DataGridView dgvProducts;
         private Label label2;
+        private Button btn_LogOut;
     }
 }
