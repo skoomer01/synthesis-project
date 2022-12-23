@@ -183,6 +183,7 @@ namespace DesktopApplication
                     categoryManager.CreateCategory(tbxNewCataegory.Text, null);
                     MessageBox.Show("Category added successfully!");
                     UpdateCategories();
+                    dgvCategory.DataSource = categoryManager.GetAllCategories();
 
                 }
                 else { MessageBox.Show("Please fill the field first."); }

@@ -101,6 +101,7 @@ namespace DesktopApplication
             User editUser = userManager.GetUserByID(Convert.ToInt32(userID));
             tbxEditEmail.Text = editUser.UserEmail;
             tbxEditName.Text = editUser.UserName;
+            RefreshUserData();
         }
 
         private void HumanResources_FormClosed(object sender, FormClosedEventArgs e)
