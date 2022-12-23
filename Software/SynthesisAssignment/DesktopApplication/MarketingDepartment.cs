@@ -57,7 +57,12 @@ namespace DesktopApplication
             DataGridViewRow row = dgvMostPopular.Rows[index];
             productID = Convert.ToInt32(row.Cells[0].Value.ToString());
             decimal discount = nudMost.Value;
-            advertisementManager.UpdateProductDiscount(productID, discount);
+            if(discount > 0)
+            {
+                advertisementManager.UpdateProductDiscount(productID, discount);
+                MessageBox.Show("Discount added successfully");
+            }
+            
             DGVfill();
         }
 
@@ -68,7 +73,11 @@ namespace DesktopApplication
             DataGridViewRow row = dgvLeastPopular.Rows[index];
             productID = Convert.ToInt32(row.Cells[0].Value.ToString());
             decimal discount = nudLeast.Value;
-            advertisementManager.UpdateProductDiscount(productID, discount);
+            if (discount > 0)
+            {
+                advertisementManager.UpdateProductDiscount(productID, discount);
+                MessageBox.Show("Discount added successfully");
+            }
             DGVfill();
         }
 

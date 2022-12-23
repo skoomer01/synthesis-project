@@ -7,7 +7,7 @@
       <Entity type="Class">
         <Name>User</Name>
         <Access>Public</Access>
-        <Location left="1222" top="856" />
+        <Location left="1552" top="936" />
         <Size width="269" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Property">public int UserId { get; set; }</Member>
@@ -24,7 +24,7 @@
       <Entity type="Class">
         <Name>UserManager</Name>
         <Access>Public</Access>
-        <Location left="981" top="620" />
+        <Location left="1221" top="650" />
         <Size width="439" height="164" />
         <Collapsed>False</Collapsed>
         <Member type="Field">UserRepository userRepository</Member>
@@ -37,7 +37,7 @@
       <Entity type="Class">
         <Name>UserRepository</Name>
         <Access>Public</Access>
-        <Location left="705" top="1463" />
+        <Location left="846" top="1511" />
         <Size width="415" height="220" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public List&lt;User&gt; GetUsers()</Member>
@@ -52,7 +52,7 @@
       <Entity type="Enum">
         <Name>EnumTypeOfUser</Name>
         <Access>Public</Access>
-        <Location left="1273" top="1211" />
+        <Location left="1588" top="1246" />
         <Size width="162" height="116" />
         <Collapsed>False</Collapsed>
         <Value>CUSTOMER</Value>
@@ -62,7 +62,7 @@
       <Entity type="Class">
         <Name>LoginManager</Name>
         <Access>Public</Access>
-        <Location left="659" top="649" />
+        <Location left="814" top="759" />
         <Size width="255" height="94" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public User Login(string email, string password)</Member>
@@ -71,7 +71,7 @@
       <Entity type="Class">
         <Name>EmailValidation</Name>
         <Access>Public</Access>
-        <Location left="981" top="980" />
+        <Location left="1276" top="975" />
         <Size width="204" height="94" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public static bool IsValidEmail(string email)</Member>
@@ -80,7 +80,7 @@
       <Entity type="Class">
         <Name>DatabaseConnection</Name>
         <Access>Public</Access>
-        <Location left="1112" top="1826" />
+        <Location left="2707" top="1829" />
         <Size width="242" height="102" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public static SqlConnection CreateConnection()</Member>
@@ -89,7 +89,7 @@
       <Entity type="Class">
         <Name>LoginForm</Name>
         <Access>Public</Access>
-        <Location left="684" top="152" />
+        <Location left="874" top="237" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -97,7 +97,7 @@
       <Entity type="Class">
         <Name>HumanResources</Name>
         <Access>Public</Access>
-        <Location left="1103" top="141" />
+        <Location left="1303" top="201" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -105,7 +105,7 @@
       <Entity type="Class">
         <Name>ProductManager</Name>
         <Access>Public</Access>
-        <Location left="1890" top="141" />
+        <Location left="2780" top="156" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -113,9 +113,10 @@
       <Entity type="Class">
         <Name>ProductRepository</Name>
         <Access>Public</Access>
-        <Location left="1662" top="1467" />
+        <Location left="2553" top="1482" />
         <Size width="634" height="213" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">CategoryRepository categoryRepositor</Member>
         <Member type="Method">public List&lt;Product&gt; GetProducts()</Member>
         <Member type="Method">public void UpdateProduct(Product product)</Member>
         <Member type="Method">public Product GetProductByID(int ID)</Member>
@@ -126,7 +127,7 @@
       <Entity type="Class">
         <Name>ProductManager</Name>
         <Access>Public</Access>
-        <Location left="1721" top="504" />
+        <Location left="2611" top="519" />
         <Size width="500" height="232" />
         <Collapsed>False</Collapsed>
         <Member type="Field">List&lt;Product&gt; products</Member>
@@ -143,25 +144,27 @@
       <Entity type="Class">
         <Name>Product</Name>
         <Access>Public</Access>
-        <Location left="2023" top="949" />
-        <Size width="308" height="270" />
+        <Location left="2913" top="964" />
+        <Size width="308" height="281" />
         <Collapsed>False</Collapsed>
         <Member type="Constructor">public Product()</Member>
         <Member type="Constructor">public Product(ProductDTO productDTO)</Member>
         <Member type="Property">public int Id { get; set; }</Member>
         <Member type="Property">public int Name { get; set; }</Member>
         <Member type="Property">public Categoryt Category { get; set; }</Member>
-        <Member type="Property">public Category SubCAtegory { get; set; }</Member>
+        <Member type="Property">public Category SubCategory { get; set; }</Member>
         <Member type="Property">public decimal Price { get; set; }</Member>
         <Member type="Property">public string Unit { get; set; }</Member>
         <Member type="Property">public string ProductImage { get; set; }</Member>
+        <Member type="Property">public string Availability { get; set; }</Member>
+        <Member type="Property">public int Discount { get; set; }</Member>
         <Member type="Method">public string ToString()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>CategoryManager</Name>
         <Access>Public</Access>
-        <Location left="2447" top="504" />
+        <Location left="3337" top="519" />
         <Size width="488" height="303" />
         <Collapsed>False</Collapsed>
         <Member type="Field">CategoryRepository categoryRepository</Member>
@@ -181,7 +184,7 @@
       <Entity type="Class">
         <Name>Category</Name>
         <Access>Public</Access>
-        <Location left="2662" top="964" />
+        <Location left="3636" top="929" />
         <Size width="273" height="169" />
         <Collapsed>False</Collapsed>
         <Member type="Property">public int Id { get; set; }</Member>
@@ -194,7 +197,7 @@
       <Entity type="Class">
         <Name>CategoryRepository</Name>
         <Access>Public</Access>
-        <Location left="2477" top="1462" />
+        <Location left="3367" top="1482" />
         <Size width="528" height="218" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public List&lt;CategoryDTO&gt; GetCategories()</Member>
@@ -210,23 +213,298 @@
       <Entity type="Class">
         <Name>CategoryDTO</Name>
         <Access>Public</Access>
-        <Location left="2924" top="1168" />
-        <Size width="162" height="216" />
+        <Location left="3636" top="1164" />
+        <Size width="284" height="184" />
         <Collapsed>False</Collapsed>
+        <Member type="Constructor">public CategoryDTO()</Member>
+        <Member type="Property">public int Id { get; set; }</Member>
+        <Member type="Property">public string Name { get; set; }</Member>
+        <Member type="Property">public int? ParentId { get; set; }</Member>
+        <Member type="Constructor">public CategoryDTO(int id, string name, int? parentId)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>ProductDTO</Name>
         <Access>Public</Access>
-        <Location left="1351" top="1467" />
-        <Size width="162" height="216" />
+        <Location left="2237" top="1460" />
+        <Size width="166" height="269" />
         <Collapsed>False</Collapsed>
+        <Member type="Constructor">public ProductDTO()</Member>
+        <Member type="Constructor">public ProductDTO(int id, striing name, CategoryDTO category, CategoryDTO subcategory, decimal price, string unit, striing image)</Member>
+        <Member type="Property">public int Id { get; set; }</Member>
+        <Member type="Property">public int Name { get; set; }</Member>
+        <Member type="Property">public Categoryt Category { get; set; }</Member>
+        <Member type="Property">public string Availability { get; set; }</Member>
+        <Member type="Property">public Category SubCAtegory { get; set; }</Member>
+        <Member type="Property">public decimal Price { get; set; }</Member>
+        <Member type="Property">public string ProductImage { get; set; }</Member>
+        <Member type="Property">public int Discount { get; set; }</Member>
+        <Member type="Property">public string Unit { get; set; }</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>UserDTO</Name>
         <Access>Public</Access>
-        <Location left="1023" top="1196" />
+        <Location left="1369" top="1316" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public UserDTO()</Member>
+        <Member type="Property">public int UserId { get; set; }</Member>
+        <Member type="Property">public string UserName { get; set; }</Member>
+        <Member type="Property">public string UserPassword { get; set; }</Member>
+        <Member type="Property">public string UserEmail { get; set; }</Member>
+        <Member type="Property">public string EnumUserType { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IProductRepo</Name>
+        <Access>Public</Access>
+        <Location left="2518" top="964" />
+        <Size width="255" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">List&lt;CategoryDTO&gt; GetCategories()</Member>
+        <Member type="Method">List&lt;CategoryDTO&gt; GetSubCategories()</Member>
+        <Member type="Method">List&lt;CategoryDTO&gt; GetSubCategories()</Member>
+        <Member type="Method">void UpdateCategory()</Member>
+        <Member type="Method">void UpdateProductSubCategory()</Member>
+        <Member type="Method">void UpdateProductCategory()</Member>
+        <Member type="Method">CategoryDTO GetCategoryByName()</Member>
+        <Member type="Method">void CreateCategory()</Member>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IUserRepo</Name>
+        <Access>Public</Access>
+        <Location left="1099" top="1168" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">List&lt;UserDTO&gt; GetUsers()</Member>
+        <Member type="Method">void UpdateUser()</Member>
+        <Member type="Method">UserDTO FindUser()</Member>
+        <Member type="Method">UserDTO GetUserByID()</Member>
+        <Member type="Method">UserDTO GetUserByEmail()</Member>
+        <Member type="Method">void CreateUser()</Member>
+        <Member type="Method">void UpdatePassword()</Member>
+      </Entity>
+      <Entity type="Interface">
+        <Name>ICategoryRepo</Name>
+        <Access>Public</Access>
+        <Location left="3389" top="1065" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">List&lt;CategoryDTO&gt; GetCategories()</Member>
+        <Member type="Method">List&lt;CategoryDTO&gt; GetSubCategories()</Member>
+        <Member type="Method">List&lt;CategoryDTO&gt; GetSubCategories()</Member>
+        <Member type="Method">void UpdateCategory()</Member>
+        <Member type="Method">void UpdateProductSubCategory()</Member>
+        <Member type="Method">void UpdateProductCategory()</Member>
+        <Member type="Method">CategoryDTO GetCategoryByName()</Member>
+        <Member type="Method">void CreateCategory()</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>OrderRepository</Name>
+        <Access>Public</Access>
+        <Location left="3994" top="1482" />
+        <Size width="873" height="218" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public List&lt;OrderDTO&gt; GetOrders()</Member>
+        <Member type="Method">public List&lt;OrderDTO&gt; GetUserOrders(int userID)</Member>
+        <Member type="Method">public void UpdateStatus(int id, string status)</Member>
+        <Member type="Method">public OrderDTO GetOrderByID(int ID)</Member>
+        <Member type="Method">public void CreateOrder(int userID, DateTime orderDate, string orderStatus, decimal total, List&lt;OrderProductDTO&gt; products, string name, string email, string postalcode)</Member>
+        <Member type="Method">public int GetLastOredrID()</Member>
+        <Member type="Method">public List&lt;OrderProductDTO&gt; GetOrderProducts(int orderID)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>OrderDTO</Name>
+        <Access>Public</Access>
+        <Location left="4446" top="1064" />
+        <Size width="265" height="264" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public int Id { get; set; }</Member>
+        <Member type="Property">public int UserId { get; set; }</Member>
+        <Member type="Property">public DateTime OrderDate { get; set; }</Member>
+        <Member type="Property">public List&lt;OrderProductDTO&gt; Products { get; set; }</Member>
+        <Member type="Property">public string Name { get; set; }</Member>
+        <Member type="Property">public string PostalCode { get; set; }</Member>
+        <Member type="Property">public string Email { get; set; }</Member>
+        <Member type="Property">public decimal Total { get; set; }</Member>
+        <Member type="Property">public string EnumOrderStatus { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>OrderManager</Name>
+        <Access>Public</Access>
+        <Location left="4034" top="336" />
+        <Size width="935" height="303" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private List&lt;Order&gt; orders</Member>
+        <Member type="Field">private IOrderRepo orderRepository</Member>
+        <Member type="Constructor">public OrderManager(IOrderRepo orderRepo)</Member>
+        <Member type="Property">public int NewProperty { get; set; }</Member>
+        <Member type="Method">public List&lt;Order&gt; GetAllOrders()</Member>
+        <Member type="Method">public List&lt;Order&gt; GetUserOrders(int userID)</Member>
+        <Member type="Method">public bool AddOrder(int userID, DateTime orderDate, EnumOrderStatus orderStatus, decimal total, List&lt;OrderProduct&gt; products, string name, string email, string postalcode)</Member>
+        <Member type="Method">public Order GetOrder(int id)</Member>
+        <Member type="Method">public bool UpdateOrderStatus(int id, string status)</Member>
+        <Member type="Method">public List&lt;OrderProduct&gt; GetOrderProducts(int orderID)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>OrderProductDTO</Name>
+        <Access>Public</Access>
+        <Location left="4855" top="1040" />
+        <Size width="257" height="264" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public OrderProductDTO()</Member>
+        <Member type="Constructor">public OrderProductDTO(int id, ProductDTO product, int quantity, decimal price)</Member>
+        <Member type="Property">public decimal Price { get; set; }</Member>
+        <Member type="Property">public int Quantity { get; set; }</Member>
+        <Member type="Property">public ProductDTO Product { get; set; }</Member>
+        <Member type="Property">public int Id { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IOrderRepo</Name>
+        <Access>Public</Access>
+        <Location left="4034" top="1079" />
+        <Size width="268" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">List&lt;OrderDTO&gt; GetOrders()</Member>
+        <Member type="Method">List&lt;OrderDTO&gt; GetUserOrders()</Member>
+        <Member type="Method">void UpdateStatus()</Member>
+        <Member type="Method">OrderDTO GetOrderByID()</Member>
+        <Member type="Method">void CreateOrder()</Member>
+        <Member type="Method">int GetLastOredrID()</Member>
+        <Member type="Method">List&lt;OrderProductDTO&gt; GetOrderProducts()</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>FavouriteRepository</Name>
+        <Access>Public</Access>
+        <Location left="1817" top="1471" />
+        <Size width="310" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public List&lt;ProductDTO&gt; GetAllFavorites(int userID)</Member>
+        <Member type="Method">public void AddFavorite(int productID, int userID)</Member>
+        <Member type="Method">public void RemoveFavorite(int productID, int userID)</Member>
+        <Member type="Method">public bool IsAlreadyFavorite(int productID, int userID)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>FavouriteManager</Name>
+        <Access>Public</Access>
+        <Location left="1830" top="503" />
+        <Size width="298" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private FavoriteRepository _favoriteRepository</Member>
+        <Member type="Method">public void AddFavorite(int productID, int userID)</Member>
+        <Member type="Method">public void RemoveFavorite(int productID, int userID)</Member>
+        <Member type="Method">public List&lt;Product&gt; GetAllFavorites(int userID)</Member>
+        <Member type="Method">public bool IsAlreadyFavorite(int productID, int userID)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>AdvertisementRepo</Name>
+        <Access>Public</Access>
+        <Location left="5103" top="1482" />
+        <Size width="377" height="225" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public List&lt;ProductDTO&gt; GetDicountedProducts()</Member>
+        <Member type="Method">public Dictionary&lt;int, int&gt; GetMostPopular()</Member>
+        <Member type="Method">public Dictionary&lt;int, int&gt; GetLeastPopular()</Member>
+        <Member type="Method">public void UpdateProductDiscount(int id, decimal price, int discount)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IAdvertisementRepo</Name>
+        <Access>Public</Access>
+        <Location left="5197" top="1064" />
+        <Size width="265" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">List&lt;ProductDTO&gt; GetDicountedProducts()</Member>
+        <Member type="Method">Dictionary&lt;int, int&gt; GetMostPopular()</Member>
+        <Member type="Method">Dictionary&lt;int, int&gt; GetLeastPopular()</Member>
+        <Member type="Method">void UpdateProductDiscount()</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>AdvertisementManager</Name>
+        <Access>Public</Access>
+        <Location left="5197" top="544" />
+        <Size width="429" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">IAdvertisementRepo advertisementRepo</Member>
+        <Member type="Field">IProductRepo productRepo</Member>
+        <Member type="Constructor">public AdvertisementManager(IAdvertisementRepo repo, IProductRepo productRepo)</Member>
+        <Member type="Method">public List&lt;Product&gt; GetDiscountedItems()</Member>
+        <Member type="Method">public List&lt;Product&gt; GetMostPopularItems()</Member>
+        <Member type="Method">public List&lt;Product&gt; GetLeastPopularItems()</Member>
+        <Member type="Method">public void UpdateProductDiscount(int id, decimal discount)</Member>
+        <Member type="Method">public void RevertProductDiscount(int id)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Order</Name>
+        <Access>Public</Access>
+        <Location left="4446" top="687" />
+        <Size width="265" height="315" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public int Id { get; set; }</Member>
+        <Member type="Property">public int UserId { get; set; }</Member>
+        <Member type="Property">public DateTime OrderDate { get; set; }</Member>
+        <Member type="Property">public List&lt;OrderProduct&gt; Products { get; set; }</Member>
+        <Member type="Property">public string Name { get; set; }</Member>
+        <Member type="Property">public string PostalCode { get; set; }</Member>
+        <Member type="Property">public string Email { get; set; }</Member>
+        <Member type="Property">public decimal Total { get; set; }</Member>
+        <Member type="Property">public EnumOrderStatus EnumOrderStatus { get; set; }</Member>
+        <Member type="Constructor">public Order()</Member>
+        <Member type="Constructor">public Order(OrderDTO orderDTO)</Member>
+        <Member type="Constructor">public Order(int userId, List&lt;OrderProduct&gt; products, string name, string postalCode, string email, decimal total)</Member>
+        <Member type="Method">public EnumOrderStatus SetType(string type)</Member>
+        <Member type="Method">public string GetType(EnumOrderStatus type)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>OrderProduct</Name>
+        <Access>Public</Access>
+        <Location left="4787" top="720" />
+        <Size width="365" height="264" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public OrderProduct()</Member>
+        <Member type="Constructor">public OrderProduct(int id, Product product, int quantity, decimal price)</Member>
+        <Member type="Property">public decimal Price { get; set; }</Member>
+        <Member type="Property">public int Quantity { get; set; }</Member>
+        <Member type="Property">public ProductDTO Product { get; set; }</Member>
+        <Member type="Property">public int Id { get; set; }</Member>
+        <Member type="Constructor">public OrderProduct(Product product, int quantity)</Member>
+        <Member type="Constructor">public OrderProduct()</Member>
+        <Member type="Constructor">public OrderProduct(OrderProductDTO orderProductDTO)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>EnumTypeOfUser</Name>
+        <Access>Public</Access>
+        <Location left="4170" top="785" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Value>PRODUCTEMPLOYEE</Value>
+        <Value>CUSTOMER</Value>
+        <Value>HUMANRESOURCES</Value>
+        <Value>ORDERMANAGER</Value>
+        <Value>MARKETINGMANAGER</Value>
+      </Entity>
+      <Entity type="Class">
+        <Name>OrderManagement</Name>
+        <Access>Public</Access>
+        <Location left="4252" top="22" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>MarketingDepartment</Name>
+        <Access>Public</Access>
+        <Location left="5230" top="54" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -234,30 +512,14 @@
     </Entities>
     <Containers />
     <Relationships>
-      <Relationship type="Association" first="1" second="2">
-        <Label>
-        </Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>953</X>
-          <Y>749</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>938</X>
-          <Y>1438</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
       <Relationship type="Association" first="4" second="2">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>784</X>
-          <Y>1435</Y>
+          <X>925</X>
+          <Y>1483</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -267,38 +529,43 @@
         </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>2735</X>
+          <Y>1804</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1061</X>
+          <Y>1768</Y>
+        </BendPoint>
       </Relationship>
       <Relationship type="Association" first="7" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="8" second="1">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="9" second="1">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1837</X>
-          <Y>277</Y>
+          <X>2727</X>
+          <Y>292</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>1345</X>
-          <Y>595</Y>
+          <X>1585</X>
+          <Y>625</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Dependency" first="6" second="10">
         <Label>
@@ -306,17 +573,16 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1233</X>
-          <Y>1801</Y>
+          <X>2790</X>
+          <Y>1804</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="9" second="11">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="11" second="10">
         <Label>
@@ -326,42 +592,18 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="9" second="13">
-        <Label>
-        </Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>2084</X>
-          <Y>274</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="13" second="15">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>2571</X>
-          <Y>868</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
       <Relationship type="Dependency" first="6" second="15">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1233</X>
-          <Y>1801</Y>
+          <X>2825</X>
+          <Y>1804</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>2725</X>
-          <Y>1705</Y>
+          <X>3615</X>
+          <Y>1725</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="5" second="1">
@@ -375,30 +617,78 @@
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="11" second="12">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="13" second="14">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>3755</X>
+          <Y>870</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="0" second="3">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1661</X>
+          <Y>1195</Y>
+        </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>1323</X>
-          <Y>1186</Y>
+          <X>1661</X>
+          <Y>1218</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="10" second="17">
+      <Relationship type="Realization" first="10" second="19">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="11" second="19">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="1" second="20">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1186</X>
+          <Y>731</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Realization" first="2" second="20">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="13" second="21">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Realization" first="15" second="21">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="11" second="13">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
@@ -406,21 +696,258 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="2" second="18">
+      <Relationship type="Dependency" first="6" second="22">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>2904</X>
+          <Y>1804</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>4426</X>
+          <Y>1768</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="22" second="26">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="23" second="25">
+        <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Association" first="15" second="16">
+      <Relationship type="Association" first="24" second="26">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>4108</X>
+          <Y>762</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>4108</X>
+          <Y>1052</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="25" second="17">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>4981</X>
+          <Y>1348</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>2321</X>
+          <Y>1430</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="10" second="15">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Dependency" first="6" second="27">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>2768</X>
+          <Y>1803</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="28" second="27">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="9" second="28">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>2717</X>
+          <Y>335</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Dependency" first="6" second="29">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>2980</X>
+          <Y>1842</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>5307</X>
+          <Y>1802</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="29" second="30">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="31" second="30">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="24" second="32">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>4420</X>
+          <Y>670</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>0..*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="32" second="33">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1..*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="33" second="12">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>4825</X>
+          <Y>1030</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>3045</X>
+          <Y>1452</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="32" second="34">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Dependency" first="14" second="16">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="33" second="25">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="32" second="23">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="0" second="18">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1402</X>
+          <Y>1128</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="35" second="24">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="35" second="11">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>4227</X>
+          <Y>185</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>3042</X>
+          <Y>494</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Dependency" first="2" second="18">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="10" second="17">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="15" second="16">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="22" second="23">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="36" second="31">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="36" second="11">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>5205</X>
+          <Y>257</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>3085</X>
+          <Y>494</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
     </Relationships>
   </ProjectItem>

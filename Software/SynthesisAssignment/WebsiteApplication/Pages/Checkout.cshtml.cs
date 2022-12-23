@@ -45,6 +45,7 @@ namespace WebsiteApplication.Pages
                     OrderRepository orderRepository = new OrderRepository();
                     OrderManager orderManager = new OrderManager(orderRepository);
                     orderManager.AddOrder(order.UserId,order.OrderDate, order.EnumOrderStatus, order.Total, order.Products, order.Name, order.Email, order.PostalCode);
+                    HttpContext.Session.Remove("cart");
                     return RedirectToPage("Index");
                 }
             }

@@ -3,12 +3,12 @@
 @model WebsiteApplication.Pages.SubcategoryProductsModel
 @{
 }
-<div class="subacategories">
+<div class="subcategories">
     @foreach(Category c in Model.Subcategories)
     {
         <div class=" subcategory">
             <h4> @c.Name</h4>
-            <a class="btn btn-primary" asp-page="/SubcategoryProducts" asp-route-name="@c.Name">See subactegories</a>
+            <a class="btn btn-primary" asp-page="/SubcategoryProducts" asp-route-name="@c.Name">See sub-categories</a>
         </div>
     }
 </div>

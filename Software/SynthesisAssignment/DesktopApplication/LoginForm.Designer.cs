@@ -68,22 +68,26 @@
             // 
             // btnLogIn
             // 
+            this.btnLogIn.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogIn.Location = new System.Drawing.Point(73, 275);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(117, 23);
             this.btnLogIn.TabIndex = 2;
             this.btnLogIn.Text = "Log In";
-            this.btnLogIn.UseVisualStyleBackColor = true;
+            this.btnLogIn.UseVisualStyleBackColor = false;
             this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
             // 
             // btnSignIn
             // 
+            this.btnSignIn.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSignIn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSignIn.Location = new System.Drawing.Point(196, 275);
             this.btnSignIn.Name = "btnSignIn";
             this.btnSignIn.Size = new System.Drawing.Size(117, 23);
             this.btnSignIn.TabIndex = 3;
             this.btnSignIn.Text = "Sign In";
-            this.btnSignIn.UseVisualStyleBackColor = true;
+            this.btnSignIn.UseVisualStyleBackColor = false;
             this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
             // 
             // tbxCreateEmail

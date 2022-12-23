@@ -23,6 +23,7 @@
                     <p class=" productPrice">@product.Price$</p>
                     <p class="productUnit">@product.Unit</p>
                 <button class="RemoveFromFavorite btn btn-primary" name="id" type="submit" asp-page-handler="Remove" value="@product.Id">Remove</button>
+                <a class="addToCart btn btn-primary" name="id" type="submit" asp-page="/Cart" asp-page-handler="Cart" asp-route-id="@product.Id">+ Add to cart</a>
             </div>
             <br>
             }
